@@ -6,14 +6,14 @@
 
 ---
 
-## 📌 Descripción General
+## Descripción General
 Este proyecto implementa un Lenguaje de Dominio Específico (DSL) declarativo en español para flujos reproducibles de ciencia de datos (carga de archivos CSV, filtrado, selección de columnas, agrupamiento con estadísticas y generación de visualizaciones SVG).
 
 El sistema destaca por utilizar **tres motorizaciones/librerías propias creadas 100% desde cero en Python** sin depender de librerías externas de terceros como Pandas, NumPy o Matplotlib.
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```
 Programa Fuente (.dsl) ──> Lexer & Parser (ANTLR4) ──> Parse Tree
@@ -24,7 +24,7 @@ Tablas CSV & Gráficos SVG ◄── Motor Propio Python ◄── Visitor Semá
 
 ---
 
-## 🚀 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 .
@@ -54,7 +54,7 @@ Tablas CSV & Gráficos SVG ◄── Motor Propio Python ◄── Visitor Semá
 
 ---
 
-## 💻 Instrucciones de Ejecución
+## Instrucciones de Ejecución
 
 ### 1. Ejecutar Pruebas Unitarias e Integración (Corte 1)
 ```bash
