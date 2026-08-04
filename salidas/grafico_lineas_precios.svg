@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<rect width="800" height="600" fill="#ffffff" />
+<text x="400.0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Tendencia de Precios por Registro xd</text>
+<text x="420.0" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Indice</text>
+<text x="25" y="290.0" text-anchor="middle" transform="rotate(-90 25 290.0)" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Precio</text>
+<line x1="80" y1="520.0" x2="760" y2="520.0" stroke="#e2e8f0" stroke-dasharray="4" />
+<text x="70" y="524.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">0.0</text>
+<line x1="80" y1="428.0" x2="760" y2="428.0" stroke="#e2e8f0" stroke-dasharray="4" />
+<text x="70" y="432.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">35.2</text>
+<line x1="80" y1="336.0" x2="760" y2="336.0" stroke="#e2e8f0" stroke-dasharray="4" />
+<text x="70" y="340.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">70.4</text>
+<line x1="80" y1="244.0" x2="760" y2="244.0" stroke="#e2e8f0" stroke-dasharray="4" />
+<text x="70" y="248.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">105.6</text>
+<line x1="80" y1="152.0" x2="760" y2="152.0" stroke="#e2e8f0" stroke-dasharray="4" />
+<text x="70" y="156.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">140.8</text>
+<line x1="80" y1="60.0" x2="760" y2="60.0" stroke="#e2e8f0" stroke-dasharray="4" />
+<text x="70" y="64.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">176.0</text>
+<line x1="80" y1="60" x2="80" y2="520" stroke="#334155" stroke-width="2" />
+<line x1="80" y1="520" x2="760" y2="520" stroke="#334155" stroke-width="2" />
+<text x="122.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">1</text>
+<text x="207.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">2</text>
+<text x="292.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">3</text>
+<text x="377.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">4</text>
+<text x="462.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">5</text>
+<text x="547.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">6</text>
+<text x="632.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">7</text>
+<text x="717.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">8</text>
+<polyline points="80.0,127.95454545454544 177.14285714285714,401.07954545454544 274.2857142857143,101.81818181818181 371.42857142857144,488.6363636363636 468.57142857142856,154.09090909090912 565.7142857142857,389.3181818181818 662.8571428571429,493.8636363636364 760.0,394.54545454545456" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" />
+<circle cx="80.0" cy="127.95454545454544" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="177.14285714285714" cy="401.07954545454544" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="274.2857142857143" cy="101.81818181818181" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="371.42857142857144" cy="488.6363636363636" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="468.57142857142856" cy="154.09090909090912" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="565.7142857142857" cy="389.3181818181818" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="662.8571428571429" cy="493.8636363636364" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<circle cx="760.0" cy="394.54545454545456" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+</svg>
