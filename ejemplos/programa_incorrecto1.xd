@@ -1,0 +1,11 @@
+# ==========================================================
+# Programa Incorrecto 1: Omisión del terminador obligatorio 'xd'
+# ==========================================================
+
+when haces "Iniciando sin poner xd..." xd
+
+# Error sintáctico: Esta sentencia NO termina en xd
+ventas = pasa_el_pack "datos/ventas_prueba.csv"
+
+# Error sintáctico: Falta 'xd'
+subir_al_grupo ventas en "salidas/ventas.csv"

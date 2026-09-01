@@ -1,0 +1,23 @@
+# ==========================================================
+# Programa Correcto 2: Exploración de Datos, Ordenamiento y Dispersión
+# Temática: MomoLang XD (.xd)
+# ==========================================================
+
+when haces "Iniciando analisis exploratorio y dispersion..." xd
+
+# Carga de datos
+datos_crudos = pasa_el_zelda "datos/ventas_prueba.csv" xd
+
+# Pipeline de selección y ordenamiento de mayor a menor
+datos_top = datos_crudos 
+    |:v> escojo_a_los_papus [unidades, precio]
+    |:v> but_ella_no_te_ama precio > 50
+    |:v> ordenar_a_los_papus precio de_arriba_a_abajo xd
+
+# Reconocimiento de instrucción de gráfico de dispersión
+graficar_momos_en_dispersion datos_top titulo "Dispersion Unidades vs Precio" eje_x "Unidades" eje_y "Precio ($)" guardar "salidas/dispersion_momo.svg" xd
+
+# Guardar la tabla ordenada
+guardar_momo datos_top en "salidas/datos_ordenados_momo.csv" xd
+
+when haces "Todo salio pro papu xd" xd

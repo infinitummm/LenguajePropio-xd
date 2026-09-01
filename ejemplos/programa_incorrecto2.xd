@@ -1,0 +1,13 @@
+# ==========================================================
+# Programa Incorrecto 2: Pipeline y Expresión Relacional Mal Formada
+# ==========================================================
+
+when haces "Probando sintaxis corrupta..." xd
+
+ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
+
+# Error sintáctico 1: Falta la lista de columnas entre corchetes
+ventas_rotas = ventas |:v> escojo_a xd
+
+# Error sintáctico 2: Filtro incompleto (operador '+' sin segundo operando ni operador relacional)
+ventas_filtradas = ventas |:v> but_te_enteras_que precio + xd
