@@ -4,3 +4,5 @@ __pycache__/
 .vscode/
 .m2/
 .jre/
+generar_pdf.py
+Manual_Usuario_DSL_LenguajeDatos.pdf
