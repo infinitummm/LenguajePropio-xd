@@ -1,10 +1,12 @@
 # Proyecto de Curso: MomoLang XD (`.xd`) - Lenguaje de Dominio Específico
 
 **Asignatura:** Lenguajes de Programación y Transducción  
+
 **Universidad Sergio Arboleda** — Programa de Ciencias de la Computación e Inteligencia Artificial  
+
 **Estudiantes:** Dylan Torres - Juan Gomez - Javier Rosero
+
 **Docente:** Joaquín F. Sánchez | **Semestre:** 2026-2  
-**Entrega:** Corte 1 — Front-end del Lenguaje, Gramática Formal, Lexer/Parser ANTLR4 y Validador
 
 ---
 
