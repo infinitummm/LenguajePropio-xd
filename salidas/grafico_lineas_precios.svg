@@ -1,37 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-<rect width="800" height="600" fill="#ffffff" />
-<text x="400.0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Tendencia de Precios por Registro xd</text>
-<text x="420.0" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Indice</text>
-<text x="25" y="290.0" text-anchor="middle" transform="rotate(-90 25 290.0)" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Precio</text>
-<line x1="80" y1="520.0" x2="760" y2="520.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="524.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">0.0</text>
-<line x1="80" y1="428.0" x2="760" y2="428.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="432.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">35.2</text>
-<line x1="80" y1="336.0" x2="760" y2="336.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="340.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">70.4</text>
-<line x1="80" y1="244.0" x2="760" y2="244.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="248.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">105.6</text>
-<line x1="80" y1="152.0" x2="760" y2="152.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="156.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">140.8</text>
-<line x1="80" y1="60.0" x2="760" y2="60.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="64.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">176.0</text>
-<line x1="80" y1="60" x2="80" y2="520" stroke="#334155" stroke-width="2" />
-<line x1="80" y1="520" x2="760" y2="520" stroke="#334155" stroke-width="2" />
-<text x="122.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">1</text>
-<text x="207.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">2</text>
-<text x="292.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">3</text>
-<text x="377.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">4</text>
-<text x="462.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">5</text>
-<text x="547.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">6</text>
-<text x="632.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">7</text>
-<text x="717.5" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">8</text>
-<polyline points="80.0,127.95454545454544 177.14285714285714,401.07954545454544 274.2857142857143,101.81818181818181 371.42857142857144,488.6363636363636 468.57142857142856,154.09090909090912 565.7142857142857,389.3181818181818 662.8571428571429,493.8636363636364 760.0,394.54545454545456" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" />
-<circle cx="80.0" cy="127.95454545454544" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="177.14285714285714" cy="401.07954545454544" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="274.2857142857143" cy="101.81818181818181" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="371.42857142857144" cy="488.6363636363636" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="468.57142857142856" cy="154.09090909090912" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="565.7142857142857" cy="389.3181818181818" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="662.8571428571429" cy="493.8636363636364" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-<circle cx="760.0" cy="394.54545454545456" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+
+        <defs>
+            <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.95" />
+            </linearGradient>
+            <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.02" />
+            </linearGradient>
+            <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+            </filter>
+        </defs>
+        
+<rect width="800" height="550" fill="#f8fafc" rx="8" />
+<rect x="85" y="65" width="670" height="410" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4" />
+<text x="400.0" y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Tendencia de Precios por Registro xd</text>
+<text x="420.0" y="532" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569">Indice</text>
+<text x="24" y="270.0" text-anchor="middle" transform="rotate(-90 24 270.0)" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569">Precio</text>
+<line x1="85" y1="475.0" x2="755" y2="475.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="479.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">0.0</text>
+<line x1="85" y1="393.0" x2="755" y2="393.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="397.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">36.8</text>
+<line x1="85" y1="311.0" x2="755" y2="311.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="315.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">73.6</text>
+<line x1="85" y1="229.0" x2="755" y2="229.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="233.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">110.4</text>
+<line x1="85" y1="147.0" x2="755" y2="147.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="151.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">147.2</text>
+<line x1="85" y1="65.0" x2="755" y2="65.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="69.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">184.0</text>
+<text x="126.875" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">1</text>
+<text x="210.625" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">2</text>
+<text x="294.375" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">3</text>
+<text x="378.125" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">4</text>
+<text x="461.875" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">5</text>
+<text x="545.625" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">6</text>
+<text x="629.375" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">7</text>
+<text x="713.125" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">8</text>
+<path d="M 85.0 140.8 L 180.7 373.6 L 276.4 118.5 L 372.1 448.3 L 467.9 163.0 L 563.6 363.6 L 659.3 452.7 L 755.0 368.0" fill="none" stroke="#10b981" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+<circle cx="85.0" cy="140.76086956521743" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="180.71428571428572" cy="373.6141304347826" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="276.42857142857144" cy="118.47826086956525" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="372.1428571428571" cy="448.2608695652174" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="467.85714285714283" cy="163.04347826086956" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="563.5714285714286" cy="363.5869565217391" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="659.2857142857142" cy="452.7173913043478" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+<circle cx="755.0" cy="368.04347826086956" r="5" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
 </svg>

@@ -1,32 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-<rect width="800" height="600" fill="#ffffff" />
-<text x="400.0" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Distribucion de Unidades Vendidas xd</text>
-<text x="420.0" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Rango de Unidades</text>
-<text x="25" y="290.0" text-anchor="middle" transform="rotate(-90 25 290.0)" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#475569">Frecuencia</text>
-<line x1="80" y1="520.0" x2="760" y2="520.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="524.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">0.0</text>
-<line x1="80" y1="428.0" x2="760" y2="428.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="432.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">1.3</text>
-<line x1="80" y1="336.0" x2="760" y2="336.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="340.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">2.6</text>
-<line x1="80" y1="244.0" x2="760" y2="244.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="248.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">4.0</text>
-<line x1="80" y1="152.0" x2="760" y2="152.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="156.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">5.3</text>
-<line x1="80" y1="60.0" x2="760" y2="60.0" stroke="#e2e8f0" stroke-dasharray="4" />
-<text x="70" y="64.0" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#64748b">6.6</text>
-<line x1="80" y1="60" x2="80" y2="520" stroke="#334155" stroke-width="2" />
-<line x1="80" y1="520" x2="760" y2="520" stroke="#334155" stroke-width="2" />
-<text x="165.0" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">[8.0-31.0]</text>
-<text x="335.0" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">[31.0-54.0]</text>
-<text x="505.0" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">[54.0-77.0]</text>
-<text x="675.0" y="540" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">[77.0-100.0]</text>
-<rect x="114.0" y="101.81818181818181" width="102.0" height="418.1818181818182" fill="#8b5cf6" rx="4" stroke="#2563eb" stroke-width="1" />
-<text x="165.0" y="95.81818181818181" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b">6</text>
-<rect x="284.0" y="450.3030303030303" width="102.0" height="69.69696969696969" fill="#8b5cf6" rx="4" stroke="#2563eb" stroke-width="1" />
-<text x="335.0" y="444.3030303030303" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b">1</text>
-<rect x="454.0" y="520.0" width="102.0" height="0.0" fill="#8b5cf6" rx="4" stroke="#2563eb" stroke-width="1" />
-<text x="505.0" y="514.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b">0</text>
-<rect x="624.0" y="450.3030303030303" width="102.0" height="69.69696969696969" fill="#8b5cf6" rx="4" stroke="#2563eb" stroke-width="1" />
-<text x="675.0" y="444.3030303030303" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b">1</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+
+        <defs>
+            <linearGradient id="barGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.95" />
+                <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.95" />
+            </linearGradient>
+            <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.02" />
+            </linearGradient>
+            <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.12"/>
+            </filter>
+        </defs>
+        
+<rect width="800" height="550" fill="#f8fafc" rx="8" />
+<rect x="85" y="65" width="670" height="410" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" rx="4" />
+<text x="400.0" y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#0f172a">Distribucion de Unidades Vendidas xd</text>
+<text x="420.0" y="532" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569">Rango de Unidades</text>
+<text x="24" y="270.0" text-anchor="middle" transform="rotate(-90 24 270.0)" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569">Frecuencia</text>
+<line x1="85" y1="475.0" x2="755" y2="475.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="479.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">0.0</text>
+<line x1="85" y1="393.0" x2="755" y2="393.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="397.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">1.4</text>
+<line x1="85" y1="311.0" x2="755" y2="311.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="315.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">2.9</text>
+<line x1="85" y1="229.0" x2="755" y2="229.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="233.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">4.3</text>
+<line x1="85" y1="147.0" x2="755" y2="147.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="151.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">5.8</text>
+<line x1="85" y1="65.0" x2="755" y2="65.0" stroke="#f1f5f9" stroke-width="1.2" stroke-dasharray="4,4" />
+<text x="75" y="69.0" text-anchor="end" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#64748b">7.2</text>
+<text x="168.75" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">8-31</text>
+<text x="336.25" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">31-54</text>
+<text x="503.75" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">54-77</text>
+<text x="671.25" y="497" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#475569">77-100</text>
+<rect x="97.5625" y="133.33333333333331" width="142.375" height="341.6666666666667" fill="#8b5cf6" fill-opacity="0.85" stroke="#ffffff" stroke-width="1.5" rx="3" />
+<text x="168.75" y="128.33333333333331" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#475569">6</text>
+<rect x="265.0625" y="418.05555555555554" width="142.375" height="56.94444444444445" fill="#8b5cf6" fill-opacity="0.85" stroke="#ffffff" stroke-width="1.5" rx="3" />
+<text x="336.25" y="413.05555555555554" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#475569">1</text>
+<rect x="432.5625" y="475.0" width="142.375" height="0.0" fill="#8b5cf6" fill-opacity="0.85" stroke="#ffffff" stroke-width="1.5" rx="3" />
+<rect x="600.0625" y="418.05555555555554" width="142.375" height="56.94444444444445" fill="#8b5cf6" fill-opacity="0.85" stroke="#ffffff" stroke-width="1.5" rx="3" />
+<text x="671.25" y="413.05555555555554" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#475569">1</text>
 </svg>
