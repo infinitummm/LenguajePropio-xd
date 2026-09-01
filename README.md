@@ -1,72 +1,121 @@
-# Proyecto de Curso: Lenguaje de Dominio Específico (DSL) para Ciencia de Datos y Visualización xd
+# Proyecto de Curso: MomoLang XD (`.xd`) - Lenguaje de Dominio Específico
 
 **Asignatura:** Lenguajes de Programación y Transducción  
-**Universidad Sergio Arboleda** - Programa de Ciencias de la Computación e Inteligencia Artificial  
-**Docente:** Joaquín F. Sánchez | **Semestre:** 2026-2
+**Universidad Sergio Arboleda** — Programa de Ciencias de la Computación e Inteligencia Artificial  
+**Docente:** Joaquín F. Sánchez | **Semestre:** 2026-2  
+**Entrega:** Corte 1 — Front-end del Lenguaje, Gramática Formal, Lexer/Parser ANTLR4 y Validador
 
 ---
 
-## Descripción General
-Este proyecto implementa un Lenguaje de Dominio Específico (DSL) declarativo en español para flujos reproducibles de ciencia de datos (carga de archivos CSV, filtrado, selección de columnas, agrupamiento con estadísticas y generación de visualizaciones SVG).
+## 1. Descripción General
 
-El sistema destaca por utilizar **tres motorizaciones/librerías propias creadas 100% desde cero en Python** sin depender de librerías externas de terceros como Pandas, NumPy o Matplotlib.
+**MomoLang XD** es un Lenguaje de Dominio Específico (DSL) declarativo y temático diseñado para expresar flujos reproducibles de ciencia de datos: carga de archivos CSV, selección de columnas, filtrado relacional, creación de columnas calculadas, ordenamiento, agregaciones descriptivas y generación de visualizaciones vectoriales.
+
+El lenguaje adopta una temática única inspirada en la **cultura de momos / memes hispanoamericanos** y establece una regla sintáctica fundamental: **cada sentencia del lenguaje debe terminar obligatoriamente con el sufijo `xd`**.
+
+### Características Destacadas:
+- **Terminador Obligatorio:** Toda sentencia finaliza con `xd` (ej. `when haces "Hola" xd`).
+- **Operador de Tubería:** `|:v>` (o `|>`) para encadenamiento funcional y transformaciones declarativas.
+- **Validación Léxica y Sintáctica (Corte 1):** El sistema procesa archivos de código `.xd` determinando si son **[ACEPTADOS]** (mostrando el árbol sintáctico estructurado y métricas) o **[RECHAZADOS]** (reportando línea, columna y causa del error sintáctico).
+- **Cero Dependencias Externas de Ciencia de Datos:** Toda la lógica de ejecución para los siguientes cortes se apoya en librerías propias desarrolladas desde cero en Python puro.
 
 ---
 
-## Arquitectura del Sistema
+## 2. Arquitectura del Front-end (Corte 1)
 
 ```
-Programa Fuente (.dsl) ──> Lexer & Parser (ANTLR4) ──> Parse Tree
+Programa Fuente (.xd) ──> Lexer ANTLR4 (Tokens) ──> Parser ANTLR4 (Reglas)
                                                             │
                                                             ▼
-Tablas CSV & Gráficos SVG ◄── Motor Propio Python ◄── Visitor Semántico
+                                                ¿Errores Léxicos/Sintácticos?
+                                                  ├─ SÍ ─> [ RECHAZADO xd ] (Línea:Columna + Diagnóstico)
+                                                  └─ NO ─> [ ACEPTADO :v ] (Parse Tree + Estadísticas)
 ```
 
 ---
 
-## Estructura del Proyecto
+## 3. Estructura del Repositorio
 
 ```
 .
 ├── grammar/
-│   └── LenguajeDatos.g4         # Gramática formal en ANTLR4
+│   └── LenguajeMomoXD.g4         # Gramática formal ANTLR4 (Lexer y Parser)
 ├── docs/
-│   ├── alcance_catalogo.md      # Alcance y catálogo de instrucciones
-│   └── gramatica_ebnf.md        # Especificación EBNF de la gramática
+│   ├── alcance_catalogo.md      # Catálogo completo de instrucciones y alcance
+│   └── gramatica_ebnf.md        # Especificación formal de la gramática en EBNF
 ├── ejemplos/
-│   ├── programa_correcto1.dsl   # Ejemplo 1 de código DSL válido
-│   ├── programa_correcto2.dsl   # Ejemplo 2 de código DSL válido
-│   └── programa_incorrecto.dsl  # Ejemplo con errores para validación
+│   ├── programa_correcto1.xd    # Flujo completo de ventas y agregación
+│   ├── programa_correcto2.xd    # Análisis exploratorio y dispersión
+│   ├── programa_incorrecto1.xd  # Rechazado: Omisión del 'xd' final
+│   └── programa_incorrecto2.xd  # Rechazado: Pipeline y expresiones rotas
 ├── src/
-│   ├── core/                    # Librerías propias desde cero en español (_xd)
-│   │   ├── matematica_propia.py # Reemplazo propio de NumPy
-│   │   ├── datos_propios.py     # Reemplazo propio de Pandas (TablaDatos/Serie)
-│   │   └── graficos_propios.py  # Reemplazo propio de Matplotlib (SVG Engine)
-│   ├── parser/                  # Código lexer/parser generado por ANTLR4
-│   ├── lexer_parser_runner.py   # Runner de análisis léxico y sintáctico
-│   └── visitor_ejecutor.py      # Evaluador semántico por patrón Visitor
+│   ├── parser/                  # Código Lexer/Parser generado por ANTLR4
+│   │   ├── LenguajeMomoXDLexer.py
+│   │   ├── LenguajeMomoXDParser.py
+│   │   └── LenguajeMomoXDVisitor.py
+│   ├── validador_momo_xd.py     # Validador y formateador de árbol sintáctico
+│   └── core/                    # Motor de librerías propias (matemática, datos, gráficos)
 ├── tests/
-│   ├── probar_librerias.py      # Pruebas unitarias de las librerías propias
-│   └── test_corte1.py           # Pruebas léxicas, sintácticas e integración del Corte 1
-├── ejecutar_dsl.py              # CLI para ejecutar programas .dsl
-└── demostracion_librerias.py    # Demostración del motor interno
+│   └── test_corte1.py           # Pruebas unitarias de aceptación y rechazo
+├── ejecutar_dsl.py              # CLI principal para validar archivos .xd
+└── README.md                    # Documentación del proyecto
 ```
 
 ---
 
-## Instrucciones de Ejecución
+## 4. Catálogo Rápido de Instrucciones
 
-### 1. Ejecutar Pruebas Unitarias e Integración (Corte 1)
+| Función / Propósito | Instrucción MomoLang XD | Ejemplo |
+| :--- | :--- | :--- |
+| **Imprimir en consola** | `when haces` | `when haces "Iniciando analisis..." xd` |
+| **Cargar CSV** | `pasa_el_pack` / `pasa_el_zelda` | `ventas = pasa_el_pack "datos.csv" xd` |
+| **Exportar CSV** | `subir_al_grupo` / `guardar_momo` | `subir_al_grupo resumen en "resumen.csv" xd` |
+| **Seleccionar columnas** | `escojo_a` / `escojo_a_los_papus` | `\|:v> escojo_a [fecha, ciudad, precio]` |
+| **Filtrar registros** | `but_te_enteras_que` / `but_ella_no_te_ama` | `\|:v> but_te_enteras_que precio > 50` |
+| **Columna calculada** | `el_futuro_es_hoy_oiste_viejo` | `\|:v> el_futuro_es_hoy_oiste_viejo total = u * p` |
+| **Ordenar filas** | `ordenar_a_los_papus` | `\|:v> ordenar_a_los_papus total de_arriba_a_abajo` |
+| **Agrupar datos** | `juntar_a_la_grasa_por` | `\|:v> juntar_a_la_grasa_por [ciudad]` |
+| **Resumir agregaciones**| `sacar_cuentas` | `\|:v> sacar_cuentas total = suma(total), cant = contar_papus()` |
+| **Visualización** | `graficar_momos_en_barras` ... | `graficar_momos_en_barras df titulo "Ventas" xd` |
+
+---
+
+## 5. Instrucciones de Instalación y Ejecución
+
+### 5.1 Requisitos Previos
+* **Python 3.10+**
+* **ANTLR4** (v4.13+)
+* Runtime de Python para ANTLR4:
+  ```bash
+  pip install antlr4-python3-runtime==4.13.2
+  ```
+
+### 5.2 Compilar la Gramática ANTLR4
+Para regenerar el lexer y parser en Python a partir del archivo `.g4`:
 ```bash
-python -m unittest tests/test_corte1.py
+antlr4 -Dlanguage=Python3 -visitor -o src/parser grammar/LenguajeMomoXD.g4
 ```
 
-### 2. Ejecutar un Programa escrito en el DSL
+### 5.3 Ejecutar las Pruebas Unitarias del Corte 1
+Para ejecutar la suite automatizada de pruebas de aceptación y rechazo:
 ```bash
-python ejecutar_dsl.py ejemplos/programa_correcto1.dsl
+python3 -m unittest tests/test_corte1.py -v
 ```
 
-### 3. Probar Diagnóstico de Errores Sintácticos
-```bash
-python ejecutar_dsl.py ejemplos/programa_incorrecto.dsl
-```
+### 5.4 Validar un Programa con la CLI
+Para validar un archivo `.xd` y comprobar si es **Aceptado** o **Rechazado**:
+
+* **Programa Válido:**
+  ```bash
+  python3 ejecutar_dsl.py ejemplos/programa_correcto1.xd
+  ```
+
+* **Programa Válido con Árbol Sintáctico Jerárquico Completo:**
+  ```bash
+  python3 ejecutar_dsl.py ejemplos/programa_correcto1.xd --arbol
+  ```
+
+* **Programa Inválido (Diagnóstico de Errores):**
+  ```bash
+  python3 ejecutar_dsl.py ejemplos/programa_incorrecto1.xd
+  ```

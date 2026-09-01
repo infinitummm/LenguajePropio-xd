@@ -1,0 +1,30 @@
+# ==========================================================
+# Programa Correcto 1: Flujo Completo de Análisis de Ventas :v
+# Temática: MomoLang XD (.xd)
+# ==========================================================
+
+# 1. Mensaje de bienvenida momero
+when haces "Iniciando analisis de datos de la grasa..." xd
+
+# 2. Carga del conjunto de datos CSV
+ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
+
+# 3. Pipeline de preparación y filtrado
+ventas_limpias = ventas 
+    |:v> escojo_a [fecha, ciudad, categoria, unidades, precio]
+    |:v> but_te_enteras_que unidades > 10
+    |:v> el_futuro_es_hoy_oiste_viejo total = unidades * precio xd
+
+# 4. Agrupamiento por ciudad y cálculo de métricas agregadas
+resumen_ciudades = ventas_limpias 
+    |:v> juntar_a_la_grasa_por [ciudad]
+    |:v> sacar_cuentas total_ventas = suma(total), promedio_unidades = promedio(unidades), total_filas = contar_papus() xd
+
+# 5. Exportar la tabla resumen a CSV
+subir_al_grupo resumen_ciudades en "salidas/resumen_ciudades_momo.csv" xd
+
+# 6. Instrucción de visualización en gráfico de barras
+graficar_momos_en_barras resumen_ciudades titulo "Ingresos por Ciudad Grasosa" eje_x "Ciudad" eje_y "Total ($)" guardar "salidas/grafico_momo_barras.svg" xd
+
+# 7. Mensaje final
+when haces "Analisis finalizado exitosamente papu xd" xd
