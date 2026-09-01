@@ -1,19 +1,32 @@
 """
-Librería Datos Propios (Reemplazo propio de Pandas desde cero en español xd)
+Librería de Manipulación de Datos Tabulares - Motor Tabular Propio
+==================================================================
+Asignatura: Lenguajes de Programación y Transducción (2026-2)
+Universidad Sergio Arboleda
+
+Implementación desde cero en Python puro (sin Pandas ni NumPy)
+para representación de Series, Tablas bidimensionales (DataFrames),
+filtrado, ordenamiento, transformaciones, agrupamientos y lectura/escritura CSV.
 """
 
-import csv
 import math
-from src.core.matematica_propia import Arreglo
+from src.core.matematica_propia import VectorNum, Arreglo
+
 
 class Serie:
-    """Clase Serie que representa una columna de datos con un nombre e índice xd"""
-    def __init__(self, datos, nombre="columna"):
+    """
+    Representa una columna de datos con tipado dinámico, nombre descriptivo
+    y operaciones estadísticas vectoriales integradas.
+    """
+
+    def __init__(self, datos=None, nombre="columna"):
         self.nombre = nombre
-        if isinstance(datos, Arreglo):
+        if isinstance(datos, (VectorNum, Arreglo)):
             self.arreglo = datos
+        elif isinstance(datos, (list, tuple)):
+            self.arreglo = VectorNum(datos)
         else:
-            self.arreglo = Arreglo(datos)
+            self.arreglo = VectorNum([datos] if datos is not None else [])
 
     @property
     def datos(self):
@@ -23,327 +36,390 @@ class Serie:
         return len(self.arreglo)
 
     def __getitem__(self, idx):
-        res = self.arreglo[idx]
-        if isinstance(res, Arreglo):
-            return Serie(res, nombre=self.nombre)
-        return res
+        resultado = self.arreglo[idx]
+        if isinstance(resultado, (VectorNum, Arreglo)):
+            return Serie(resultado, nombre=self.nombre)
+        return resultado
+
+    def __setitem__(self, idx, val):
+        self.arreglo[idx] = val
 
     def __repr__(self):
-        return f"Serie(nombre='{self.nombre}', datos={repr(self.datos)})"
+        return f"Serie(nombre='{self.nombre}', filas={len(self)}, datos={repr(self.datos[:5])}{'...' if len(self) > 5 else ''})"
 
-    # Delegación de operaciones estadísticas a Arreglo con sufijo _xd
+    # Delegación de operaciones estadísticas
     def suma_xd(self): return self.arreglo.suma_xd()
     def promedio_xd(self): return self.arreglo.promedio_xd()
+    def media_xd(self): return self.arreglo.promedio_xd()
     def mediana_xd(self): return self.arreglo.mediana_xd()
     def minimo_xd(self): return self.arreglo.minimo_xd()
     def maximo_xd(self): return self.arreglo.maximo_xd()
+    def varianza_xd(self): return self.arreglo.varianza_xd()
     def desviacion_estandar_xd(self): return self.arreglo.desviacion_estandar_xd()
     def conteo_xd(self): return self.arreglo.conteo_xd()
+    def cuartiles_xd(self): return self.arreglo.cuartiles_xd()
 
 
 class TablaDatos:
-    """Clase TablaDatos (DataFrame propio) para almacenamiento y manipulación de datos tabulares xd"""
+    """
+    Estructura tabular bidimensional en memoria (equivalente a DataFrame)
+    con soporte para operaciones relacionales, transformaciones y agrupamientos.
+    """
+
     def __init__(self, columnas=None):
-        self.columnas = {}
+        self._columnas = {}
         if columnas:
-            for k, v in columnas.items():
-                if isinstance(v, Serie):
-                    self.columnas[k] = list(v.datos)
-                elif isinstance(v, Arreglo):
-                    self.columnas[k] = list(v.datos)
+            for nombre, valores in columnas.items():
+                if isinstance(valores, Serie):
+                    self._columnas[nombre] = list(valores.datos)
+                elif isinstance(valores, (VectorNum, Arreglo)):
+                    self._columnas[nombre] = list(valores.datos)
+                elif isinstance(valores, (list, tuple)):
+                    self._columnas[nombre] = list(valores)
                 else:
-                    self.columnas[k] = list(v)
+                    self._columnas[nombre] = [valores]
+
+    @property
+    def columnas(self):
+        return self._columnas
 
     @property
     def nombres_columnas(self):
-        return list(self.columnas.keys())
+        return list(self._columnas.keys())
 
     @property
     def numero_filas(self):
-        if not self.columnas:
+        if not self._columnas:
             return 0
-        primera_col = next(iter(self.columnas.values()))
-        return len(primera_col)
+        primera_columna = next(iter(self._columnas.values()))
+        return len(primera_columna)
 
-    def __getitem__(self, item):
-        if isinstance(item, str):
-            if item not in self.columnas:
-                raise KeyError(f"La columna '{item}' no existe en la TablaDatos.")
-            return Serie(self.columnas[item], nombre=item)
-        raise TypeError("El índice debe ser el nombre de una columna (str).")
+    def __len__(self):
+        return self.numero_filas
 
-    def __setitem__(self, key, value):
-        if isinstance(value, Serie):
-            val_list = list(value.datos)
-        elif isinstance(value, Arreglo):
-            val_list = list(value.datos)
-        elif isinstance(value, list):
-            val_list = list(value)
+    def __getitem__(self, clave):
+        if isinstance(clave, str):
+            if clave not in self._columnas:
+                raise KeyError(f"La columna '{clave}' no existe en la TablaDatos.")
+            return Serie(self._columnas[clave], nombre=clave)
+        elif isinstance(clave, list):
+            # Selección de múltiples columnas
+            return self.seleccionar_xd(clave)
+        raise TypeError("El acceso por clave requiere un nombre de columna (str) o lista de nombres.")
+
+    def __setitem__(self, clave, valores):
+        if isinstance(valores, Serie):
+            lista_vals = list(valores.datos)
+        elif isinstance(valores, (VectorNum, Arreglo)):
+            lista_vals = list(valores.datos)
+        elif isinstance(valores, (list, tuple)):
+            lista_vals = list(valores)
         else:
-            val_list = [value] * self.numero_filas
-        self.columnas[key] = val_list
+            lista_vals = [valores] * self.numero_filas
+
+        if self.numero_filas > 0 and len(lista_vals) != self.numero_filas:
+            raise ValueError(f"Longitud de datos incompatible: {len(lista_vals)} vs {self.numero_filas} filas.")
+
+        self._columnas[clave] = lista_vals
 
     def __repr__(self):
-        filas_str = [f"TablaDatos con {self.numero_filas} filas y {len(self.columnas)} columnas:"]
-        filas_str.append("Columnas: " + ", ".join(self.nombres_columnas))
-        return "\n".join(filas_str)
+        encabezado = f"TablaDatos [{self.numero_filas} filas x {len(self._columnas)} columnas]:\n"
+        columnas_info = "  Columnas: " + ", ".join(self.nombres_columnas) + "\n"
+        filas_preview = []
+        limite = min(5, self.numero_filas)
+        for i in range(limite):
+            fila_vals = [f"{col}: {repr(self._columnas[col][i])}" for col in self.nombres_columnas]
+            filas_preview.append(f"  [{i}] " + ", ".join(fila_vals))
+        if self.numero_filas > limite:
+            filas_preview.append(f"  ... ({self.numero_filas - limite} filas más)")
+        return encabezado + columnas_info + "\n".join(filas_preview)
 
-    # --- Métodos de Manipulación y Transformación ---
+    # =========================================================================
+    # Operaciones de Selección, Filtrado y Transformación
+    # =========================================================================
 
     def obtener_filas_xd(self):
-        """Retorna las filas como una lista de diccionarios xd"""
+        """Retorna una lista de diccionarios representando cada fila."""
         filas = []
         n_filas = self.numero_filas
         for i in range(n_filas):
-            fila = {col: self.columnas[col][i] for col in self.columnas}
+            fila = {col: self._columnas[col][i] for col in self.nombres_columnas}
             filas.append(fila)
         return filas
 
     def seleccionar_xd(self, lista_columnas):
-        """Retorna una nueva TablaDatos únicamente con las columnas seleccionadas xd"""
-        nuevas_cols = {}
+        """Genera una nueva tabla conservando únicamente las columnas indicadas."""
+        nuevas = {}
         for col in lista_columnas:
-            if col in self.columnas:
-                nuevas_cols[col] = list(self.columnas[col])
+            if col in self._columnas:
+                nuevas[col] = list(self._columnas[col])
             else:
                 raise KeyError(f"Columna '{col}' no encontrada en la tabla.")
-        return TablaDatos(nuevas_cols)
+        return TablaDatos(nuevas)
 
-    def filtrar_xd(self, mascara_booleana):
-        """Filtra la tabla según una lista/máscara booleana xd"""
-        if isinstance(mascara_booleana, Arreglo):
-            mascara_booleana = mascara_booleana.datos
+    def filtrar_xd(self, mascara):
+        """Filtra los registros según una condición o máscara booleana."""
+        if isinstance(mascara, (VectorNum, Arreglo)):
+            mascara = mascara.datos
 
-        nuevas_cols = {col: [] for col in self.columnas}
-        for i, coincide in enumerate(mascara_booleana):
-            if coincide:
-                for col in self.columnas:
-                    nuevas_cols[col].append(self.columnas[col][i])
-        return TablaDatos(nuevas_cols)
+        nuevas = {col: [] for col in self.nombres_columnas}
+        for i, condicion in enumerate(mascara):
+            if condicion:
+                for col in self.nombres_columnas:
+                    nuevas[col].append(self._columnas[col][i])
+        return TablaDatos(nuevas)
 
     def crear_columna_xd(self, nombre_columna, valores):
-        """Agrega o reemplaza una columna calculada xd"""
-        nueva_tabla = TablaDatos({c: list(vals) for c, vals in self.columnas.items()})
+        """Añade o sobreescribe una columna calculada y retorna una nueva tabla."""
+        nueva_tabla = TablaDatos({col: list(v) for col, v in self._columnas.items()})
         nueva_tabla[nombre_columna] = valores
         return nueva_tabla
 
     def ordenar_por_xd(self, columna, ascendente=True):
-        """Ordena las filas según los valores de una columna xd"""
-        if columna not in self.columnas:
-            raise KeyError(f"Columna '{columna}' no existe.")
+        """Ordena las filas según el valor de una columna especificada."""
+        if columna not in self._columnas:
+            raise KeyError(f"Columna de ordenamiento '{columna}' no encontrada.")
 
         filas = self.obtener_filas_xd()
-        def clave_orden(f):
-            v = f[columna]
-            return (v is None, v)
 
-        filas_ordenadas = sorted(filas, key=clave_orden, reverse=not ascendente)
-        nuevas_cols = {col: [f[col] for f in filas_ordenadas] for col in self.columnas}
-        return TablaDatos(nuevas_cols)
+        def clave_comparacion(f):
+            valor = f[columna]
+            if valor is None:
+                return (1, 0)
+            return (0, valor)
 
-    def renombrar_xd(self, mapa_nombres):
-        """Renombra columnas según un diccionario {viejo: nuevo} xd"""
-        nuevas_cols = {}
-        for col, vals in self.columnas.items():
-            nuevo_nombre = mapa_nombres.get(col, col)
-            nuevas_cols[nuevo_nombre] = list(vals)
-        return TablaDatos(nuevas_cols)
+        filas_ordenadas = sorted(filas, key=clave_comparacion, reverse=not ascendente)
+        nuevas = {col: [f[col] for f in filas_ordenadas] for col in self.nombres_columnas}
+        return TablaDatos(nuevas)
+
+    def renombrar_xd(self, mapeo_nombres):
+        """Renombra columnas utilizando un diccionario {nombre_antiguo: nombre_nuevo}."""
+        nuevas = {}
+        for col, vals in self._columnas.items():
+            nuevo_nombre = mapeo_nombres.get(col, col)
+            nuevas[nuevo_nombre] = list(vals)
+        return TablaDatos(nuevas)
 
     def eliminar_duplicados_xd(self, columnas_clave=None):
-        """Elimina filas duplicadas xd"""
+        """Elimina filas repetidas en la tabla."""
         if columnas_clave is None:
             columnas_clave = self.nombres_columnas
 
-        filas = self.obtener_filas_xd()
         vistos = set()
         filas_unicas = []
-
-        for f in filas:
-            clave = tuple(f[col] for col in columnas_clave)
+        for fila in self.obtener_filas_xd():
+            clave = tuple(fila[c] for c in columnas_clave)
             if clave not in vistos:
                 vistos.add(clave)
-                filas_unicas.append(f)
+                filas_unicas.append(fila)
 
-        nuevas_cols = {col: [f[col] for f in filas_unicas] for col in self.columnas}
-        return TablaDatos(nuevas_cols)
+        nuevas = {col: [f[col] for f in filas_unicas] for col in self.nombres_columnas}
+        return TablaDatos(nuevas)
 
     def eliminar_nulos_xd(self, columnas=None):
-        """Elimina filas que contengan valores None o NaN en las columnas especificadas xd"""
+        """Descarta filas que contengan valores None o NaN en las columnas especificadas."""
         if columnas is None:
             columnas = self.nombres_columnas
 
-        filas = self.obtener_filas_xd()
-        filas_limpias = []
-
-        for f in filas:
+        nuevas = {col: [] for col in self.nombres_columnas}
+        for fila in self.obtener_filas_xd():
             tiene_nulo = False
             for col in columnas:
-                val = f[col]
+                val = fila[col]
                 if val is None or (isinstance(val, float) and math.isnan(val)):
                     tiene_nulo = True
                     break
             if not tiene_nulo:
-                filas_limpias.append(f)
-
-        nuevas_cols = {col: [f[col] for f in filas_limpias] for col in self.columnas}
-        return TablaDatos(nuevas_cols)
+                for col in self.nombres_columnas:
+                    nuevas[col].append(fila[col])
+        return TablaDatos(nuevas)
 
     def rellenar_nulos_xd(self, valor_relleno, columnas=None):
-        """Reemplaza valores nulos por un valor predeterminado xd"""
+        """Reemplaza valores nulos por un valor predeterminado."""
         if columnas is None:
             columnas = self.nombres_columnas
 
-        nuevas_cols = {}
-        for col, vals in self.columnas.items():
+        nuevas = {}
+        for col, vals in self._columnas.items():
             if col in columnas:
-                nuevos_vals = []
-                for v in vals:
-                    if v is None or (isinstance(v, float) and math.isnan(v)):
-                        nuevos_vals.append(valor_relleno)
-                    else:
-                        nuevos_vals.append(v)
-                nuevas_cols[col] = nuevos_vals
+                nuevas[col] = [
+                    valor_relleno if (v is None or (isinstance(v, float) and math.isnan(v))) else v
+                    for v in vals
+                ]
             else:
-                nuevas_cols[col] = list(vals)
+                nuevas[col] = list(vals)
+        return TablaDatos(nuevas)
 
-        return TablaDatos(nuevas_cols)
+    # =========================================================================
+    # Motor de Agrupamiento y Agregaciones (GroupBy)
+    # =========================================================================
 
-    def agrupar_por_xd(self, columnas_agrupar):
-        """Crea un objeto AgruparPor para operaciones de agregación xd"""
-        if isinstance(columnas_agrupar, str):
-            columnas_agrupar = [columnas_agrupar]
-        return AgruparPor(self, columnas_agrupar)
-
-    def resumen_xd(self):
-        """Genera un diccionario con estadísticas descriptivas de cada columna xd"""
-        resumen = {}
-        for col in self.nombres_columnas:
-            serie = self[col]
-            validos = serie.arreglo.obtener_validos_xd()
-            es_numerica = len(validos) > 0 and len(validos) == len([x for x in serie.datos if x is not None])
-            if es_numerica:
-                resumen[col] = {
-                    "tipo": "numérica",
-                    "conteo": serie.conteo_xd(),
-                    "promedio": serie.promedio_xd(),
-                    "mediana": serie.mediana_xd(),
-                    "minimo": serie.minimo_xd(),
-                    "maximo": serie.maximo_xd(),
-                    "desviacion_estandar": serie.desviacion_estandar_xd()
-                }
-            else:
-                conteo_valores = {}
-                for x in serie.datos:
-                    conteo_valores[str(x)] = conteo_valores.get(str(x), 0) + 1
-                resumen[col] = {
-                    "tipo": "categórica",
-                    "conteo": len(serie.datos),
-                    "valores_unicos": len(conteo_valores),
-                    "frecuencias": conteo_valores
-                }
-        return resumen
+    def agrupar_por_xd(self, columnas_grupo):
+        """Crea un objeto AgrupamientoTabla para realizar agregaciones."""
+        if isinstance(columnas_grupo, str):
+            columnas_grupo = [columnas_grupo]
+        return AgrupamientoTabla(self, columnas_grupo)
 
 
-class AgruparPor:
-    """Clase AgruparPor para realizar agrupamientos y agregaciones en datos tabulares xd"""
-    def __init__(self, tabla, columnas_agrupar):
+class AgrupamientoTabla:
+    """Gestiona la división de una tabla en grupos para calcular agregaciones."""
+
+    def __init__(self, tabla: TablaDatos, columnas_grupo: list):
         self.tabla = tabla
-        self.columnas_agrupar = columnas_agrupar
-        self.grupos = {}
-        self._construir_grupos_xd()
+        self.columnas_grupo = columnas_grupo
+        self.grupos = self._construir_grupos()
 
-    def _construir_grupos_xd(self):
-        filas = self.tabla.obtener_filas_xd()
-        for f in filas:
-            clave = tuple(f[col] for col in self.columnas_agrupar)
-            if clave not in self.grupos:
-                self.grupos[clave] = []
-            self.grupos[clave].append(f)
+    def _construir_grupos(self):
+        grupos = {}
+        for fila in self.tabla.obtener_filas_xd():
+            clave = tuple(fila[col] for col in self.columnas_grupo)
+            if clave not in grupos:
+                grupos[clave] = []
+            grupos[clave].append(fila)
+        return grupos
 
-    def resumir_xd(self, **especificaciones_agregacion):
+    def resumir_xd(self, **agregaciones):
         """
-        Calcula agregaciones por grupo.
-        Ejemplo: resumir_xd(ingreso_total=('ingreso', 'suma'), ingreso_promed=('ingreso', 'promedio')) xd
+        Calcula agregaciones para cada grupo.
+        Uso: agrupado.resumir_xd(total_ventas=("precio", "suma"), prom=("unidades", "promedio"))
         """
-        resultado_cols = {col: [] for col in self.columnas_agrupar}
-        for alias in especificaciones_agregacion:
-            resultado_cols[alias] = []
+        filas_resultado = []
 
-        for clave, filas_grupo in self.grupos.items():
-            for idx, col in enumerate(self.columnas_agrupar):
-                resultado_cols[col].append(clave[idx])
+        for clave_grupo, filas in self.grupos.items():
+            fila_res = {}
+            for idx_col, col_name in enumerate(self.columnas_grupo):
+                fila_res[col_name] = clave_grupo[idx_col]
 
-            for alias, (col_origen, funcion_agg) in especificaciones_agregacion.items():
-                valores = [f[col_origen] for f in filas_grupo if f[col_origen] is not None]
-                arr = Arreglo(valores)
+            # Subtabla del grupo
+            sub_cols = {col: [f[col] for f in filas] for col in self.tabla.nombres_columnas}
+            sub_tabla = TablaDatos(sub_cols)
 
-                if funcion_agg in ("suma", "sum"):
-                    val_agg = arr.suma_xd()
-                elif funcion_agg in ("promedio", "media", "mean"):
-                    val_agg = arr.promedio_xd()
-                elif funcion_agg in ("mediana", "median"):
-                    val_agg = arr.mediana_xd()
-                elif funcion_agg in ("minimo", "min"):
-                    val_agg = arr.minimo_xd()
-                elif funcion_agg in ("maximo", "max"):
-                    val_agg = arr.maximo_xd()
-                elif funcion_agg in ("desviacion_estandar", "std"):
-                    val_agg = arr.desviacion_estandar_xd()
-                elif funcion_agg in ("conteo", "count"):
-                    val_agg = len(filas_grupo)
+            for nuevo_nombre, espec in agregaciones.items():
+                if isinstance(espec, tuple):
+                    col_origen, funcion = espec
                 else:
-                    raise ValueError(f"Función de agregación desconocida: '{funcion_agg}' xd")
+                    col_origen = None
+                    funcion = espec
 
-                resultado_cols[alias].append(val_agg)
+                if funcion in ["conteo", "contar", "contar_papus"]:
+                    fila_res[nuevo_nombre] = len(filas)
+                else:
+                    serie = sub_tabla[col_origen]
+                    if funcion in ["suma", "sumar_momos"]:
+                        fila_res[nuevo_nombre] = serie.suma_xd()
+                    elif funcion in ["promedio", "media"]:
+                        fila_res[nuevo_nombre] = serie.promedio_xd()
+                    elif funcion == "mediana":
+                        fila_res[nuevo_nombre] = serie.mediana_xd()
+                    elif funcion in ["minimo", "el_mas_manco"]:
+                        fila_res[nuevo_nombre] = serie.minimo_xd()
+                    elif funcion in ["maximo", "el_mas_pro"]:
+                        fila_res[nuevo_nombre] = serie.maximo_xd()
+                    elif funcion in ["desviacion", "desviacion_pro", "desviacion_estandar"]:
+                        fila_res[nuevo_nombre] = serie.desviacion_estandar_xd()
+                    elif funcion == "varianza":
+                        fila_res[nuevo_nombre] = serie.varianza_xd()
+                    else:
+                        raise ValueError(f"Función de agregación no reconocida: '{funcion}'")
 
-        return TablaDatos(resultado_cols)
+            filas_resultado.append(fila_res)
+
+        if not filas_resultado:
+            cols = {col: [] for col in self.columnas_grupo + list(agregaciones.keys())}
+            return TablaDatos(cols)
+
+        columnas_finales = {
+            col: [f[col] for f in filas_resultado]
+            for col in self.columnas_grupo + list(agregaciones.keys())
+        }
+        return TablaDatos(columnas_finales)
 
 
-# --- Funciones IO de Archivos (CSV) desde Cero ---
+# Alias para retrocompatibilidad
+AgruparPor = AgrupamientoTabla
 
-def _convertir_valor_xd(val_str):
-    """Parsea cadenas a int, float, bool o None xd"""
-    v = val_str.strip()
-    if not v or v.lower() in ("null", "none", "nan", "na"):
+
+# =============================================================================
+# Motor CSV Propio desde Cero (Parser de Texto con Autómata de Estados)
+# =============================================================================
+
+def _parsear_linea_csv(linea: str, delimitador: str = ",") -> list:
+    """Parsea una línea de texto CSV respetando comillas y caracteres de escape."""
+    campos = []
+    actual = []
+    en_comillas = False
+    i = 0
+    longitud = len(linea)
+
+    while i < longitud:
+        char = linea[i]
+        if char == '"':
+            if en_comillas and i + 1 < longitud and linea[i + 1] == '"':
+                actual.append('"')
+                i += 1
+            else:
+                en_comillas = not en_comillas
+        elif char == delimitador and not en_comillas:
+            campos.append("".join(actual).strip())
+            actual = []
+        else:
+            actual.append(char)
+        i += 1
+
+    campos.append("".join(actual).strip())
+    return campos
+
+
+def _inferir_tipo_dato(valor_str: str):
+    """Convierte cadenas a tipos numéricos (int, float) o conserva la cadena."""
+    val = valor_str.strip()
+    if val == "" or val.lower() in ["none", "null", "nan"]:
         return None
-    if v.lower() == "true":
-        return True
-    if v.lower() == "false":
-        return False
     try:
-        if "." in v:
-            return float(v)
-        return int(v)
+        if "." in val:
+            return float(val)
+        return int(val)
     except ValueError:
-        return v
+        try:
+            return float(val)
+        except ValueError:
+            return val
 
-def cargar_csv_xd(ruta_archivo, separador=",", encabezado=True):
-    """Carga un archivo CSV y retorna una TablaDatos propia desde cero xd"""
-    columnas_datos = {}
-    with open(ruta_archivo, mode="r", encoding="utf-8-sig") as f:
-        reader = csv.reader(f, delimiter=separador)
-        filas = list(reader)
 
-    if not filas:
+def cargar_csv_xd(ruta_archivo: str, delimitador: str = ",") -> TablaDatos:
+    """Lee un archivo CSV sin librerías externas y lo carga en una TablaDatos."""
+    with open(ruta_archivo, mode="r", encoding="utf-8") as f:
+        lineas = [l.rstrip("\r\n") for l in f if l.strip()]
+
+    if not lineas:
         return TablaDatos()
 
-    if encabezado:
-        nombres_cols = [c.strip() for c in filas[0]]
-        filas_datos = filas[1:]
-    else:
-        nombres_cols = [f"col_{i}" for i in range(len(filas[0]))]
-        filas_datos = filas
+    encabezados = _parsear_linea_csv(lineas[0], delimitador)
+    columnas = {h: [] for h in encabezados}
 
-    for idx, col in enumerate(nombres_cols):
-        vals = [_convertir_valor_xd(fila[idx]) if idx < len(fila) else None for fila in filas_datos]
-        columnas_datos[col] = vals
+    for linea in lineas[1:]:
+        valores = _parsear_linea_csv(linea, delimitador)
+        for h, v in zip(encabezados, valores):
+            columnas[h].append(_inferir_tipo_dato(v))
 
-    return TablaDatos(columnas_datos)
+    return TablaDatos(columnas)
 
-def guardar_csv_xd(tabla, ruta_archivo, separador=","):
-    """Guarda una TablaDatos en un archivo CSV desde cero xd"""
-    with open(ruta_archivo, mode="w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f, delimiter=separador)
-        writer.writerow(tabla.nombres_columnas)
+
+def guardar_csv_xd(tabla: TablaDatos, ruta_salida: str, delimitador: str = ","):
+    """Exporta una TablaDatos a formato CSV estándar."""
+    with open(ruta_salida, mode="w", encoding="utf-8") as f:
+        encabezado = delimitador.join(tabla.nombres_columnas) + "\n"
+        f.write(encabezado)
+
         for fila in tabla.obtener_filas_xd():
-            writer.writerow([fila[col] for col in tabla.nombres_columnas])
+            linea_vals = []
+            for col in tabla.nombres_columnas:
+                val = fila[col]
+                if val is None:
+                    linea_vals.append("")
+                elif isinstance(val, str) and (delimitador in val or '"' in val or "\n" in val):
+                    escapado = val.replace('"', '""')
+                    linea_vals.append(f'"{escapado}"')
+                else:
+                    linea_vals.append(str(val))
+            f.write(delimitador.join(linea_vals) + "\n")
