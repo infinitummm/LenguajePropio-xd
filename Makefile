@@ -3,8 +3,11 @@
 # Asignatura: Lenguajes de Programación y Transducción (2026-2)
 # =============================================================================
 
-PYTHON = python3
-ANTLR4 = antlr4
+PYTHON ?= python3
+ifeq ($(OS),Windows_NT)
+    PYTHON = python
+endif
+ANTLR4 ?= antlr4
 GRAMMAR_DIR = grammar
 PARSER_DIR = src/parser
 TESTS_DIR = tests

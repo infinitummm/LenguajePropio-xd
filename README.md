@@ -81,31 +81,61 @@ Programa Fuente (.xd) ──> Lexer ANTLR4 (Tokens) ──> Parser ANTLR4 (Regla
 
 ---
 
-## 5. Instrucciones de Instalación y Ejecución
+## 5. Ejecución Rápida usando el Makefile (Recomendado)
 
-### 5.1 Requisitos Previos
+El repositorio incluye un **`Makefile`** que automatiza todas las tareas esenciales (compilación, pruebas unitarias y validación) con comandos directos de una sola palabra:
+
+| Comando | Acción Realizada |
+| :--- | :--- |
+| `make help` | Despliega el menú interactivo con la lista de todos los comandos disponibles. |
+| `make build` *(o `make antlr`)* | Compila la gramática ANTLR4 (`grammar/LenguajeMomoXD.g4`) y genera el Lexer y Parser en `src/parser/`. |
+| `make test` | Ejecuta la suite completa de **9 pruebas unitarias automatizadas** del Corte 1 (aceptación y rechazo). |
+| `make run` | Valida el archivo `ejemplos/programa_correcto1.xd` confirmando el estado **[ACEPTADO]** y sus métricas. |
+| `make run-tree` | Valida el programa correcto y despliega en terminal el **Árbol Sintáctico (Parse Tree) jerárquico completo**. |
+| `make run-incorrect` | Prueba el validador con `ejemplos/programa_incorrecto1.xd`, demostrando el diagnóstico de **[RECHAZADO]**. |
+| `make clean` | Limpia los archivos temporales y la caché de Python (`__pycache__`, `.pyc`). |
+
+### 5.1 Flujo Rápido de Demostración con `make`
+Para sustentar o probar el proyecto rápidamente en la terminal:
+
+```bash
+# 1. Ejecutar las pruebas unitarias automatizadas
+make test
+
+# 2. Validar un programa correcto y ver métricas
+make run
+
+# 3. Validar e inspeccionar el árbol sintáctico jerárquico
+make run-tree
+
+# 4. Probar la detección y diagnóstico de errores sintácticos
+make run-incorrect
+```
+
+---
+
+## 6. Ejecución Alternativa Manual (CLI Directa con Python)
+
+Si prefieres no usar `make` o estás en un entorno sin Make instalado, puedes ejecutar los comandos directamente con Python:
+
+### 6.1 Requisitos Previos
 * **Python 3.10+**
-* **ANTLR4** (v4.13+)
 * Runtime de Python para ANTLR4:
   ```bash
   pip install antlr4-python3-runtime==4.13.2
   ```
 
-### 5.2 Compilar la Gramática ANTLR4
-Para regenerar el lexer y parser en Python a partir del archivo `.g4`:
+### 6.2 Compilar la Gramática ANTLR4 (Manual)
 ```bash
 antlr4 -Dlanguage=Python3 -visitor -o src/parser grammar/LenguajeMomoXD.g4
 ```
 
-### 5.3 Ejecutar las Pruebas Unitarias del Corte 1
-Para ejecutar la suite automatizada de pruebas de aceptación y rechazo:
+### 6.3 Ejecutar las Pruebas Unitarias (Manual)
 ```bash
 python3 -m unittest tests/test_corte1.py -v
 ```
 
-### 5.4 Validar un Programa con la CLI
-Para validar un archivo `.xd` y comprobar si es **Aceptado** o **Rechazado**:
-
+### 6.4 Validar Archivos .xd con la CLI (Manual)
 * **Programa Válido:**
   ```bash
   python3 ejecutar_dsl.py ejemplos/programa_correcto1.xd
