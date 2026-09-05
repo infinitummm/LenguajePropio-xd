@@ -20,7 +20,7 @@ help:
 	@echo "                   COMANDOS DISPONIBLES EN MOMOLANG XD :v               "
 	@echo "========================================================================="
 	@echo "  make build         - Compila la gramatica ANTLR4 a Python"
-	@echo "  make test          - Ejecuta las pruebas del Corte 1 (Acepta/Rechaza)"
+	@echo "  make test          - Ejecuta la suite de pruebas unitarias (Acepta/Rechaza)"
 	@echo "  make run           - Ejecuta el validador con programa_correcto1.xd"
 	@echo "  make run-tree      - Muestra el arbol sintactico jerarquico (--arbol)"
 	@echo "  make run-incorrect - Prueba el diagnostico de errores con programa_incorrecto1.xd"
@@ -36,7 +36,7 @@ antlr:
 	@echo "[OK] Lexer y Parser generados exitosamente en $(PARSER_DIR)."
 
 test:
-	@echo ">> Ejecutando pruebas del Corte 1 (Aceptacion y Rechazo) ..."
+	@echo ">> Ejecutando suite de pruebas unitarias (Aceptacion y Rechazo) ..."
 	$(PYTHON) -m unittest $(TESTS_DIR)/test_corte1.py -v
 
 run:

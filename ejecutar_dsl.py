@@ -1,6 +1,6 @@
 """
-Intérprete y Validador CLI - LenguajeMomoXD (.xd) - Corte 1
-===========================================================
+Intérprete y Validador CLI - LenguajeMomoXD (.xd)
+=================================================
 Asignatura: Lenguajes de Programación y Transducción
 Universidad Sergio Arboleda (2026-2)
 
@@ -22,7 +22,7 @@ from src.validador_momo_xd import validar_archivo_momo
 def mostrar_banner():
     print("=" * 70)
     print("  MEME-LANG XD (MomoLang) - DSL DE CIENCIA DE DATOS Y VISUALIZACIÓN :v")
-    print("  Reconocedor Léxico y Sintáctico (Corte 1) - ANTLR4 + Python")
+    print("  Reconocedor Léxico y Sintáctico - ANTLR4 + Python")
     print("=" * 70)
 
 
@@ -74,7 +74,7 @@ def principal():
                 print(f"   {tree_str}")
 
         print("\n" + "=" * 70)
-        print("  Validación de Corte 1 exitosa. Todo correcto papu xd.")
+        print("  Validación sintáctica exitosa. Todo correcto papu xd.")
         print("=" * 70)
         sys.exit(0)
     else:

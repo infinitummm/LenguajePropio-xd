@@ -1,4 +1,4 @@
-# Documento de Alcance y Catálogo de Instrucciones - Corte 1
+# Documento de Alcance y Catálogo de Instrucciones
 ## Lenguaje de Dominio Específico: MomoLang XD (`.xd`)
 
 **Asignatura:** Lenguajes de Programación y Transducción  
@@ -22,8 +22,8 @@ El lenguaje adopta una sintaxis distintiva basada en la **cultura de momos / mem
 * **Salidas:** Reporte léxico/sintáctico en consola (Aceptado/Rechazado con árbol de análisis sintáctico), archivos de datos procesados `.csv` y gráficos `.svg`.
 
 ### Restricciones del Sistema
-* **Corte 1:** El sistema actúa como un reconocedor formal (Lexer y Parser generados con ANTLR4) que acepta programas correctos o los rechaza con diagnóstico detallado (línea, columna y sugerencia contextual).
-* **Fases Posteriores:** El procesamiento de datos (Corte 2) y la generación de gráficos (Corte 3) implementarán el patrón Visitor y los motores de ejecución según las directrices del curso.
+* **Front-end del Lenguaje:** El sistema actúa como un reconocedor formal (Lexer y Parser generados con ANTLR4) que acepta programas correctos o los rechaza con diagnóstico detallado (línea, columna y sugerencia contextual).
+* **Extensibilidad:** El sistema está estructurado modularmente para desacoplar el reconocimiento sintáctico del análisis semántico y la ejecución.
 
 ---
 

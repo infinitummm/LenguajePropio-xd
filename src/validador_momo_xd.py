@@ -1,6 +1,6 @@
 """
-Validador Léxico y Sintáctico para LenguajeMomoXD (.xd) - Corte 1
-==================================================================
+Validador Léxico y Sintáctico para LenguajeMomoXD (.xd)
+======================================================
 Asignatura: Lenguajes de Programación y Transducción
 Universidad Sergio Arboleda (2026-2)
 
