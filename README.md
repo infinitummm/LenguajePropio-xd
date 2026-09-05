@@ -20,7 +20,7 @@ El lenguaje adopta una temática única inspirada en la **cultura de momos / mem
 - **Terminador Obligatorio:** Toda sentencia finaliza con `xd` (ej. `when haces "Hola" xd`).
 - **Operador de Tubería:** `|:v>` (o `|>`) para encadenamiento funcional y transformaciones declarativas.
 - **Validación Léxica y Sintáctica (Corte 1):** El sistema procesa archivos de código `.xd` determinando si son **[ACEPTADOS]** (mostrando el árbol sintáctico estructurado y métricas) o **[RECHAZADOS]** (reportando línea, columna y causa del error sintáctico).
-- **Cero Dependencias Externas de Ciencia de Datos:** Toda la lógica de ejecución para los siguientes cortes se apoya en librerías propias desarrolladas desde cero en Python puro.
+- **Alcance Corte 1 (Front-end):** Reconocimiento léxico y sintáctico con ANTLR4, generación del árbol de análisis sintáctico (Parse Tree) y reporte claro de diagnósticos de error.
 
 ---
 
@@ -56,8 +56,7 @@ Programa Fuente (.xd) ──> Lexer ANTLR4 (Tokens) ──> Parser ANTLR4 (Regla
 │   │   ├── LenguajeMomoXDLexer.py
 │   │   ├── LenguajeMomoXDParser.py
 │   │   └── LenguajeMomoXDVisitor.py
-│   ├── validador_momo_xd.py     # Validador y formateador de árbol sintáctico
-│   └── core/                    # Motor de librerías propias (matemática, datos, gráficos)
+│   └── validador_momo_xd.py     # Validador y formateador de árbol sintáctico
 ├── tests/
 │   └── test_corte1.py           # Pruebas unitarias de aceptación y rechazo
 ├── ejecutar_dsl.py              # CLI principal para validar archivos .xd

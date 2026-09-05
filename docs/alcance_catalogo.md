@@ -23,7 +23,7 @@ El lenguaje adopta una sintaxis distintiva basada en la **cultura de momos / mem
 
 ### Restricciones del Sistema
 * **Corte 1:** El sistema actúa como un reconocedor formal (Lexer y Parser generados con ANTLR4) que acepta programas correctos o los rechaza con diagnóstico detallado (línea, columna y sugerencia contextual).
-* **Motor Propio:** El procesamiento de datos no utiliza librerías de terceros (como Pandas, NumPy o Matplotlib), sino librerías propias desarrolladas en Python desde cero.
+* **Fases Posteriores:** El procesamiento de datos (Corte 2) y la generación de gráficos (Corte 3) implementarán el patrón Visitor y los motores de ejecución según las directrices del curso.
 
 ---
 
