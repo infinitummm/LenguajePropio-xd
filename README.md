@@ -19,8 +19,7 @@ El lenguaje adopta una temática única inspirada en la **cultura de momos / mem
 ### Características Destacadas:
 - **Terminador Obligatorio:** Toda sentencia finaliza con `xd` (ej. `when haces "Hola" xd`).
 - **Operador de Tubería:** `|:v>` (o `|>`) para encadenamiento funcional y transformaciones declarativas.
-- **Validación Léxica y Sintáctica (Corte 1):** El sistema procesa archivos de código `.xd` determinando si son **[ACEPTADOS]** (mostrando el árbol sintáctico estructurado y métricas) o **[RECHAZADOS]** (reportando línea, columna y causa del error sintáctico).
-- **Alcance Corte 1 (Front-end):** Reconocimiento léxico y sintáctico con ANTLR4, generación del árbol de análisis sintáctico (Parse Tree) y reporte claro de diagnósticos de error.
+- **Validación Léxica y Sintáctica:** El sistema procesa archivos de código `.xd` determinando si son **[ACEPTADOS]** (mostrando el árbol sintáctico estructurado y métricas) o **[RECHAZADOS]** (reportando línea, columna y causa del error sintáctico).
 
 ---
 
