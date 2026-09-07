@@ -1,6 +1,6 @@
 """
-Suite de Pruebas Léxicas y Sintácticas - Corte 1
-================================================
+Suite de Pruebas Léxicas y Sintácticas
+======================================
 Asignatura: Lenguajes de Programación y Transducción
 Universidad Sergio Arboleda (2026-2)
 
@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 from src.validador_momo_xd import validar_codigo_momo, validar_archivo_momo
 
 
-class TestCorte1FrontEnd(unittest.TestCase):
+class TestFrontEnd(unittest.TestCase):
 
     def setUp(self):
         self.ruta_correcto1 = os.path.abspath(

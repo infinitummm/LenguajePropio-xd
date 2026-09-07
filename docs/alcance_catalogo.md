@@ -71,7 +71,7 @@ A continuación se detalla el conjunto de palabras reservadas, operadores y sint
 | `contar_papus` / `conteo` | Cuenta el número de registros o filas en el grupo. | `contar_papus()` |
 | `desviacion_pro` | Calcula la desviación estándar muestral. | `desviacion_pro(precio)` |
 
-### 2.7 Visualizaciones (Reconocimiento Sintáctico en Corte 1)
+### 2.7 Visualizaciones (Reconocimiento Sintáctico)
 | Instrucción / Palabra Reservada | Tipo de Gráfico | Ejemplo de Uso |
 | :--- | :--- | :--- |
 | `graficar_momos_en_barras` | Gráfico de barras | `graficar_momos_en_barras df titulo "Ventas" xd` |
