@@ -16,7 +16,7 @@
 
 ---
 
-## 1. ¿Qué es MomoLang XD y para qué sirve?
+##  ¿Qué es MomoLang XD y para qué sirve?
 
 En el mundo de la programación, a veces los lenguajes generales (como Python o Java) son como una navaja suiza: sirven para todo, pero para tareas muy específicas es mejor usar una herramienta diseñada a la medida. A esto le llamamos **Lenguaje de Dominio Específico (DSL)**.
 
@@ -31,7 +31,7 @@ En el mundo de la programación, a veces los lenguajes generales (como Python o 
 
 ---
 
-## 2. Filosofía de Diseño
+##  Filosofía de Diseño
 
 El lenguaje se construyó pensando en la facilidad de uso y en mantener los datos originales intactos. Sus pilares son:
 
@@ -42,7 +42,7 @@ El lenguaje se construyó pensando en la facilidad de uso y en mantener los dato
 
 ---
 
-## 3. ¿Cómo funciona bajo el capó? (Arquitectura)
+## ¿Cómo funciona bajo el capó? (Arquitectura)
 
 Para construir el "cerebro" del lenguaje, utilizamos **ANTLR4**, una herramienta poderosa que nos ayuda a leer y entender el código escrito en `.xd`. 
 
@@ -83,7 +83,7 @@ El proceso funciona así:
 
 ---
 
-## 4. Estructura del Proyecto
+## Estructura del Proyecto
 
 El repositorio está organizado de forma lógica para que encuentres todo fácilmente:
 
@@ -104,11 +104,11 @@ LenguajePropio-xd/
 
 ---
 
-## 5. Manual de Instrucciones (Catálogo)
+## Manual de Instrucciones (Catálogo)
 
 Aquí tienes las "palabras mágicas" de MomoLang XD, divididas por categorías:
 
-### 5.1 Cargar, Imprimir y Guardar
+### Cargar, Imprimir y Guardar
 | Instrucción | ¿Qué hace? | Ejemplo |
 | :--- | :--- | :--- |
 | `when haces ... xd` | Imprime un mensaje o resultado en la consola. | `when haces "Hola mundo" xd` |
@@ -116,7 +116,7 @@ Aquí tienes las "palabras mágicas" de MomoLang XD, divididas por categorías:
 | `... separador ";"` | Úsalo si tu CSV usa punto y coma en vez de comas. | `datos = pasa_el_pack "a.csv" separador ";" xd` |
 | `subir_al_grupo id en "ruta" xd` | Guarda los datos procesados en un nuevo CSV. | `subir_al_group resumen en "salida.csv" xd` |
 
-### 5.2 Operaciones en la Tubería (`|:v>`)
+### Operaciones en la Tubería (`|:v>`)
 Estas operaciones se encadenan para transformar los datos paso a paso.
 
 | Operación | ¿Qué hace? | Ejemplo |
@@ -126,7 +126,7 @@ Estas operaciones se encadenan para transformar los datos paso a paso.
 | `el_futuro_es_hoy... col = expr` | Crea una columna nueva con una fórmula. | `\|:v> el_futuro_es_hoy_oiste_viejo total = cant * precio` |
 | `ordenar_a_los_papus col ...` | Ordena los datos (de arriba a abajo o viceversa). | `\|:v> ordenar_a_los_papus total de_arriba_a_abajo` |
 
-### 5.3 Estadísticas y Agrupaciones
+### Estadísticas y Agrupaciones
 Para cuando necesitas resumir la información.
 
 | Instrucción | ¿Qué hace? | Ejemplo |
@@ -135,7 +135,7 @@ Para cuando necesitas resumir la información.
 | `sacar_cuentas ...` | Calcula estadísticas sobre los grupos creados. | `\|:v> sacar_cuentas total = suma(ventas)` |
 | *Funciones:* | `suma()`, `promedio()`, `mediana()`, `el_mas_pro()` (máximo), `el_mas_manco()` (mínimo), `desviacion_pro()`, `contar_papus()` (contar filas). | `sacar_cuentas m = el_mas_pro(precio), n = contar_papus()` |
 
-### 5.4 Gráficos
+### Gráficos
 Puedes generar 5 tipos de gráficos de forma sencilla:
 * `graficar_momos_en_barras`
 * `graficar_momos_en_lineas`
@@ -147,7 +147,7 @@ Puedes generar 5 tipos de gráficos de forma sencilla:
 
 ---
 
-## 6. Automatización con `Makefile`
+## Automatización con `Makefile`
 
 Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. Solo abre tu terminal en la carpeta del proyecto y usa:
 
@@ -170,32 +170,8 @@ make run-tree  # 3. Mira cómo el lenguaje "piensa" el código.
 
 ---
 
-## 7. Ejecución Manual (Paso a paso)
 
-Si prefieres hacerlo todo a mano desde la terminal:
-
-**1. Requisitos:** Necesitas Python 3.10+ y la librería de ANTLR4:
-```bash
-pip install antlr4-python3-runtime==4.13.2
-```
-
-**2. Compilar la gramática:**
-```bash
-antlr4 -Dlanguage=Python3 -visitor -o src/parser grammar/LenguajeMomoXD.g4
-```
-
-**3. Correr el validador:**
-```bash
-# Validación normal
-python ejecutar_dsl.py ejemplos/programa_correcto1.xd
-
-# Ver el árbol sintáctico
-python ejecutar_dsl.py ejemplos/programa_correcto1.xd --arbol
-```
-
----
-
-## 8. Pruebas Automatizadas (Tests)
+## Pruebas Automatizadas (Tests)
 
 Para garantizar que el lenguaje no falle, creamos una suite de **9 pruebas automáticas** (`tests/test_corte1.py`). Estas pruebas verifican que el lenguaje se comporte bien en escenarios como:
 * Aceptar programas completos y correctos (carga, tuberías, gráficos).
@@ -208,7 +184,7 @@ Todas las pruebas pasan exitosamente (`OK`), demostrando que el motor del lengua
 
 ---
 
-## 9. Ejemplo Real de MomoLang XD
+## Ejemplo Real de MomoLang XD
 
 Así es como se ve un programa completo y funcional en nuestro lenguaje (`ejemplos/programa_correcto1.xd`):
 
