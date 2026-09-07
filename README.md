@@ -173,7 +173,7 @@ make run-tree  # 3. Mira cómo el lenguaje "piensa" el código.
 
 ## Pruebas Automatizadas (Tests)
 
-Para garantizar que el lenguaje no falle, creamos una suite de **9 pruebas automáticas** (`tests/test_corte1.py`). Estas pruebas verifican que el lenguaje se comporte bien en escenarios como:
+Para garantizar que el lenguaje no falle, creamos **9 pruebas automáticas** (`tests/test_corte1.py`). Estas pruebas verifican que el lenguaje se comporte bien en escenarios como:
 * Aceptar programas completos y correctos (carga, tuberías, gráficos).
 * Aceptar el uso correcto del operador `|:v>`.
 * Rechazar programas a los que se les olvidó poner el `xd` al final.
