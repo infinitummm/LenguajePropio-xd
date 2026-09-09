@@ -61,6 +61,8 @@ def principal():
         print(f"   • Impresiones (when):     {stats['impresiones']}")
         print(f"   • Exportaciones (guardar):{stats['guardados']}")
         print(f"   • Visualizaciones:        {stats['visualizaciones']}")
+        if stats.get("expresiones", 0) > 0:
+            print(f"   • Expresiones/Operaciones:{stats['expresiones']}")
 
         if mostrar_arbol:
             print("\n>> Árbol de Análisis Sintáctico Jerárquico:")

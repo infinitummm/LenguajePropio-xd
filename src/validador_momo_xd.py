@@ -109,7 +109,8 @@ def validar_codigo_momo(codigo_fuente: str) -> dict:
         "asignaciones": 0,
         "impresiones": 0,
         "guardados": 0,
-        "visualizaciones": 0
+        "visualizaciones": 0,
+        "expresiones": 0
     }
 
     if es_aceptado:
@@ -132,6 +133,8 @@ def validar_codigo_momo(codigo_fuente: str) -> dict:
                         estadisticas["guardados"] += 1
                     elif s.instruccionVisualizacion():
                         estadisticas["visualizaciones"] += 1
+                    elif s.expresionAritmetica():
+                        estadisticas["expresiones"] += 1
 
     return {
         "aceptado": es_aceptado,

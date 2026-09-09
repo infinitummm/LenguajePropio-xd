@@ -89,6 +89,29 @@ class TestFrontEnd(unittest.TestCase):
         self.assertTrue(resultado["aceptado"])
         self.assertEqual(resultado["estadisticas"]["visualizaciones"], 5)
 
+    def test_aceptar_operaciones_aritmeticas_sin_pipeline_xd(self):
+        """Valida que asignaciones de sumas, multiplicaciones y operaciones directas funcionen sin pipeline."""
+        codigo = (
+            'total = 10 + 20 * 3 xd\n'
+            'calculo = unidades * precio xd\n'
+            'subtotal = a - b + c / d xd\n'
+        )
+        resultado = validar_codigo_momo(codigo)
+        self.assertTrue(resultado["aceptado"], f"Errores: {resultado['errores']}")
+        self.assertEqual(resultado["estadisticas"]["asignaciones"], 3)
+
+    def test_aceptar_funciones_sumar_multiplicar_sin_pipeline_xd(self):
+        """Valida funciones como sumar_papus o multiplicacion sin requerir pipeline."""
+        codigo = (
+            'res1 = sumar_papus(10, 20) xd\n'
+            'res2 = multiplicacion(5, 4) xd\n'
+            'sumar_papus(100, 200) xd\n'
+            'when haces sumar_papus(a, b) xd\n'
+        )
+        resultado = validar_codigo_momo(codigo)
+        self.assertTrue(resultado["aceptado"], f"Errores: {resultado['errores']}")
+        self.assertEqual(len(resultado["errores"]), 0)
+
     # -------------------------------------------------------------------------
     # 2. Pruebas de Rechazo (Programas Inválidos)
     # -------------------------------------------------------------------------

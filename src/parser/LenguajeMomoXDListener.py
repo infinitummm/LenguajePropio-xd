@@ -251,6 +251,33 @@ class LenguajeMomoXDListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeMomoXDParser#llamadaFuncion.
+    def enterLlamadaFuncion(self, ctx:LenguajeMomoXDParser.LlamadaFuncionContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#llamadaFuncion.
+    def exitLlamadaFuncion(self, ctx:LenguajeMomoXDParser.LlamadaFuncionContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#funcionNombre.
+    def enterFuncionNombre(self, ctx:LenguajeMomoXDParser.FuncionNombreContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#funcionNombre.
+    def exitFuncionNombre(self, ctx:LenguajeMomoXDParser.FuncionNombreContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#listaArgumentos.
+    def enterListaArgumentos(self, ctx:LenguajeMomoXDParser.ListaArgumentosContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#listaArgumentos.
+    def exitListaArgumentos(self, ctx:LenguajeMomoXDParser.ListaArgumentosContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeMomoXDParser#listaIDs.
     def enterListaIDs(self, ctx:LenguajeMomoXDParser.ListaIDsContext):
         pass

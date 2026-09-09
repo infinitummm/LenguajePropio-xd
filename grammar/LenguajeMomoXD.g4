@@ -14,6 +14,7 @@ sentencia
     | instruccionGuardado XD
     | instruccionVisualizacion XD
     | instruccionSi XD
+    | expresionAritmetica XD
     ;
 
 asignacion
@@ -26,9 +27,7 @@ expresionPipeline
 
 expresionBase
     : instruccionCarga
-    | ID
-    | CADENA
-    | NUMERO
+    | expresionAritmetica
     ;
 
 instruccionCarga
@@ -86,6 +85,9 @@ agregacion
 
 funcionAgg
     : SUMA
+    | MULTIPLICACION
+    | RESTA
+    | DIVISION
     | PROMEDIO
     | MEDIA
     | MEDIANA
@@ -136,9 +138,23 @@ termino
 
 factor
     : PAREN_IZQ expresionAritmetica PAREN_DER
+    | llamadaFuncion
     | ID
     | NUMERO
     | CADENA
+    ;
+
+llamadaFuncion
+    : funcionNombre PAREN_IZQ listaArgumentos? PAREN_DER
+    ;
+
+funcionNombre
+    : ID
+    | funcionAgg
+    ;
+
+listaArgumentos
+    : expresionAritmetica (COMA expresionAritmetica)*
     ;
 
 listaIDs
@@ -185,7 +201,10 @@ AGRUPAR_A_LOS_PAPUS_POR    : 'agrupar_a_los_papus_por' | 'agrupar' [ \t]+ 'a' [ 
 SACAR_CUENTAS              : 'sacar_cuentas' | 'sacar' [ \t]+ 'cuentas' ;
 RESUMIR_MOMOS              : 'resumir_momos' | 'resumir' [ \t]+ 'momos' ;
 
-SUMA                       : 'suma' | 'sumar_momos' ;
+SUMA                       : 'suma' | 'sumar_momos' | 'sumar_papus' | 'sumar' [ \t]+ 'papus' | 'sumar' ;
+MULTIPLICACION             : 'multiplicacion' | 'multiplicar' | 'multiplicar_papus' | 'multiplicar_momos' ;
+RESTA                      : 'resta' | 'restar' | 'restar_papus' | 'restar_momos' ;
+DIVISION                   : 'division' | 'dividir' | 'dividir_papus' | 'dividir_momos' ;
 PROMEDIO                   : 'promedio' ;
 MEDIA                      : 'media' ;
 MEDIANA                    : 'mediana' ;

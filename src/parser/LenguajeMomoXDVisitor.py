@@ -144,6 +144,21 @@ class LenguajeMomoXDVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeMomoXDParser#llamadaFuncion.
+    def visitLlamadaFuncion(self, ctx:LenguajeMomoXDParser.LlamadaFuncionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#funcionNombre.
+    def visitFuncionNombre(self, ctx:LenguajeMomoXDParser.FuncionNombreContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#listaArgumentos.
+    def visitListaArgumentos(self, ctx:LenguajeMomoXDParser.ListaArgumentosContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeMomoXDParser#listaIDs.
     def visitListaIDs(self, ctx:LenguajeMomoXDParser.ListaIDsContext):
         return self.visitChildren(ctx)
