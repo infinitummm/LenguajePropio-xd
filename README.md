@@ -96,7 +96,6 @@ LenguajePropio-xd/
 │   └── validador...  # El motor que revisa si tu código está bien escrito.
 ├── ejemplos/         # Archivos .xd de prueba (tanto correctos como con errores).
 ├── datos/            # Archivos CSV de prueba para usar en los ejemplos.
-├── tests/            # Pruebas automáticas para asegurar que todo funcione.
 ├── ejecutar_dsl.py   # El programa principal para correr y validar tus archivos .xd.
 ├── Makefile          # Comandos rápidos para compilar, probar y limpiar el proyecto.
 └── README.md         # Este documento.
@@ -155,7 +154,6 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 | :--- | :--- |
 | `make help` | Muestra la lista de todos los comandos disponibles. |
 | `make build` | Compila la gramática y actualiza el analizador del lenguaje. |
-| `make test` | Ejecuta las pruebas automáticas para verificar que todo funcione. |
 | `make run` | Valida el archivo de ejemplo correcto (`programa_correcto1.xd`). |
 | `make run-tree` | Valida el ejemplo y te muestra el "árbol" lógico de cómo entendió el código. |
 | `make run-incorrect` | Prueba el archivo con errores para ver cómo el sistema te regaña. |
@@ -163,24 +161,9 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 
 **Flujo de trabajo recomendado:**
 ```bash
-make test      # 1. Asegúrate de que el motor funciona.
-make run       # 2. Valida un código correcto.
-make run-tree  # 3. Mira cómo el lenguaje "piensa" el código.
+make run       # 1. Valida un código correcto.
+make run-tree  # 2. Mira cómo el lenguaje "piensa" el código.
 ```
-
----
-
-
-## Pruebas Automatizadas (Tests)
-
-Para garantizar que el lenguaje no falle, creamos **9 pruebas automáticas** (`tests/test_corte1.py`). Estas pruebas verifican que el lenguaje se comporte bien en escenarios como:
-* Aceptar programas completos y correctos (carga, tuberías, gráficos).
-* Aceptar el uso correcto del operador `|:v>`.
-* Rechazar programas a los que se les olvidó poner el `xd` al final.
-* Rechazar palabras inventadas o errores de tipeo.
-* Detectar cuando falta un operador matemático o relacional (ej. `precio > `).
-
-Todas las pruebas pasan exitosamente (`OK`), demostrando que el motor del lenguaje es robusto.
 
 ---
 

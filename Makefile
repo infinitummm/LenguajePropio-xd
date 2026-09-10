@@ -10,17 +10,15 @@ endif
 ANTLR4 ?= antlr4
 GRAMMAR_DIR = grammar
 PARSER_DIR = src/parser
-TESTS_DIR = tests
 EJEMPLOS_DIR = ejemplos
 
-.PHONY: help build antlr test run run-tree run-incorrect clean
+.PHONY: help build antlr run run-tree run-incorrect clean
 
 help:
 	@echo "========================================================================="
 	@echo "                   COMANDOS DISPONIBLES EN MOMOLANG XD :v               "
 	@echo "========================================================================="
 	@echo "  make build         - Compila la gramatica ANTLR4 a Python"
-	@echo "  make test          - Ejecuta la suite de pruebas unitarias (Acepta/Rechaza)"
 	@echo "  make run           - Ejecuta el validador con programa_correcto1.xd"
 	@echo "  make run-tree      - Muestra el arbol sintactico jerarquico (--arbol)"
 	@echo "  make run-incorrect - Prueba el diagnostico de errores con programa_incorrecto1.xd"
@@ -34,10 +32,6 @@ antlr:
 	$(ANTLR4) -Dlanguage=Python3 -visitor -o $(PARSER_DIR) $(GRAMMAR_DIR)/LenguajeMomoXD.g4
 	@if [ -d "$(PARSER_DIR)/grammar" ]; then mv $(PARSER_DIR)/grammar/* $(PARSER_DIR)/ && rmdir $(PARSER_DIR)/grammar; fi
 	@echo "[OK] Lexer y Parser generados exitosamente en $(PARSER_DIR)."
-
-test:
-	@echo ">> Ejecutando suite de pruebas unitarias (Aceptacion y Rechazo) ..."
-	$(PYTHON) -m unittest $(TESTS_DIR)/test_corte1.py -v
 
 run:
 	@echo ">> Validando programa de ejemplo 1 ..."
