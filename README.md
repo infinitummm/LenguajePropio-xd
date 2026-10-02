@@ -92,9 +92,7 @@ LenguajePropio-xd/
 ├── grammar/              # Reglas oficiales del lenguaje (Gramática ANTLR4).
 ├── docs/                 # Documentación técnica y académica.
 │   ├── manual_usuario.md # Manual en lenguaje natural para el usuario.
-│   ├── reglas_semanticas.md # Especificación formal de tipos y símbolos.
-│   ├── alcance_catalogo.md  # Delimitación y catálogo de instrucciones.
-│   └── gramatica_ebnf.md    # Especificación léxica y sintáctica en EBNF.
+│   └── reglas_semanticas.md # Especificación formal de tipos y símbolos.
 ├── src/                  # Motores de análisis y ejecución.
 │   ├── core/             # Librerías PROPIAS en Python Puro (cero Pandas/NumPy).
 │   │   ├── datos_propios.py      # TablaMomo, SerieMomo, Parser CSV propio.
