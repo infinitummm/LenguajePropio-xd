@@ -85,20 +85,31 @@ El proceso funciona así:
 
 ## Estructura del Proyecto
 
-El repositorio está organizado de forma lógica para que encuentres todo fácilmente:
+El repositorio está organizado de forma modular y desacoplada:
 
 ```text
 LenguajePropio-xd/
-├── grammar/          # Las reglas oficiales del lenguaje (Gramática ANTLR4).
-├── docs/             # Documentación extra (alcance del proyecto y manual EBNF).
-├── src/              # El código fuente del compilador/validador.
-│   ├── parser/       # Archivos generados automáticamente por ANTLR4.
-│   └── validador...  # El motor que revisa si tu código está bien escrito.
-├── ejemplos/         # Archivos .xd de prueba (tanto correctos como con errores).
-├── datos/            # Archivos CSV de prueba para usar en los ejemplos.
-├── ejecutar_dsl.py   # El programa principal para correr y validar tus archivos .xd.
-├── Makefile          # Comandos rápidos para compilar, probar y limpiar el proyecto.
-└── README.md         # Este documento.
+├── grammar/              # Reglas oficiales del lenguaje (Gramática ANTLR4).
+├── docs/                 # Documentación técnica y académica.
+│   ├── manual_usuario.md # Manual en lenguaje natural para el usuario.
+│   ├── reglas_semanticas.md # Especificación formal de tipos y símbolos.
+│   ├── alcance_catalogo.md  # Delimitación y catálogo de instrucciones.
+│   └── gramatica_ebnf.md    # Especificación léxica y sintáctica en EBNF.
+├── src/                  # Motores de análisis y ejecución.
+│   ├── core/             # Librerías PROPIAS en Python Puro (cero Pandas/NumPy).
+│   │   ├── datos_propios.py      # TablaMomo, SerieMomo, Parser CSV propio.
+│   │   └── matematica_propia.py  # VectorMomo, estadística y álgebra propia.
+│   ├── semantica/        # Analizador semántico y ejecutor.
+│   │   ├── tabla_simbolos.py     # Manejo de símbolos, ámbitos y tipos.
+│   │   └── visitor_ejecutor.py   # Visitor ANTLR4 que ejecuta el DSL.
+│   ├── parser/           # Archivos generados automáticamente por ANTLR4.
+│   └── validador/        # Diagnóstico sintáctico y listeners amigables.
+├── ejemplos/             # Programas .xd de prueba y demostración (Fase 1 y 2).
+├── datos/                # Datasets CSV de prueba (ventas, empleados, estudiantes).
+├── salidas/              # Archivos CSV generados por los programas MomoLang XD.
+├── ejecutar_dsl.py       # Validador y ejecutor semántico CLI principal.
+├── Makefile              # Comandos rápidos para compilar, ejecutar y limpiar.
+└── README.md             # Este documento.
 ```
 
 ---
@@ -153,16 +164,22 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 | Comando | ¿Qué hace? |
 | :--- | :--- |
 | `make help` | Muestra la lista de todos los comandos disponibles. |
-| `make build` | Compila la gramática y actualiza el analizador del lenguaje. |
-| `make run` | Valida el archivo de ejemplo correcto (`programa_correcto1.xd`). |
-| `make run-tree` | Valida el ejemplo y te muestra el "árbol" lógico de cómo entendió el código. |
-| `make run-incorrect` | Prueba el archivo con errores para ver cómo el sistema te regaña. |
-| `make clean` | Borra archivos temporales y deja el proyecto limpio. |
+| `make build` | Compila la gramática ANTLR4 y genera el lexer/parser en Python. |
+| `make run` | Ejecuta el programa principal (`ejemplos/programa_correcto1.xd`). |
+| `make run-ventas` | Ejecuta el pipeline de ventas con agregaciones y filtros (`programa_ventas_fase2.xd`). |
+| `make run-empleados` | Ejecuta el análisis de nómina y departamentos (`programa_empleados_fase2.xd`). |
+| `make run-estudiantes` | Ejecuta el análisis de notas y rendimiento académico (`programa_estudiantes_fase2.xd`). |
+| `make run-error-semantico` | Demuestra la detección y diagnóstico de errores semánticos en consola. |
+| `make run-incorrect` | Prueba el archivo con errores sintácticos para ver el diagnóstico de ANTLR4. |
+| `make run-tree` | Valida el ejemplo y te muestra el árbol sintáctico jerárquico. |
+| `make clean` | Borra archivos temporales y caché de Python. |
 
-**Flujo de trabajo recomendado:**
+**Flujos de ejecución recomendados:**
 ```bash
-make run       # 1. Valida un código correcto.
-make run-tree  # 2. Mira cómo el lenguaje "piensa" el código.
+make run-ventas          # 1. Pipeline completo de ventas con CSV resultante
+make run-empleados       # 2. Pipeline de nómina por departamento
+make run-estudiantes     # 3. Pipeline académico por carrera
+make run-error-semantico # 4. Diagnóstico de errores semánticos
 ```
 
 ---

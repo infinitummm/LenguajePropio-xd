@@ -1,0 +1,9 @@
+id,nombre,departamento,salario_base,horas_extra,valor_hora_extra,antiguedad_anios
+1,Carlos Perez,Tecnologia,3500000,10,25000,3
+2,Ana Gomez,Tecnologia,4200000,5,28000,5
+3,Luis Rodriguez,Ventas,2000000,15,18000,2
+4,Maria Lopez,Ventas,2500000,8,20000,4
+5,Jorge Martinez,Recursos Humanos,2800000,0,22000,6
+6,Sofia Ramirez,Tecnologia,3100000,12,25000,1
+7,Daniel Castro,Ventas,1900000,20,18000,2
+8,Elena Morales,Recursos Humanos,3300000,4,22000,4

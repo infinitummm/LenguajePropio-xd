@@ -1,0 +1,38 @@
+# =============================================================================
+# Caso de Estudio 3: Rendimiento Académico Universitario
+# Lenguaje: MomoLang XD (.xd) - Fase 2
+# =============================================================================
+
+when haces "Evaluando notas academicas por carrera..." xd
+
+# Carga de notas
+estudiantes = robar_momo "datos/estudiantes_notas.csv" xd
+
+# Pipeline de ponderación de calificaciones
+notas_finales = estudiantes
+    |:v> el_futuro_es_hoy_oiste_viejo prom_talleres = (taller1 + taller2) / 2
+    |:v> el_futuro_es_hoy_oiste_viejo prom_parciales = (parcial1 + parcial2) / 2
+    |:v> el_futuro_es_hoy_oiste_viejo definitiva = prom_talleres * 0.40 + prom_parciales * 0.60
+    |:v> but_te_enteras_que definitiva >= 3.0
+    |:v> ordenar_a_los_papus definitiva de_arriba_a_abajo xd
+
+# Agrupamiento por carrera
+resumen_carreras = notas_finales
+    |:v> juntar_a_la_grasa_por [carrera]
+    |:v> sacar_cuentas
+            promedio_carrera = promedio(definitiva),
+            mejor_nota = el_mas_pro(definitiva),
+            nota_corte = el_mas_manco(definitiva),
+            aprobados = contar_papus() xd
+
+# Guardado
+subir_al_grupo resumen_carreras en "salidas/aprobados_por_carrera.csv" xd
+
+# Estructura condicional
+si_el_papu 10 > 5 entonces
+    when haces "Excelente rendimiento academico en los aprobados papu :v" xd
+sino_callese_senora
+    when haces "Rendimiento bajo detectado" xd
+fin_del_momo xd
+
+when haces "Resultados de notas listos en salidas/aprobados_por_carrera.csv xd" xd

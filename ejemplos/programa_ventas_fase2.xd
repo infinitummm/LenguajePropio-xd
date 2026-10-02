@@ -1,0 +1,37 @@
+# =============================================================================
+# Caso de Estudio 1: Análisis Financiero y Resumen de Ventas
+# Lenguaje: MomoLang XD (.xd) - Fase 2
+# =============================================================================
+
+when haces "Iniciando analisis de ventas comerciales..." xd
+
+# Carga de datos
+ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
+
+# Limpieza, selección y cálculo de métricas
+ventas_procesadas = ventas
+    |:v> escojo_a [fecha, ciudad, categoria, unidades, precio]
+    |:v> but_te_enteras_que unidades >= 10
+    |:v> el_futuro_es_hoy_oiste_viejo subtotal = unidades * precio
+    |:v> metanle_sabor_a total_neto = subtotal * 1.10
+    |:v> ordenar_a_los_papus total_neto de_arriba_a_abajo xd
+
+# Agrupamiento por ciudad con estadísticas descriptivas
+resumen_ventas = ventas_procesadas
+    |:v> juntar_a_la_grasa_por [ciudad]
+    |:v> sacar_cuentas 
+            total_recaudado = suma(total_neto),
+            precio_promedio = promedio(precio),
+            precio_mediano = mediana(precio),
+            venta_mas_alta = el_mas_pro(total_neto),
+            venta_mas_baja = el_mas_manco(total_neto),
+            dispersion_precios = desviacion_pro(precio),
+            total_pedidos = contar_papus() xd
+
+# Exportación de resultados
+subir_al_grupo resumen_ventas en "salidas/reporte_ventas_ciudades.csv" xd
+
+# Visualización informativa
+graficar_momos_en_barras resumen_ventas titulo "Recaudacion por Ciudad" eje_x "Ciudad" eje_y "Total ($)" guardar "salidas/grafico_ventas.png" xd
+
+when haces "Reporte de ventas generado exitosamente en salidas/reporte_ventas_ciudades.csv papu xd" xd

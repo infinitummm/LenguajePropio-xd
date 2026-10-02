@@ -1,0 +1,32 @@
+# =============================================================================
+# Caso de Estudio 2: Gestión de Nómina y Recursos Humanos
+# Lenguaje: MomoLang XD (.xd) - Fase 2
+# =============================================================================
+
+when haces "Procesando nomina de empleados y departamentos..." xd
+
+# Carga de datos con pasa_el_zelda
+empleados = pasa_el_zelda "datos/empleados_prueba.csv" xd
+
+# Pipeline de cálculo salarial y filtros
+nomina = empleados
+    |:v> but_ella_no_te_ama salario_base >= 2000000
+    |:v> el_futuro_es_hoy_oiste_viejo pago_extras = horas_extra * valor_hora_extra
+    |:v> el_futuro_es_hoy_oiste_viejo bono_antiguedad = antiguedad_anios * 50000
+    |:v> el_futuro_es_hoy_oiste_viejo salario_total = salario_base + pago_extras + bono_antiguedad
+    |:v> ordenar_a_los_papus salario_total de_arriba_a_abajo xd
+
+# Agrupamiento por departamento
+resumen_nomina = nomina
+    |:v> agrupar_a_los_papus_por [departamento]
+    |:v> resumir_momos
+            costo_total_nomina = suma(salario_total),
+            salario_base_promedio = media(salario_base),
+            salario_maximo = el_mas_pro(salario_total),
+            salario_minimo = el_mas_manco(salario_total),
+            total_colaboradores = conteo() xd
+
+# Exportación de nómina departamental
+guardar_momo resumen_nomina en "salidas/resumen_nomina_departamentos.csv" xd
+
+when haces "Nomina calculada y guardada en salidas/resumen_nomina_departamentos.csv xd" xd

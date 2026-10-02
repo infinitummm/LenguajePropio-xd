@@ -1,0 +1,9 @@
+# =============================================================================
+# Demostración de Detección de Errores Semánticos
+# MomoLang XD (.xd) - Fase 2
+# =============================================================================
+
+ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
+
+# ERROR 1: Acceder a una columna que no existe en la tabla ('comision_inventada')
+datos_error = ventas |:v> escojo_a [fecha, comision_inventada] xd
