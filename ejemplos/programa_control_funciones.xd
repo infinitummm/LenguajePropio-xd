@@ -1,0 +1,71 @@
+# ==========================================================
+# Programa de Demostración: Control de Flujo y Funciones :v
+# Asignación, Condicionales, Ciclos (While/For) y Funciones
+# MomoLang XD (.xd)
+# ==========================================================
+
+when haces "=== DEMOSTRACION DE ASIGNACION, CONDICIONALES, CICLOS Y FUNCIONES ===" xd
+
+# ----------------------------------------------------------
+# 1. Definición de Funciones de Usuario
+# ----------------------------------------------------------
+momo_funcion calcular_precio_final(precio_base, impuesto, descuento)
+    monto_impuesto = precio_base * impuesto / 100 xd
+    monto_descuento = precio_base * descuento / 100 xd
+    total = precio_base + monto_impuesto - monto_descuento xd
+    suelta_el_momo total xd
+fin_de_la_funcion xd
+
+momo_funcion evaluar_meta(ventas_totales, meta)
+    si_el_papu ventas_totales >= meta entonces
+        suelta_el_momo "Meta alcanzada con exito papu :v" xd
+    sino_callese_senora
+        suelta_el_momo "No se llego a la meta xd" xd
+    fin_del_momo xd
+fin_de_la_funcion xd
+
+# ----------------------------------------------------------
+# 2. Asignaciones y Llamadas a Funciones
+# ----------------------------------------------------------
+precio = 100000 xd
+iva = 19 xd
+rebaja = 10 xd
+
+precio_final = calcular_precio_final(precio, iva, rebaja) xd
+when haces "Precio final con funcion: " + precio_final xd
+
+mensaje_meta = evaluar_meta(precio_final, 80000) xd
+when haces "Evaluacion de meta: " + mensaje_meta xd
+
+# ----------------------------------------------------------
+# 3. Manejo de Condicionales (si_el_papu / sino_callese_senora)
+# ----------------------------------------------------------
+saldo = 250000 xd
+when haces "Probando condicional con saldo de: " + saldo xd
+
+si_el_papu saldo > 200000 entonces
+    when haces "El papu es millonario :v" xd
+sino_callese_senora
+    when haces "Toca chambear mas duro xd" xd
+fin_del_momo xd
+
+# ----------------------------------------------------------
+# 4. Ciclo Mientras (While Loop: mientras_el_papu)
+# ----------------------------------------------------------
+when haces "Iniciando ciclo mientras_el_papu:" xd
+contador = 1 xd
+mientras_el_papu contador <= 3 haz_esto
+    when haces "Iteracion mientras #" + contador xd
+    contador = contador + 1 xd
+fin_del_bucle xd
+
+# ----------------------------------------------------------
+# 5. Ciclo Para (For Loop: para_cada_papu desde .. hasta)
+# ----------------------------------------------------------
+when haces "Iniciando ciclo para_cada_papu:" xd
+para_cada_papu i desde 1 hasta 4 haz_esto
+    cuadrado = i * i xd
+    when haces "El cuadrado de " + i + " es: " + cuadrado xd
+fin_del_bucle xd
+
+when haces "=== FIN DE LA DEMOSTRACION :v ===" xd

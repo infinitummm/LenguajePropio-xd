@@ -5,8 +5,8 @@ Asignatura: Lenguajes de Programación y Transducción (2026-2)
 Universidad Sergio Arboleda
 
 Gestiona el contexto de ejecución, los identificadores en memoria,
-sus tipos de datos y la detección preventiva de errores semánticos
-(variables no declaradas, columnas inexistentes, tipos incompatibles).
+funciones de usuario, sus tipos de datos y la detección preventiva de
+errores semánticos (variables no declaradas, columnas inexistentes, tipos).
 """
 
 from src.core.datos_propios import TablaMomo, SerieMomo, AgrupamientoMomo
@@ -27,6 +27,19 @@ class ErrorSemantico(Exception):
             pos_str = f" [Línea {linea}" + (f", Col {columna}" if columna is not None else "") + "]"
         
         super().__init__(f"[Error Semántico xd]{pos_str}: {mensaje}")
+
+
+class SimboloFuncion:
+    """Representa una función definida por el usuario en MomoLang XD."""
+
+    def __init__(self, nombre, parametros, cuerpo_ctx, ambito_definicion):
+        self.nombre = nombre
+        self.parametros = parametros  # list of str
+        self.cuerpo_ctx = cuerpo_ctx  # AST node of bloque
+        self.ambito_definicion = ambito_definicion  # TablaSimbolos
+
+    def __repr__(self):
+        return f"MomoFuncion({self.nombre}({', '.join(self.parametros)}))"
 
 
 class Simbolo:
@@ -51,12 +64,14 @@ class TablaSimbolos:
         self.errores = []
 
     def crear_hijo(self):
-        """Crea un nuevo alcance subordinado (para bloques si_el_papu)."""
+        """Crea un nuevo alcance subordinado (para bloques, bucles y funciones)."""
         return TablaSimbolos(padre=self)
 
     def inferir_tipo(self, valor):
         """Determina la categoría de tipo de un valor en tiempo de ejecución."""
-        if isinstance(valor, TablaMomo):
+        if isinstance(valor, SimboloFuncion):
+            return "FUNCION"
+        elif isinstance(valor, TablaMomo):
             return "TABLA"
         elif isinstance(valor, AgrupamientoMomo):
             return "AGRUPAMIENTO"
@@ -88,6 +103,28 @@ class TablaSimbolos:
         self._simbolos[nombre] = simbolo
         return simbolo
 
+    def asignar_existente_o_local(self, nombre, valor, tipo=None):
+        """Actualiza la variable si ya existe en este scope o en padres; si no, la define localmente."""
+        if nombre in self._simbolos:
+            return self.definir(nombre, valor, tipo)
+        if self.padre and self.padre.existe(nombre):
+            return self.padre.asignar_existente_o_local(nombre, valor, tipo)
+        return self.definir(nombre, valor, tipo)
+
+    def definir_funcion(self, nombre, parametros, cuerpo_ctx):
+        """Registra una función definida por el usuario."""
+        func = SimboloFuncion(nombre, parametros, cuerpo_ctx, self)
+        self.definir(nombre, func, tipo="FUNCION")
+        return func
+
+    def obtener_funcion(self, nombre, linea=None, columna=None):
+        """Busca una función de usuario registrada."""
+        if nombre in self._simbolos and isinstance(self._simbolos[nombre].valor, SimboloFuncion):
+            return self._simbolos[nombre].valor
+        if self.padre:
+            return self.padre.obtener_funcion(nombre, linea, columna)
+        return None
+
     def existe(self, nombre):
         """Verifica si un identificador está definido en el alcance actual o padres."""
         if nombre in self._simbolos:
@@ -97,13 +134,12 @@ class TablaSimbolos:
         return False
 
     def obtener(self, nombre, linea=None, columna=None):
-        """Obtiene un símbolo o lanza un ErrorSemantico descriptivo si no existe."""
+        """Obtiene el valor de un símbolo o lanza ErrorSemantico si no existe."""
         if nombre in self._simbolos:
             return self._simbolos[nombre].valor
         if self.padre:
             return self.padre.obtener(nombre, linea, columna)
 
-        # Sugerencia de variables parecidas si hay error
         variables_disponibles = list(self.obtener_todas_las_variables().keys())
         msg = f"La variable '{nombre}' no ha sido declarada ni cargada antes de usarse."
         if variables_disponibles:

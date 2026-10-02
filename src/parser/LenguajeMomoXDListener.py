@@ -197,6 +197,60 @@ class LenguajeMomoXDListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeMomoXDParser#instruccionMientras.
+    def enterInstruccionMientras(self, ctx:LenguajeMomoXDParser.InstruccionMientrasContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#instruccionMientras.
+    def exitInstruccionMientras(self, ctx:LenguajeMomoXDParser.InstruccionMientrasContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#instruccionPara.
+    def enterInstruccionPara(self, ctx:LenguajeMomoXDParser.InstruccionParaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#instruccionPara.
+    def exitInstruccionPara(self, ctx:LenguajeMomoXDParser.InstruccionParaContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#definicionFuncion.
+    def enterDefinicionFuncion(self, ctx:LenguajeMomoXDParser.DefinicionFuncionContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#definicionFuncion.
+    def exitDefinicionFuncion(self, ctx:LenguajeMomoXDParser.DefinicionFuncionContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#listaParametros.
+    def enterListaParametros(self, ctx:LenguajeMomoXDParser.ListaParametrosContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#listaParametros.
+    def exitListaParametros(self, ctx:LenguajeMomoXDParser.ListaParametrosContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#parametro.
+    def enterParametro(self, ctx:LenguajeMomoXDParser.ParametroContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#parametro.
+    def exitParametro(self, ctx:LenguajeMomoXDParser.ParametroContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#instruccionRetorno.
+    def enterInstruccionRetorno(self, ctx:LenguajeMomoXDParser.InstruccionRetornoContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#instruccionRetorno.
+    def exitInstruccionRetorno(self, ctx:LenguajeMomoXDParser.InstruccionRetornoContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeMomoXDParser#bloque.
     def enterBloque(self, ctx:LenguajeMomoXDParser.BloqueContext):
         pass
@@ -212,6 +266,42 @@ class LenguajeMomoXDListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeMomoXDParser#expresionBooleana.
     def exitExpresionBooleana(self, ctx:LenguajeMomoXDParser.ExpresionBooleanaContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#expresionLogicaOr.
+    def enterExpresionLogicaOr(self, ctx:LenguajeMomoXDParser.ExpresionLogicaOrContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#expresionLogicaOr.
+    def exitExpresionLogicaOr(self, ctx:LenguajeMomoXDParser.ExpresionLogicaOrContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#expresionLogicaAnd.
+    def enterExpresionLogicaAnd(self, ctx:LenguajeMomoXDParser.ExpresionLogicaAndContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#expresionLogicaAnd.
+    def exitExpresionLogicaAnd(self, ctx:LenguajeMomoXDParser.ExpresionLogicaAndContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#expresionLogicaNot.
+    def enterExpresionLogicaNot(self, ctx:LenguajeMomoXDParser.ExpresionLogicaNotContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#expresionLogicaNot.
+    def exitExpresionLogicaNot(self, ctx:LenguajeMomoXDParser.ExpresionLogicaNotContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#expresionRelacional.
+    def enterExpresionRelacional(self, ctx:LenguajeMomoXDParser.ExpresionRelacionalContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#expresionRelacional.
+    def exitExpresionRelacional(self, ctx:LenguajeMomoXDParser.ExpresionRelacionalContext):
         pass
 
 
@@ -284,6 +374,15 @@ class LenguajeMomoXDListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeMomoXDParser#listaIDs.
     def exitListaIDs(self, ctx:LenguajeMomoXDParser.ListaIDsContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#idOAgg.
+    def enterIdOAgg(self, ctx:LenguajeMomoXDParser.IdOAggContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#idOAgg.
+    def exitIdOAgg(self, ctx:LenguajeMomoXDParser.IdOAggContext):
         pass
 
 

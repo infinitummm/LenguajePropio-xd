@@ -114,6 +114,36 @@ class LenguajeMomoXDVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeMomoXDParser#instruccionMientras.
+    def visitInstruccionMientras(self, ctx:LenguajeMomoXDParser.InstruccionMientrasContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#instruccionPara.
+    def visitInstruccionPara(self, ctx:LenguajeMomoXDParser.InstruccionParaContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#definicionFuncion.
+    def visitDefinicionFuncion(self, ctx:LenguajeMomoXDParser.DefinicionFuncionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#listaParametros.
+    def visitListaParametros(self, ctx:LenguajeMomoXDParser.ListaParametrosContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#parametro.
+    def visitParametro(self, ctx:LenguajeMomoXDParser.ParametroContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#instruccionRetorno.
+    def visitInstruccionRetorno(self, ctx:LenguajeMomoXDParser.InstruccionRetornoContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeMomoXDParser#bloque.
     def visitBloque(self, ctx:LenguajeMomoXDParser.BloqueContext):
         return self.visitChildren(ctx)
@@ -121,6 +151,26 @@ class LenguajeMomoXDVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeMomoXDParser#expresionBooleana.
     def visitExpresionBooleana(self, ctx:LenguajeMomoXDParser.ExpresionBooleanaContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#expresionLogicaOr.
+    def visitExpresionLogicaOr(self, ctx:LenguajeMomoXDParser.ExpresionLogicaOrContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#expresionLogicaAnd.
+    def visitExpresionLogicaAnd(self, ctx:LenguajeMomoXDParser.ExpresionLogicaAndContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#expresionLogicaNot.
+    def visitExpresionLogicaNot(self, ctx:LenguajeMomoXDParser.ExpresionLogicaNotContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#expresionRelacional.
+    def visitExpresionRelacional(self, ctx:LenguajeMomoXDParser.ExpresionRelacionalContext):
         return self.visitChildren(ctx)
 
 
@@ -161,6 +211,11 @@ class LenguajeMomoXDVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeMomoXDParser#listaIDs.
     def visitListaIDs(self, ctx:LenguajeMomoXDParser.ListaIDsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#idOAgg.
+    def visitIdOAgg(self, ctx:LenguajeMomoXDParser.IdOAggContext):
         return self.visitChildren(ctx)
 
 

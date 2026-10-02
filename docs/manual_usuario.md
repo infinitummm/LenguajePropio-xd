@@ -1,13 +1,13 @@
 # Manual de Usuario: MomoLang XD (.xd) :v
 ### Guía Completa de Uso y Funcionamiento del Lenguaje de la Grasa
 
-¡Bienvenido al manual oficial de **MomoLang XD**! Este documento está escrito en lenguaje natural, claro y directo para que entiendas sin rodeos cómo funciona el lenguaje, qué hace cada instrucción, cómo procesa los datos y cómo puedes crear tus propios programas de ciencia de datos sin complicarte la vida.
+¡Bienvenido al manual oficial de **MomoLang XD**! Este documento está escrito en lenguaje natural, claro y directo para que entiendas sin rodeos cómo funciona el lenguaje, qué hace cada instrucción, cómo procesa los datos y cómo puedes crear tus propios programas con asignaciones, condicionales, ciclos, funciones y análisis de datos sin depender de librerías externas.
 
 ---
 
 ## 1. ¿Qué es MomoLang XD?
 
-**MomoLang XD** es un Lenguaje de Dominio Específico (DSL) creado para manipular, transformar, filtrar y analizar tablas de datos (archivos CSV). 
+**MomoLang XD** es un Lenguaje de Programación y DSL creado tanto para programación general (control de flujo, funciones, variables) como para ciencia de datos (carga de CSV, transformaciones, filtros, agrupaciones y estadísticas).
 
 En lugar de usar la sintaxis fría y compleja de librerías tradicionales como Pandas o SQL, MomoLang utiliza la jerga y cultura de la grasa / momos de internet. Todo el motor de cálculo y procesamiento está construido en **Python Puro desde cero**, sin ninguna dependencia externa (cero Pandas, cero NumPy).
 
@@ -17,213 +17,161 @@ En lugar de usar la sintaxis fría y compleja de librerías tradicionales como P
 
 ---
 
-## 2. El Flujo de Datos: El Operador Tubería (`|:v>`)
+## 2. Variables y Asignación
 
-En MomoLang el análisis de datos se piensa como una línea de ensamblaje. Tienes una tabla inicial y la vas pasando por varias transformaciones hasta llegar al resultado final.
-
-Para conectar una operación con la siguiente usamos el operador de tubería:
-* **`|:v>`** (o su alias simplificado `|>`)
-
-Piensa en `|:v>` como un *"y luego hazle esto"*. Cada paso recibe la tabla transformada del paso anterior y le aplica una nueva acción.
-
----
-
-## 3. Catálogo de Instrucciones Explicadas Paso a Paso
-
-### 3.1 Imprimir mensajes en pantalla: `when haces`
-Sirve para mostrar mensajes de texto o valores en la consola mientras se ejecuta tu programa.
+En MomoLang puedes crear variables y asignarles cualquier valor (números enteros, decimales, texto, booleanos, resultados de operaciones, funciones o tablas completas):
 
 ```momo
-when haces "Iniciando el analisis de datos papu..." xd
-```
+# Variables numéricas y de texto
+precio = 50000 xd
+descuento_porcentaje = 10 xd
+nombre_cliente = "Dylan" xd
 
----
+# Asignación de expresiones aritméticas
+descuento = precio * descuento_porcentaje / 100 xd
+precio_final = precio - descuento xd
 
-### 3.2 Cargar un archivo CSV: `pasa_el_pack`
-Para comenzar a analizar información, necesitas cargar un archivo tabular (`.csv`).
-
-```momo
+# Asignación de tablas de datos
 ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
 ```
-* **¿Qué hace por debajo?** Nuestro parser propio lee el archivo caracter por caracter (sin usar el módulo `csv` ni pandas), limpia saltos de línea `\r\n`, detecta comillas y convierte automáticamente los números enteros y decimales para que queden listos para operar.
 
 ---
 
-### 3.3 Seleccionar columnas: `escojo_a`
-Si tu tabla tiene 20 columnas y solo te interesan 3, usas `escojo_a` con la lista de columnas entre corchetes `[...]`.
+## 3. Manejo de Condicionales (`si_el_papu` / `si_pasa_esto`)
+
+Permite ejecutar bloques de código de forma condicional evaluando comparaciones lógicas:
 
 ```momo
-tabla_reducida = ventas |:v> escojo_a [ciudad, categoria, precio] xd
+si_el_papu saldo > 200000 entonces
+    when haces "El papu tiene saldo suficiente :v" xd
+sino_callese_senora
+    when haces "Fondos insuficientes xd" xd
+fin_del_momo xd
 ```
-* **¿Qué hace?** Filtra verticalmente la tabla, descartando las columnas no mencionadas y dejando solo las que elegiste.
+
+* **Palabras reservadas aceptadas:**
+  * Para iniciar: `si_el_papu`, `si_pasa_esto`, `si`
+  * Para la rama afirmativa: `entonces`, `haz_esto`
+  * Para la rama alternativa: `sino_callese_senora`, `pero_si_no`, `sino`
+  * Para cerrar el bloque: `fin_del_momo`, `fin_del_si`
+
+### Operadores de Comparación y Lógicos:
+* Comparaciones: `==`, `!=`, `>`, `<`, `>=`, `<=`
+* Operadores lógicos: `y_ademas` (`&&`), `o_bien` (`||`), `no_es_cierto` (`!`)
 
 ---
 
-### 3.4 Filtrar filas: `but_te_enteras_que`
-Permite quedarte únicamente con los registros (filas) que cumplan una condición lógica.
+## 4. Ciclos y Bucles
+
+### 4.1 Bucle Mientras (`mientras_el_papu` / `mientras_tanto` / `mientras`)
+Repite un bloque de código mientras una condición lógica sea verdadera (ideal para contadores y algoritmos iterativos):
 
 ```momo
-ventas_grandes = ventas |:v> but_te_enteras_que unidades > 10 xd
+contador = 1 xd
+mientras_el_papu contador <= 5 haz_esto
+    when haces "Iteracion #" + contador xd
+    contador = contador + 1 xd
+fin_del_bucle xd
 ```
 
-También puedes combinar varias condiciones lógicas:
-* `y_ademas` (equivalente a `AND` o `&&`): Ambas condiciones deben ser verdaderas.
-* `o_bien` (equivalente a `OR` o `||`): Al menos una condición debe ser verdadera.
+### 4.2 Bucle Para (`para_cada_papu` / `por_cada_uno` / `para`)
+Itera automáticamente una variable sobre un rango numérico `desde ... hasta ...` de forma inclusiva:
 
 ```momo
-ventas_top = ventas 
-    |:v> but_te_enteras_que unidades >= 15 y_ademas precio > 50000 xd
+para_cada_papu i desde 1 hasta 4 haz_esto
+    cuadrado = i * i xd
+    when haces "El cuadrado de " + i + " es: " + cuadrado xd
+fin_del_bucle xd
 ```
-
-Operadores de comparación soportados:
-* `==` : Igual a
-* `!=` : Diferente de
-* `>`  : Mayor que
-* `<`  : Menor que
-* `>=` : Mayor o igual que
-* `<=` : Menor o igual que
 
 ---
 
-### 3.5 Crear o modificar columnas: `el_futuro_es_hoy_oiste_viejo`
-Cuando necesitas calcular un nuevo valor por cada fila a partir de columnas existentes (o valores numéricos), usas esta instrucción:
+## 5. Funciones Definidas por el Usuario (`momo_funcion`)
+
+Puedes crear tus propias subrutinas reutilizables con parámetros y devolver resultados usando sentencias de retorno:
 
 ```momo
-ventas_con_total = ventas 
-    |:v> el_futuro_es_hoy_oiste_viejo total = unidades * precio xd
+# Definición de la función
+momo_funcion calcular_precio_final(precio_base, impuesto, descuento)
+    monto_impuesto = precio_base * impuesto / 100 xd
+    monto_descuento = precio_base * descuento / 100 xd
+    total = precio_base + monto_impuesto - monto_descuento xd
+    suelta_el_momo total xd
+fin_de_la_funcion xd
+
+# Invocación de la función
+total_compra = calcular_precio_final(100000, 19, 10) xd
+when haces "Total a pagar: " + total_compra xd
 ```
 
-Operaciones matemáticas vectoriales soportadas:
-* `+` : Suma
-* `-` : Resta
-* `*` : Multiplicación
-* `/` : División (protegida contra divisiones entre cero)
-
-* **¿Cómo funciona internamente?** Nuestra clase `VectorMomo` toma las dos columnas numéricas y efectúa una operación elemento por elemento en paralelo en tiempo de ejecución, agregando la nueva columna a la tabla.
+* **Palabras para declarar funciones:** `momo_funcion`, `funcion_papu`, `rutina_momo`, `funcion`.
+* **Palabras de retorno:** `suelta_el_momo`, `retorna_el_pack`, `regresar`, `retornar`.
+* **Cierre de función:** `fin_de_la_funcion`, `fin_del_momo`.
+* Cada llamada a una función genera un **ámbito léxico local (scope)** independiente en la Tabla de Símbolos, protegiendo las variables locales de colisiones con el entorno global.
 
 ---
 
-### 3.6 Agrupar y calcular estadísticas: `juntar_a_la_grasa_por`
-Esta es la instrucción estrella para resumir información. Te permite agrupar filas por una o varias columnas categóricas (por ejemplo, agrupar por `ciudad` o por `categoria`) y calcular métricas matemáticas para cada grupo.
+## 6. Procesamiento de Datos y Tuberías (`|:v>`)
+
+Para el análisis de datos masivos, MomoLang utiliza el modelo de tubería con el operador `|:v>` (o `|>`).
 
 ```momo
-resumen_ventas = ventas_con_total 
+# 1. Cargar datos
+ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
+
+# 2. Filtrar filas y calcular columna con álgebra vectorial
+ventas_procesadas = ventas 
+    |:v> but_te_enteras_que unidades > 2
+    |:v> el_futuro_es_hoy_oiste_viejo subtotal = unidades * precio xd
+
+# 3. Agrupamiento por ciudad con métricas estadísticas
+resumen = ventas_procesadas 
     |:v> juntar_a_la_grasa_por [ciudad] calcular [
-        suma(total) como total_recaudado,
-        promedio(total) como ticket_promedio,
-        el_mas_pro(total) como venta_maxima,
-        contar_papus(unidades) como cantidad_operaciones
-    ] xd
+        suma(subtotal) como total_ciudad,
+        promedio(subtotal) como promedio_ciudad,
+        el_mas_pro(subtotal) como max_venta,
+        contar_papus(unidades) como cant_transacciones
+    ]
+    |:v> ordenar_a_los_papus total_ciudad de_arriba_a_abajo xd
+
+# 4. Exportar a CSV
+subir_al_grupo resumen en "salidas/reporte_ventas.csv" xd
 ```
 
-#### Funciones estadísticas disponibles:
+### Funciones Estadísticas Disponibles:
 | Función en MomoLang | ¿Qué calcula? |
 | :--- | :--- |
-| `suma(columna)` | Suma todos los valores numéricos del grupo. |
-| `promedio(columna)` / `media(columna)` | Promedio aritmético del grupo. |
-| `mediana(columna)` | Valor central del grupo ordenado. |
-| `el_mas_pro(columna)` / `maximo(columna)` | El valor más alto (máximo). |
-| `el_mas_manco(columna)` / `minimo(columna)` | El valor más bajo (mínimo). |
-| `desviacion_pro(columna)` | Desviación estándar poblacional/muestral. |
-| `contar_papus(columna)` | Cantidad total de registros en ese grupo. |
+| `suma(columna)` | Suma de valores del grupo. |
+| `promedio(columna)` / `media(columna)` | Promedio aritmético. |
+| `mediana(columna)` | Valor central ordenado. |
+| `el_mas_pro(columna)` / `maximo(columna)` | Valor máximo. |
+| `el_mas_manco(columna)` / `minimo(columna)` | Valor mínimo. |
+| `desviacion_pro(columna)` | Desviación estándar. |
+| `contar_papus(columna)` | Cantidad de registros en el grupo. |
 
 ---
 
-### 3.7 Ordenar registros: `ordenar_a_los_papus`
-Permite ordenar las filas de la tabla según los valores de una columna en orden ascendente o descendente.
+## 7. Ejecución de Programas
 
-```momo
-resumen_ordenado = resumen_ventas 
-    |:v> ordenar_a_los_papus total_recaudado de_arriba_a_abajo xd
-```
-
-* `de_arriba_a_abajo`: Orden descendente (de mayor a menor).
-* `de_abajo_a_arriba`: Orden ascendente (de menor a mayor).
-
----
-
-### 3.8 Guardar el resultado en un archivo CSV: `subir_al_grupo`
-Toda transformación que hagas en memoria puede guardarse en un archivo `.csv` final en tu disco duro para compartir o reportar.
-
-```momo
-subir_al_grupo resumen_ordenado en "salidas/reporte_ventas_final.csv" xd
-```
-* **¿Qué hace?** Nuestro exportador genera el archivo con sus encabezados y filas formateadas correctamente.
-
----
-
-### 3.9 Estructuras Condicionales: `si_pasa_esto` y `pero_si_no`
-MomoLang permite ejecutar bloques de código condicionalmente según variables numéricas o comparaciones:
-
-```momo
-si_pasa_esto (meta_superada > 1000000) {
-    when haces "Meta superada con honores papu :v" xd
-} pero_si_no {
-    when haces "Falta vender mas momos para la meta xd" xd
-} xd
-```
-
----
-
-## 4. Ejemplo Completo de Inicio a Fin
-
-A continuación tienes un ejemplo real y ejecutable (`ejemplos/programa_ventas_fase2.xd`):
-
-```momo
-when haces "=== ANALISIS DE VENTAS CON LIBRERIAS PROPIAS MOMOLANG ===" xd
-
-# 1. Cargar archivo CSV
-ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
-
-# 2. Filtrar y crear columna calculada con operaciones vectoriales
-ventas_filtradas = ventas 
-    |:v> but_te_enteras_que unidades > 2
-    |:v> el_futuro_es_hoy_oiste_viejo total_venta = unidades * precio xd
-
-# 3. Agrupamiento por ciudad con multiples funciones estadisticas
-resumen_ciudades = ventas_filtradas 
-    |:v> juntar_a_la_grasa_por [ciudad] calcular [
-        suma(total_venta) como total_recaudado,
-        promedio(total_venta) como ticket_promedio,
-        el_mas_pro(total_venta) como venta_maxima,
-        el_mas_manco(total_venta) como venta_minima,
-        contar_papus(unidades) como cantidad_ventas
-    ]
-    |:v> ordenar_a_los_papus total_recaudado de_arriba_a_abajo xd
-
-# 4. Guardar resultado final a disco
-subir_al_grupo resumen_ciudades en "salidas/reporte_ventas_ciudades.csv" xd
-
-when haces "Procesamiento completado y reporte guardado en salidas/reporte_ventas_ciudades.csv :v" xd
-```
-
----
-
-## 5. ¿Cómo Funcionan las Librerías Propias Internas?
-
-Para cumplir con las exigencias del proyecto y de la materia:
-1. **No se utiliza Pandas ni NumPy.**
-2. **`VectorMomo` (`src/core/matematica_propia.py`):** Modela columnas vectoriales numéricas. Implementa la sobrecarga de operadores matemáticos (`+`, `-`, `*`, `/`) y relacionales (`>`, `<`, `==`, etc.) en listas nativas de Python, junto con algoritmos estadísticos puros (suma, promedio, mediana con ordenamiento manual, desviación estándar con varianza y raíz cuadrada mediante exponente `** 0.5`).
-3. **`TablaMomo` (`src/core/datos_propios.py`):** Modela estructuras tabulares bidimensionales con nombres de métodos de momos (`escojo_a`, `but_te_enteras_que`, `el_futuro_es_hoy_oiste_viejo`, `juntar_a_la_grasa_por`, `ordenar_a_los_papus`, `pasa_el_pack`, `subir_al_grupo`).
-4. **`parsear_csv_propio`:** Un autómata finito determinista (FSM) que procesa archivos CSV respetando comillas, comas internas y conversiones de tipo sin usar el módulo `csv`.
-
----
-
-## 6. Comandos para Ejecutar Programas
-
-Puedes ejecutar cualquier programa `.xd` desde la terminal con el comando:
+A partir de la Fase 2, el comando ejecuta los programas **directamente** (sin carteles de validación sintáctica de la Fase 1):
 
 ```bash
-python3 ejecutar_dsl.py ejemplos/programa_ventas_fase2.xd
+python3 ejecutar_dsl.py ejemplos/programa_control_funciones.xd
 ```
 
-O si prefieres usar el `Makefile` simplificado:
+O utilizando los atajos del `Makefile`:
 
 ```bash
-make run-ventas          # Ejecuta el analisis de ventas
-make run-empleados       # Ejecuta el analisis de nomina de empleados
-make run-estudiantes     # Ejecuta el analisis de notas academicas
-make run-error-semantico # Muestra la deteccion de errores semanticos
+make run-control         # Demuestra asignación, condicionales, ciclos y funciones
+make run-completo        # Pipeline completo combinando funciones y datos CSV
+make run-ventas          # Análisis de ventas comerciales
+make run-empleados       # Análisis de nómina por departamento
+make run-estudiantes     # Rendimiento académico y notas
+make run-error-semantico # Detección diagnóstica de errores semánticos
 ```
 
-¡Y listo! Con esto tienes todo el conocimiento necesario para dominar y explicar MomoLang XD en tus presentaciones y defensas. :v
+Si deseas inspeccionar el árbol sintáctico jerárquico o validar la sintaxis, puedes agregar la bandera `--arbol` o `--validar`:
+
+```bash
+python3 ejecutar_dsl.py ejemplos/programa_control_funciones.xd --arbol
+```

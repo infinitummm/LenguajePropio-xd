@@ -143,6 +143,16 @@ Para cuando necesitas resumir la información.
 | `sacar_cuentas ...` | Calcula estadísticas sobre los grupos creados. | `\|:v> sacar_cuentas total = suma(ventas)` |
 | *Funciones:* | `suma()`, `promedio()`, `mediana()`, `el_mas_pro()` (máximo), `el_mas_manco()` (mínimo), `desviacion_pro()`, `contar_papus()` (contar filas). | `sacar_cuentas m = el_mas_pro(precio), n = contar_papus()` |
 
+### Control de Flujo y Funciones (Fase 2)
+| Instrucción | ¿Qué hace? | Ejemplo |
+| :--- | :--- | :--- |
+| `var = expr xd` | Asigna cualquier valor numérico, texto, función o tabla a una variable. | `total = cant * precio xd` |
+| `si_el_papu ... sino... fin_del_momo xd` | Bifurcación condicional evaluando expresiones booleanas. | `si_el_papu meta > 100 entonces ... fin_del_momo xd` |
+| `mientras_el_papu ... fin_del_bucle xd` | Bucle while que itera mientras la condición sea verdadera. | `mientras_el_papu c <= 3 haz_esto ... fin_del_bucle xd` |
+| `para_cada_papu ... fin_del_bucle xd` | Bucle for sobre un rango numérico de inicio a fin. | `para_cada_papu i desde 1 hasta 5 haz_esto ... fin_del_bucle xd` |
+| `momo_funcion ... fin_de_la_funcion xd` | Define una función reutilizable con parámetros. | `momo_funcion calc(a, b) ... fin_de_la_funcion xd` |
+| `suelta_el_momo expr xd` | Retorna un valor desde una función al llamador. | `suelta_el_momo a + b xd` |
+
 ### Gráficos
 Puedes generar 5 tipos de gráficos de forma sencilla:
 * `graficar_momos_en_barras`
@@ -164,6 +174,8 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 | `make help` | Muestra la lista de todos los comandos disponibles. |
 | `make build` | Compila la gramática ANTLR4 y genera el lexer/parser en Python. |
 | `make run` | Ejecuta el programa principal (`ejemplos/programa_correcto1.xd`). |
+| `make run-control` | Ejecuta el programa de control de flujo y funciones (`programa_control_funciones.xd`). |
+| `make run-completo` | Ejecuta el pipeline completo combinando funciones y datos CSV (`programa_analisis_completo.xd`). |
 | `make run-ventas` | Ejecuta el pipeline de ventas con agregaciones y filtros (`programa_ventas_fase2.xd`). |
 | `make run-empleados` | Ejecuta el análisis de nómina y departamentos (`programa_empleados_fase2.xd`). |
 | `make run-estudiantes` | Ejecuta el análisis de notas y rendimiento académico (`programa_estudiantes_fase2.xd`). |
@@ -174,9 +186,9 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 
 **Flujos de ejecución recomendados:**
 ```bash
-make run-ventas          # 1. Pipeline completo de ventas con CSV resultante
-make run-empleados       # 2. Pipeline de nómina por departamento
-make run-estudiantes     # 3. Pipeline académico por carrera
+make run-control         # 1. Asignaciones, condicionales, ciclos y funciones
+make run-completo        # 2. Pipeline integral de datos con funciones
+make run-ventas          # 3. Pipeline de ventas con CSV resultante
 make run-error-semantico # 4. Diagnóstico de errores semánticos
 ```
 

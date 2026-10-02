@@ -10,101 +10,162 @@ else:
 
 def serializedATN():
     return [
-        4,1,81,272,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
-        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
-        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
-        2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,1,0,5,0,64,8,0,10,0,12,0,
-        67,9,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-        1,1,1,1,1,1,1,1,1,1,1,3,1,89,8,1,1,2,1,2,1,2,1,2,1,3,1,3,1,3,5,3,
-        98,8,3,10,3,12,3,101,9,3,1,4,1,4,3,4,105,8,4,1,5,1,5,1,5,1,5,3,5,
-        111,8,5,1,6,1,6,1,6,1,6,3,6,117,8,6,1,7,1,7,1,7,1,7,1,7,1,8,1,8,
-        1,8,1,8,1,8,1,8,3,8,130,8,8,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,
-        1,11,3,11,141,8,11,1,12,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,14,
-        1,14,1,14,1,15,1,15,1,15,5,15,157,8,15,10,15,12,15,160,9,15,1,16,
-        1,16,1,16,1,16,1,16,3,16,167,8,16,1,16,1,16,1,17,1,17,1,18,1,18,
-        1,18,1,18,3,18,177,8,18,1,18,1,18,3,18,181,8,18,1,18,1,18,3,18,185,
-        8,18,1,18,1,18,3,18,189,8,18,1,19,1,19,1,20,1,20,1,20,1,20,1,20,
-        1,20,3,20,199,8,20,1,20,1,20,1,21,4,21,204,8,21,11,21,12,21,205,
-        1,22,1,22,1,22,1,22,1,23,1,23,1,24,1,24,1,24,5,24,217,8,24,10,24,
-        12,24,220,9,24,1,25,1,25,1,25,5,25,225,8,25,10,25,12,25,228,9,25,
-        1,26,1,26,1,26,1,26,1,26,1,26,1,26,1,26,3,26,238,8,26,1,27,1,27,
-        1,27,3,27,243,8,27,1,27,1,27,1,28,1,28,3,28,249,8,28,1,29,1,29,1,
-        29,5,29,254,8,29,10,29,12,29,257,9,29,1,30,1,30,1,30,1,30,5,30,263,
-        8,30,10,30,12,30,266,9,30,1,30,1,30,3,30,270,8,30,1,30,0,0,31,0,
-        2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,
-        48,50,52,54,56,58,60,0,14,1,0,5,7,1,0,8,9,1,0,10,12,1,0,13,16,1,
-        0,17,18,1,0,19,22,1,0,23,25,1,0,26,27,1,0,28,29,1,0,30,43,1,0,44,
-        48,1,0,71,76,1,0,65,66,1,0,67,70,276,0,65,1,0,0,0,2,88,1,0,0,0,4,
-        90,1,0,0,0,6,94,1,0,0,0,8,104,1,0,0,0,10,106,1,0,0,0,12,112,1,0,
-        0,0,14,118,1,0,0,0,16,129,1,0,0,0,18,131,1,0,0,0,20,134,1,0,0,0,
-        22,137,1,0,0,0,24,142,1,0,0,0,26,147,1,0,0,0,28,150,1,0,0,0,30,153,
-        1,0,0,0,32,161,1,0,0,0,34,170,1,0,0,0,36,172,1,0,0,0,38,190,1,0,
-        0,0,40,192,1,0,0,0,42,203,1,0,0,0,44,207,1,0,0,0,46,211,1,0,0,0,
-        48,213,1,0,0,0,50,221,1,0,0,0,52,237,1,0,0,0,54,239,1,0,0,0,56,248,
-        1,0,0,0,58,250,1,0,0,0,60,269,1,0,0,0,62,64,3,2,1,0,63,62,1,0,0,
-        0,64,67,1,0,0,0,65,63,1,0,0,0,65,66,1,0,0,0,66,68,1,0,0,0,67,65,
-        1,0,0,0,68,69,5,0,0,1,69,1,1,0,0,0,70,71,3,4,2,0,71,72,5,2,0,0,72,
-        89,1,0,0,0,73,74,3,12,6,0,74,75,5,2,0,0,75,89,1,0,0,0,76,77,3,14,
-        7,0,77,78,5,2,0,0,78,89,1,0,0,0,79,80,3,36,18,0,80,81,5,2,0,0,81,
-        89,1,0,0,0,82,83,3,40,20,0,83,84,5,2,0,0,84,89,1,0,0,0,85,86,3,48,
-        24,0,86,87,5,2,0,0,87,89,1,0,0,0,88,70,1,0,0,0,88,73,1,0,0,0,88,
-        76,1,0,0,0,88,79,1,0,0,0,88,82,1,0,0,0,88,85,1,0,0,0,89,3,1,0,0,
-        0,90,91,5,77,0,0,91,92,5,1,0,0,92,93,3,6,3,0,93,5,1,0,0,0,94,99,
-        3,8,4,0,95,96,5,3,0,0,96,98,3,16,8,0,97,95,1,0,0,0,98,101,1,0,0,
-        0,99,97,1,0,0,0,99,100,1,0,0,0,100,7,1,0,0,0,101,99,1,0,0,0,102,
-        105,3,10,5,0,103,105,3,48,24,0,104,102,1,0,0,0,104,103,1,0,0,0,105,
-        9,1,0,0,0,106,107,7,0,0,0,107,110,5,79,0,0,108,109,5,53,0,0,109,
-        111,5,79,0,0,110,108,1,0,0,0,110,111,1,0,0,0,111,11,1,0,0,0,112,
-        116,5,4,0,0,113,117,3,48,24,0,114,117,5,79,0,0,115,117,5,77,0,0,
-        116,113,1,0,0,0,116,114,1,0,0,0,116,115,1,0,0,0,117,13,1,0,0,0,118,
-        119,7,1,0,0,119,120,5,77,0,0,120,121,5,54,0,0,121,122,5,79,0,0,122,
-        15,1,0,0,0,123,130,3,18,9,0,124,130,3,20,10,0,125,130,3,22,11,0,
-        126,130,3,24,12,0,127,130,3,26,13,0,128,130,3,28,14,0,129,123,1,
-        0,0,0,129,124,1,0,0,0,129,125,1,0,0,0,129,126,1,0,0,0,129,127,1,
-        0,0,0,129,128,1,0,0,0,130,17,1,0,0,0,131,132,7,2,0,0,132,133,3,60,
-        30,0,133,19,1,0,0,0,134,135,7,3,0,0,135,136,3,44,22,0,136,21,1,0,
-        0,0,137,138,7,4,0,0,138,140,5,77,0,0,139,141,7,5,0,0,140,139,1,0,
-        0,0,140,141,1,0,0,0,141,23,1,0,0,0,142,143,7,6,0,0,143,144,5,77,
-        0,0,144,145,5,1,0,0,145,146,3,48,24,0,146,25,1,0,0,0,147,148,7,7,
-        0,0,148,149,3,60,30,0,149,27,1,0,0,0,150,151,7,8,0,0,151,152,3,30,
-        15,0,152,29,1,0,0,0,153,158,3,32,16,0,154,155,5,59,0,0,155,157,3,
-        32,16,0,156,154,1,0,0,0,157,160,1,0,0,0,158,156,1,0,0,0,158,159,
-        1,0,0,0,159,31,1,0,0,0,160,158,1,0,0,0,161,162,5,77,0,0,162,163,
-        5,1,0,0,163,164,3,34,17,0,164,166,5,61,0,0,165,167,5,77,0,0,166,
-        165,1,0,0,0,166,167,1,0,0,0,167,168,1,0,0,0,168,169,5,62,0,0,169,
-        33,1,0,0,0,170,171,7,9,0,0,171,35,1,0,0,0,172,173,3,38,19,0,173,
-        176,5,77,0,0,174,175,5,55,0,0,175,177,5,79,0,0,176,174,1,0,0,0,176,
-        177,1,0,0,0,177,180,1,0,0,0,178,179,5,56,0,0,179,181,5,79,0,0,180,
-        178,1,0,0,0,180,181,1,0,0,0,181,184,1,0,0,0,182,183,5,57,0,0,183,
-        185,5,79,0,0,184,182,1,0,0,0,184,185,1,0,0,0,185,188,1,0,0,0,186,
-        187,5,58,0,0,187,189,5,79,0,0,188,186,1,0,0,0,188,189,1,0,0,0,189,
-        37,1,0,0,0,190,191,7,10,0,0,191,39,1,0,0,0,192,193,5,49,0,0,193,
-        194,3,44,22,0,194,195,5,50,0,0,195,198,3,42,21,0,196,197,5,51,0,
-        0,197,199,3,42,21,0,198,196,1,0,0,0,198,199,1,0,0,0,199,200,1,0,
-        0,0,200,201,5,52,0,0,201,41,1,0,0,0,202,204,3,2,1,0,203,202,1,0,
-        0,0,204,205,1,0,0,0,205,203,1,0,0,0,205,206,1,0,0,0,206,43,1,0,0,
-        0,207,208,3,48,24,0,208,209,3,46,23,0,209,210,3,48,24,0,210,45,1,
-        0,0,0,211,212,7,11,0,0,212,47,1,0,0,0,213,218,3,50,25,0,214,215,
-        7,12,0,0,215,217,3,50,25,0,216,214,1,0,0,0,217,220,1,0,0,0,218,216,
-        1,0,0,0,218,219,1,0,0,0,219,49,1,0,0,0,220,218,1,0,0,0,221,226,3,
-        52,26,0,222,223,7,13,0,0,223,225,3,52,26,0,224,222,1,0,0,0,225,228,
-        1,0,0,0,226,224,1,0,0,0,226,227,1,0,0,0,227,51,1,0,0,0,228,226,1,
-        0,0,0,229,230,5,61,0,0,230,231,3,48,24,0,231,232,5,62,0,0,232,238,
-        1,0,0,0,233,238,3,54,27,0,234,238,5,77,0,0,235,238,5,78,0,0,236,
-        238,5,79,0,0,237,229,1,0,0,0,237,233,1,0,0,0,237,234,1,0,0,0,237,
-        235,1,0,0,0,237,236,1,0,0,0,238,53,1,0,0,0,239,240,3,56,28,0,240,
-        242,5,61,0,0,241,243,3,58,29,0,242,241,1,0,0,0,242,243,1,0,0,0,243,
-        244,1,0,0,0,244,245,5,62,0,0,245,55,1,0,0,0,246,249,5,77,0,0,247,
-        249,3,34,17,0,248,246,1,0,0,0,248,247,1,0,0,0,249,57,1,0,0,0,250,
-        255,3,48,24,0,251,252,5,59,0,0,252,254,3,48,24,0,253,251,1,0,0,0,
-        254,257,1,0,0,0,255,253,1,0,0,0,255,256,1,0,0,0,256,59,1,0,0,0,257,
-        255,1,0,0,0,258,259,5,63,0,0,259,264,5,77,0,0,260,261,5,59,0,0,261,
-        263,5,77,0,0,262,260,1,0,0,0,263,266,1,0,0,0,264,262,1,0,0,0,264,
-        265,1,0,0,0,265,267,1,0,0,0,266,264,1,0,0,0,267,270,5,64,0,0,268,
-        270,5,77,0,0,269,258,1,0,0,0,269,268,1,0,0,0,270,61,1,0,0,0,24,65,
-        88,99,104,110,116,129,140,158,166,176,180,184,188,198,205,218,226,
-        237,242,248,255,264,269
+        4,1,113,421,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,
+        7,6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,
+        13,2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,
+        20,7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,
+        26,2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,
+        33,7,33,2,34,7,34,2,35,7,35,2,36,7,36,2,37,7,37,2,38,7,38,2,39,7,
+        39,2,40,7,40,2,41,7,41,1,0,5,0,86,8,0,10,0,12,0,89,9,0,1,0,1,0,1,
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,3,1,126,8,1,1,2,1,2,1,2,1,2,1,3,1,3,1,3,5,3,135,8,3,10,3,12,3,
+        138,9,3,1,4,1,4,3,4,142,8,4,1,5,1,5,1,5,1,5,3,5,148,8,5,1,6,1,6,
+        1,6,1,6,3,6,154,8,6,1,7,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,1,8,1,8,
+        3,8,167,8,8,1,9,1,9,1,9,1,10,1,10,1,10,1,11,1,11,1,11,3,11,178,8,
+        11,1,12,1,12,1,12,1,12,1,12,1,13,1,13,1,13,1,13,3,13,189,8,13,1,
+        13,1,13,3,13,193,8,13,3,13,195,8,13,1,14,1,14,3,14,199,8,14,1,14,
+        1,14,3,14,203,8,14,1,15,1,15,1,15,5,15,208,8,15,10,15,12,15,211,
+        9,15,1,16,1,16,1,16,1,16,1,16,1,16,3,16,219,8,16,1,16,1,16,1,16,
+        1,16,1,16,1,16,3,16,227,8,16,1,16,1,16,1,16,3,16,232,8,16,3,16,234,
+        8,16,1,17,1,17,1,18,1,18,1,18,1,18,3,18,242,8,18,1,18,1,18,3,18,
+        246,8,18,1,18,1,18,3,18,250,8,18,1,18,1,18,3,18,254,8,18,1,19,1,
+        19,1,20,1,20,1,20,3,20,261,8,20,1,20,1,20,1,20,3,20,266,8,20,1,20,
+        1,20,1,21,1,21,1,21,3,21,273,8,21,1,21,1,21,1,21,1,22,1,22,1,22,
+        1,22,1,22,1,22,1,22,3,22,285,8,22,1,22,1,22,1,22,1,23,1,23,1,23,
+        1,23,3,23,294,8,23,1,23,1,23,1,23,1,23,1,24,1,24,1,24,5,24,303,8,
+        24,10,24,12,24,306,9,24,1,25,1,25,3,25,310,8,25,1,26,1,26,3,26,314,
+        8,26,1,27,4,27,317,8,27,11,27,12,27,318,1,28,1,28,1,29,1,29,1,29,
+        5,29,326,8,29,10,29,12,29,329,9,29,1,30,1,30,1,30,5,30,334,8,30,
+        10,30,12,30,337,9,30,1,31,3,31,340,8,31,1,31,1,31,1,32,1,32,1,32,
+        1,32,1,32,1,32,1,32,1,32,1,32,3,32,353,8,32,1,33,1,33,1,34,1,34,
+        1,34,5,34,360,8,34,10,34,12,34,363,9,34,1,35,1,35,1,35,5,35,368,
+        8,35,10,35,12,35,371,9,35,1,36,1,36,1,36,1,36,1,36,1,36,1,36,1,36,
+        1,36,3,36,382,8,36,1,37,1,37,1,37,3,37,387,8,37,1,37,1,37,1,38,1,
+        38,3,38,393,8,38,1,39,1,39,1,39,5,39,398,8,39,10,39,12,39,401,9,
+        39,1,40,1,40,1,40,1,40,5,40,407,8,40,10,40,12,40,410,9,40,1,40,1,
+        40,1,40,3,40,415,8,40,1,41,1,41,3,41,419,8,41,1,41,0,0,42,0,2,4,
+        6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,
+        50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,0,28,1,0,5,7,
+        1,0,8,9,1,0,10,12,1,0,13,16,1,0,17,18,1,0,19,22,1,0,23,25,1,0,26,
+        27,2,0,28,28,30,30,1,0,28,30,1,0,32,45,1,0,46,50,1,0,51,53,1,0,54,
+        55,1,0,56,58,2,0,59,59,78,78,1,0,60,62,2,0,63,63,78,78,1,0,64,66,
+        1,0,69,72,2,0,73,73,78,78,1,0,74,77,2,0,80,80,83,83,2,0,79,79,82,
+        82,2,0,81,81,84,84,1,0,103,108,1,0,97,98,1,0,99,102,443,0,87,1,0,
+        0,0,2,125,1,0,0,0,4,127,1,0,0,0,6,131,1,0,0,0,8,141,1,0,0,0,10,143,
+        1,0,0,0,12,149,1,0,0,0,14,155,1,0,0,0,16,166,1,0,0,0,18,168,1,0,
+        0,0,20,171,1,0,0,0,22,174,1,0,0,0,24,179,1,0,0,0,26,184,1,0,0,0,
+        28,196,1,0,0,0,30,204,1,0,0,0,32,233,1,0,0,0,34,235,1,0,0,0,36,237,
+        1,0,0,0,38,255,1,0,0,0,40,257,1,0,0,0,42,269,1,0,0,0,44,277,1,0,
+        0,0,46,289,1,0,0,0,48,299,1,0,0,0,50,309,1,0,0,0,52,311,1,0,0,0,
+        54,316,1,0,0,0,56,320,1,0,0,0,58,322,1,0,0,0,60,330,1,0,0,0,62,339,
+        1,0,0,0,64,352,1,0,0,0,66,354,1,0,0,0,68,356,1,0,0,0,70,364,1,0,
+        0,0,72,381,1,0,0,0,74,383,1,0,0,0,76,392,1,0,0,0,78,394,1,0,0,0,
+        80,414,1,0,0,0,82,418,1,0,0,0,84,86,3,2,1,0,85,84,1,0,0,0,86,89,
+        1,0,0,0,87,85,1,0,0,0,87,88,1,0,0,0,88,90,1,0,0,0,89,87,1,0,0,0,
+        90,91,5,0,0,1,91,1,1,0,0,0,92,93,3,4,2,0,93,94,5,2,0,0,94,126,1,
+        0,0,0,95,96,3,12,6,0,96,97,5,2,0,0,97,126,1,0,0,0,98,99,3,14,7,0,
+        99,100,5,2,0,0,100,126,1,0,0,0,101,102,3,36,18,0,102,103,5,2,0,0,
+        103,126,1,0,0,0,104,105,3,40,20,0,105,106,5,2,0,0,106,126,1,0,0,
+        0,107,108,3,42,21,0,108,109,5,2,0,0,109,126,1,0,0,0,110,111,3,44,
+        22,0,111,112,5,2,0,0,112,126,1,0,0,0,113,114,3,46,23,0,114,115,5,
+        2,0,0,115,126,1,0,0,0,116,117,3,52,26,0,117,118,5,2,0,0,118,126,
+        1,0,0,0,119,120,3,74,37,0,120,121,5,2,0,0,121,126,1,0,0,0,122,123,
+        3,68,34,0,123,124,5,2,0,0,124,126,1,0,0,0,125,92,1,0,0,0,125,95,
+        1,0,0,0,125,98,1,0,0,0,125,101,1,0,0,0,125,104,1,0,0,0,125,107,1,
+        0,0,0,125,110,1,0,0,0,125,113,1,0,0,0,125,116,1,0,0,0,125,119,1,
+        0,0,0,125,122,1,0,0,0,126,3,1,0,0,0,127,128,5,109,0,0,128,129,5,
+        1,0,0,129,130,3,6,3,0,130,5,1,0,0,0,131,136,3,8,4,0,132,133,5,3,
+        0,0,133,135,3,16,8,0,134,132,1,0,0,0,135,138,1,0,0,0,136,134,1,0,
+        0,0,136,137,1,0,0,0,137,7,1,0,0,0,138,136,1,0,0,0,139,142,3,10,5,
+        0,140,142,3,68,34,0,141,139,1,0,0,0,141,140,1,0,0,0,142,9,1,0,0,
+        0,143,144,7,0,0,0,144,147,5,111,0,0,145,146,5,85,0,0,146,148,5,111,
+        0,0,147,145,1,0,0,0,147,148,1,0,0,0,148,11,1,0,0,0,149,153,5,4,0,
+        0,150,154,3,68,34,0,151,154,5,111,0,0,152,154,5,109,0,0,153,150,
+        1,0,0,0,153,151,1,0,0,0,153,152,1,0,0,0,154,13,1,0,0,0,155,156,7,
+        1,0,0,156,157,5,109,0,0,157,158,5,86,0,0,158,159,5,111,0,0,159,15,
+        1,0,0,0,160,167,3,18,9,0,161,167,3,20,10,0,162,167,3,22,11,0,163,
+        167,3,24,12,0,164,167,3,26,13,0,165,167,3,28,14,0,166,160,1,0,0,
+        0,166,161,1,0,0,0,166,162,1,0,0,0,166,163,1,0,0,0,166,164,1,0,0,
+        0,166,165,1,0,0,0,167,17,1,0,0,0,168,169,7,2,0,0,169,170,3,80,40,
+        0,170,19,1,0,0,0,171,172,7,3,0,0,172,173,3,56,28,0,173,21,1,0,0,
+        0,174,175,7,4,0,0,175,177,5,109,0,0,176,178,7,5,0,0,177,176,1,0,
+        0,0,177,178,1,0,0,0,178,23,1,0,0,0,179,180,7,6,0,0,180,181,5,109,
+        0,0,181,182,5,1,0,0,182,183,3,68,34,0,183,25,1,0,0,0,184,185,7,7,
+        0,0,185,194,3,80,40,0,186,188,7,8,0,0,187,189,5,95,0,0,188,187,1,
+        0,0,0,188,189,1,0,0,0,189,190,1,0,0,0,190,192,3,30,15,0,191,193,
+        5,96,0,0,192,191,1,0,0,0,192,193,1,0,0,0,193,195,1,0,0,0,194,186,
+        1,0,0,0,194,195,1,0,0,0,195,27,1,0,0,0,196,198,7,9,0,0,197,199,5,
+        95,0,0,198,197,1,0,0,0,198,199,1,0,0,0,199,200,1,0,0,0,200,202,3,
+        30,15,0,201,203,5,96,0,0,202,201,1,0,0,0,202,203,1,0,0,0,203,29,
+        1,0,0,0,204,209,3,32,16,0,205,206,5,91,0,0,206,208,3,32,16,0,207,
+        205,1,0,0,0,208,211,1,0,0,0,209,207,1,0,0,0,209,210,1,0,0,0,210,
+        31,1,0,0,0,211,209,1,0,0,0,212,213,5,109,0,0,213,214,5,1,0,0,214,
+        215,3,34,17,0,215,218,5,93,0,0,216,219,5,109,0,0,217,219,3,34,17,
+        0,218,216,1,0,0,0,218,217,1,0,0,0,218,219,1,0,0,0,219,220,1,0,0,
+        0,220,221,5,94,0,0,221,234,1,0,0,0,222,223,3,34,17,0,223,226,5,93,
+        0,0,224,227,5,109,0,0,225,227,3,34,17,0,226,224,1,0,0,0,226,225,
+        1,0,0,0,226,227,1,0,0,0,227,228,1,0,0,0,228,231,5,94,0,0,229,230,
+        5,31,0,0,230,232,5,109,0,0,231,229,1,0,0,0,231,232,1,0,0,0,232,234,
+        1,0,0,0,233,212,1,0,0,0,233,222,1,0,0,0,234,33,1,0,0,0,235,236,7,
+        10,0,0,236,35,1,0,0,0,237,238,3,38,19,0,238,241,5,109,0,0,239,240,
+        5,87,0,0,240,242,5,111,0,0,241,239,1,0,0,0,241,242,1,0,0,0,242,245,
+        1,0,0,0,243,244,5,88,0,0,244,246,5,111,0,0,245,243,1,0,0,0,245,246,
+        1,0,0,0,246,249,1,0,0,0,247,248,5,89,0,0,248,250,5,111,0,0,249,247,
+        1,0,0,0,249,250,1,0,0,0,250,253,1,0,0,0,251,252,5,90,0,0,252,254,
+        5,111,0,0,253,251,1,0,0,0,253,254,1,0,0,0,254,37,1,0,0,0,255,256,
+        7,11,0,0,256,39,1,0,0,0,257,258,7,12,0,0,258,260,3,56,28,0,259,261,
+        7,13,0,0,260,259,1,0,0,0,260,261,1,0,0,0,261,262,1,0,0,0,262,265,
+        3,54,27,0,263,264,7,14,0,0,264,266,3,54,27,0,265,263,1,0,0,0,265,
+        266,1,0,0,0,266,267,1,0,0,0,267,268,7,15,0,0,268,41,1,0,0,0,269,
+        270,7,16,0,0,270,272,3,56,28,0,271,273,7,13,0,0,272,271,1,0,0,0,
+        272,273,1,0,0,0,273,274,1,0,0,0,274,275,3,54,27,0,275,276,7,17,0,
+        0,276,43,1,0,0,0,277,278,7,18,0,0,278,279,5,109,0,0,279,280,5,67,
+        0,0,280,281,3,68,34,0,281,282,5,68,0,0,282,284,3,68,34,0,283,285,
+        7,13,0,0,284,283,1,0,0,0,284,285,1,0,0,0,285,286,1,0,0,0,286,287,
+        3,54,27,0,287,288,7,17,0,0,288,45,1,0,0,0,289,290,7,19,0,0,290,291,
+        5,109,0,0,291,293,5,93,0,0,292,294,3,48,24,0,293,292,1,0,0,0,293,
+        294,1,0,0,0,294,295,1,0,0,0,295,296,5,94,0,0,296,297,3,54,27,0,297,
+        298,7,20,0,0,298,47,1,0,0,0,299,304,3,50,25,0,300,301,5,91,0,0,301,
+        303,3,50,25,0,302,300,1,0,0,0,303,306,1,0,0,0,304,302,1,0,0,0,304,
+        305,1,0,0,0,305,49,1,0,0,0,306,304,1,0,0,0,307,310,5,109,0,0,308,
+        310,3,34,17,0,309,307,1,0,0,0,309,308,1,0,0,0,310,51,1,0,0,0,311,
+        313,7,21,0,0,312,314,3,68,34,0,313,312,1,0,0,0,313,314,1,0,0,0,314,
+        53,1,0,0,0,315,317,3,2,1,0,316,315,1,0,0,0,317,318,1,0,0,0,318,316,
+        1,0,0,0,318,319,1,0,0,0,319,55,1,0,0,0,320,321,3,58,29,0,321,57,
+        1,0,0,0,322,327,3,60,30,0,323,324,7,22,0,0,324,326,3,60,30,0,325,
+        323,1,0,0,0,326,329,1,0,0,0,327,325,1,0,0,0,327,328,1,0,0,0,328,
+        59,1,0,0,0,329,327,1,0,0,0,330,335,3,62,31,0,331,332,7,23,0,0,332,
+        334,3,62,31,0,333,331,1,0,0,0,334,337,1,0,0,0,335,333,1,0,0,0,335,
+        336,1,0,0,0,336,61,1,0,0,0,337,335,1,0,0,0,338,340,7,24,0,0,339,
+        338,1,0,0,0,339,340,1,0,0,0,340,341,1,0,0,0,341,342,3,64,32,0,342,
+        63,1,0,0,0,343,344,5,93,0,0,344,345,3,56,28,0,345,346,5,94,0,0,346,
+        353,1,0,0,0,347,348,3,68,34,0,348,349,3,66,33,0,349,350,3,68,34,
+        0,350,353,1,0,0,0,351,353,3,68,34,0,352,343,1,0,0,0,352,347,1,0,
+        0,0,352,351,1,0,0,0,353,65,1,0,0,0,354,355,7,25,0,0,355,67,1,0,0,
+        0,356,361,3,70,35,0,357,358,7,26,0,0,358,360,3,70,35,0,359,357,1,
+        0,0,0,360,363,1,0,0,0,361,359,1,0,0,0,361,362,1,0,0,0,362,69,1,0,
+        0,0,363,361,1,0,0,0,364,369,3,72,36,0,365,366,7,27,0,0,366,368,3,
+        72,36,0,367,365,1,0,0,0,368,371,1,0,0,0,369,367,1,0,0,0,369,370,
+        1,0,0,0,370,71,1,0,0,0,371,369,1,0,0,0,372,373,5,93,0,0,373,374,
+        3,68,34,0,374,375,5,94,0,0,375,382,1,0,0,0,376,382,3,74,37,0,377,
+        382,5,109,0,0,378,382,3,34,17,0,379,382,5,110,0,0,380,382,5,111,
+        0,0,381,372,1,0,0,0,381,376,1,0,0,0,381,377,1,0,0,0,381,378,1,0,
+        0,0,381,379,1,0,0,0,381,380,1,0,0,0,382,73,1,0,0,0,383,384,3,76,
+        38,0,384,386,5,93,0,0,385,387,3,78,39,0,386,385,1,0,0,0,386,387,
+        1,0,0,0,387,388,1,0,0,0,388,389,5,94,0,0,389,75,1,0,0,0,390,393,
+        5,109,0,0,391,393,3,34,17,0,392,390,1,0,0,0,392,391,1,0,0,0,393,
+        77,1,0,0,0,394,399,3,68,34,0,395,396,5,91,0,0,396,398,3,68,34,0,
+        397,395,1,0,0,0,398,401,1,0,0,0,399,397,1,0,0,0,399,400,1,0,0,0,
+        400,79,1,0,0,0,401,399,1,0,0,0,402,403,5,95,0,0,403,408,3,82,41,
+        0,404,405,5,91,0,0,405,407,3,82,41,0,406,404,1,0,0,0,407,410,1,0,
+        0,0,408,406,1,0,0,0,408,409,1,0,0,0,409,411,1,0,0,0,410,408,1,0,
+        0,0,411,412,5,96,0,0,412,415,1,0,0,0,413,415,3,82,41,0,414,402,1,
+        0,0,0,414,413,1,0,0,0,415,81,1,0,0,0,416,419,5,109,0,0,417,419,3,
+        34,17,0,418,416,1,0,0,0,418,417,1,0,0,0,419,83,1,0,0,0,44,87,125,
+        136,141,147,153,166,177,188,192,194,198,202,209,218,226,231,233,
+        241,245,249,253,260,265,272,284,293,304,309,313,318,327,335,339,
+        352,361,369,381,386,392,399,408,414,418
     ]
 
 class LenguajeMomoXDParser ( Parser ):
@@ -124,12 +185,19 @@ class LenguajeMomoXDParser ( Parser ):
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                      "'ascendente'", "'descendente'", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "'calcular'", "'como'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'promedio'", "'media'", 
+                     "'mediana'", "<INVALID>", "'maximo'", "<INVALID>", 
+                     "'minimo'", "<INVALID>", "'conteo'", "<INVALID>", "<INVALID>", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "<INVALID>", "'promedio'", "'media'", "'mediana'", 
-                     "<INVALID>", "'maximo'", "<INVALID>", "'minimo'", "<INVALID>", 
-                     "'conteo'", "<INVALID>", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'si'", "'entonces'", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'sino'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "'mientras'", "<INVALID>", "<INVALID>", 
+                     "<INVALID>", "'para'", "'desde'", "'hasta'", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'funcion'", "<INVALID>", 
+                     "<INVALID>", "<INVALID>", "'regresar'", "'retornar'", 
                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                     "'entonces'", "<INVALID>", "<INVALID>", "'separador'", 
+                     "<INVALID>", "<INVALID>", "<INVALID>", "'separador'", 
                      "'en'", "'titulo'", "<INVALID>", "<INVALID>", "'guardar'", 
                      "','", "':'", "'('", "')'", "'['", "']'", "'+'", "'-'", 
                      "'*'", "'/'", "'%'", "'^'", "'>='", "'<='", "'=='", 
@@ -144,19 +212,26 @@ class LenguajeMomoXDParser ( Parser ):
                       "ASCENDENTE", "DESCENDENTE", "EL_FUTURO_ES_HOY_OISTE_VIEJO", 
                       "METANLE_SABOR_A", "CREAR_MOMO", "JUNTAR_A_LA_GRASA_POR", 
                       "AGRUPAR_A_LOS_PAPUS_POR", "SACAR_CUENTAS", "RESUMIR_MOMOS", 
-                      "SUMA", "MULTIPLICACION", "RESTA", "DIVISION", "PROMEDIO", 
-                      "MEDIA", "MEDIANA", "EL_MAS_PRO", "MAXIMO", "EL_MAS_MANCO", 
-                      "MINIMO", "CONTAR_PAPUS", "CONTEO", "DESVIACION_PRO", 
-                      "GRAFICAR_MOMOS_EN_BARRAS", "GRAFICAR_MOMOS_EN_LINEAS", 
-                      "GRAFICAR_MOMOS_EN_HISTOGRAMA", "GRAFICAR_MOMOS_EN_DISPERSION", 
-                      "GRAFICAR_MOMOS_EN_CAJAS", "SI_EL_PAPU", "ENTONCES", 
-                      "SINO_CALLESE_SENORA", "FIN_DEL_MOMO", "SEPARADOR", 
-                      "EN", "TITULO", "EJE_X", "EJE_Y", "GUARDAR", "COMA", 
-                      "DOS_PUNTOS", "PAREN_IZQ", "PAREN_DER", "CORCH_IZQ", 
-                      "CORCH_DER", "MAS", "MENOS", "MULT", "DIV", "MOD", 
-                      "POT", "MAYOR_IGUAL", "MENOR_IGUAL", "IGUAL_IGUAL", 
-                      "DIFERENTE", "MAYOR", "MENOR", "ID", "NUMERO", "CADENA", 
-                      "COMENTARIO", "WS" ]
+                      "CALCULAR", "COMO", "SUMA", "MULTIPLICACION", "RESTA", 
+                      "DIVISION", "PROMEDIO", "MEDIA", "MEDIANA", "EL_MAS_PRO", 
+                      "MAXIMO", "EL_MAS_MANCO", "MINIMO", "CONTAR_PAPUS", 
+                      "CONTEO", "DESVIACION_PRO", "GRAFICAR_MOMOS_EN_BARRAS", 
+                      "GRAFICAR_MOMOS_EN_LINEAS", "GRAFICAR_MOMOS_EN_HISTOGRAMA", 
+                      "GRAFICAR_MOMOS_EN_DISPERSION", "GRAFICAR_MOMOS_EN_CAJAS", 
+                      "SI_EL_PAPU", "SI_PASA_ESTO", "SI", "ENTONCES", "HAZ_ESTO", 
+                      "SINO_CALLESE_SENORA", "PERO_SI_NO", "SINO", "FIN_DEL_SI", 
+                      "MIENTRAS_EL_PAPU", "MIENTRAS_TANTO", "MIENTRAS", 
+                      "FIN_DEL_BUCLE", "PARA_CADA_PAPU", "POR_CADA_UNO", 
+                      "PARA", "DESDE", "HASTA", "MOMO_FUNCION", "FUNCION_PAPU", 
+                      "RUTINA_MOMO", "FUNCION", "FIN_DE_LA_FUNCION", "SUELTA_EL_MOMO", 
+                      "RETORNA_EL_PACK", "REGRESAR", "RETORNAR", "FIN_DEL_MOMO", 
+                      "Y_ADEMAS", "O_BIEN", "NO_ES_CIERTO", "AND_OP", "OR_OP", 
+                      "NOT_OP", "SEPARADOR", "EN", "TITULO", "EJE_X", "EJE_Y", 
+                      "GUARDAR", "COMA", "DOS_PUNTOS", "PAREN_IZQ", "PAREN_DER", 
+                      "CORCH_IZQ", "CORCH_DER", "MAS", "MENOS", "MULT", 
+                      "DIV", "MOD", "POT", "MAYOR_IGUAL", "MENOR_IGUAL", 
+                      "IGUAL_IGUAL", "DIFERENTE", "MAYOR", "MENOR", "ID", 
+                      "NUMERO", "CADENA", "COMENTARIO", "WS" ]
 
     RULE_programa = 0
     RULE_sentencia = 1
@@ -179,16 +254,27 @@ class LenguajeMomoXDParser ( Parser ):
     RULE_instruccionVisualizacion = 18
     RULE_tipoGrafico = 19
     RULE_instruccionSi = 20
-    RULE_bloque = 21
-    RULE_expresionBooleana = 22
-    RULE_opRelacional = 23
-    RULE_expresionAritmetica = 24
-    RULE_termino = 25
-    RULE_factor = 26
-    RULE_llamadaFuncion = 27
-    RULE_funcionNombre = 28
-    RULE_listaArgumentos = 29
-    RULE_listaIDs = 30
+    RULE_instruccionMientras = 21
+    RULE_instruccionPara = 22
+    RULE_definicionFuncion = 23
+    RULE_listaParametros = 24
+    RULE_parametro = 25
+    RULE_instruccionRetorno = 26
+    RULE_bloque = 27
+    RULE_expresionBooleana = 28
+    RULE_expresionLogicaOr = 29
+    RULE_expresionLogicaAnd = 30
+    RULE_expresionLogicaNot = 31
+    RULE_expresionRelacional = 32
+    RULE_opRelacional = 33
+    RULE_expresionAritmetica = 34
+    RULE_termino = 35
+    RULE_factor = 36
+    RULE_llamadaFuncion = 37
+    RULE_funcionNombre = 38
+    RULE_listaArgumentos = 39
+    RULE_listaIDs = 40
+    RULE_idOAgg = 41
 
     ruleNames =  [ "programa", "sentencia", "asignacion", "expresionPipeline", 
                    "expresionBase", "instruccionCarga", "instruccionImprimir", 
@@ -196,10 +282,13 @@ class LenguajeMomoXDParser ( Parser ):
                    "operacionFiltrar", "operacionOrdenar", "operacionCrearColumna", 
                    "operacionAgrupar", "operacionResumir", "listaAgregaciones", 
                    "agregacion", "funcionAgg", "instruccionVisualizacion", 
-                   "tipoGrafico", "instruccionSi", "bloque", "expresionBooleana", 
-                   "opRelacional", "expresionAritmetica", "termino", "factor", 
-                   "llamadaFuncion", "funcionNombre", "listaArgumentos", 
-                   "listaIDs" ]
+                   "tipoGrafico", "instruccionSi", "instruccionMientras", 
+                   "instruccionPara", "definicionFuncion", "listaParametros", 
+                   "parametro", "instruccionRetorno", "bloque", "expresionBooleana", 
+                   "expresionLogicaOr", "expresionLogicaAnd", "expresionLogicaNot", 
+                   "expresionRelacional", "opRelacional", "expresionAritmetica", 
+                   "termino", "factor", "llamadaFuncion", "funcionNombre", 
+                   "listaArgumentos", "listaIDs", "idOAgg" ]
 
     EOF = Token.EOF
     T__0=1
@@ -231,58 +320,90 @@ class LenguajeMomoXDParser ( Parser ):
     AGRUPAR_A_LOS_PAPUS_POR=27
     SACAR_CUENTAS=28
     RESUMIR_MOMOS=29
-    SUMA=30
-    MULTIPLICACION=31
-    RESTA=32
-    DIVISION=33
-    PROMEDIO=34
-    MEDIA=35
-    MEDIANA=36
-    EL_MAS_PRO=37
-    MAXIMO=38
-    EL_MAS_MANCO=39
-    MINIMO=40
-    CONTAR_PAPUS=41
-    CONTEO=42
-    DESVIACION_PRO=43
-    GRAFICAR_MOMOS_EN_BARRAS=44
-    GRAFICAR_MOMOS_EN_LINEAS=45
-    GRAFICAR_MOMOS_EN_HISTOGRAMA=46
-    GRAFICAR_MOMOS_EN_DISPERSION=47
-    GRAFICAR_MOMOS_EN_CAJAS=48
-    SI_EL_PAPU=49
-    ENTONCES=50
-    SINO_CALLESE_SENORA=51
-    FIN_DEL_MOMO=52
-    SEPARADOR=53
-    EN=54
-    TITULO=55
-    EJE_X=56
-    EJE_Y=57
-    GUARDAR=58
-    COMA=59
-    DOS_PUNTOS=60
-    PAREN_IZQ=61
-    PAREN_DER=62
-    CORCH_IZQ=63
-    CORCH_DER=64
-    MAS=65
-    MENOS=66
-    MULT=67
-    DIV=68
-    MOD=69
-    POT=70
-    MAYOR_IGUAL=71
-    MENOR_IGUAL=72
-    IGUAL_IGUAL=73
-    DIFERENTE=74
-    MAYOR=75
-    MENOR=76
-    ID=77
-    NUMERO=78
-    CADENA=79
-    COMENTARIO=80
-    WS=81
+    CALCULAR=30
+    COMO=31
+    SUMA=32
+    MULTIPLICACION=33
+    RESTA=34
+    DIVISION=35
+    PROMEDIO=36
+    MEDIA=37
+    MEDIANA=38
+    EL_MAS_PRO=39
+    MAXIMO=40
+    EL_MAS_MANCO=41
+    MINIMO=42
+    CONTAR_PAPUS=43
+    CONTEO=44
+    DESVIACION_PRO=45
+    GRAFICAR_MOMOS_EN_BARRAS=46
+    GRAFICAR_MOMOS_EN_LINEAS=47
+    GRAFICAR_MOMOS_EN_HISTOGRAMA=48
+    GRAFICAR_MOMOS_EN_DISPERSION=49
+    GRAFICAR_MOMOS_EN_CAJAS=50
+    SI_EL_PAPU=51
+    SI_PASA_ESTO=52
+    SI=53
+    ENTONCES=54
+    HAZ_ESTO=55
+    SINO_CALLESE_SENORA=56
+    PERO_SI_NO=57
+    SINO=58
+    FIN_DEL_SI=59
+    MIENTRAS_EL_PAPU=60
+    MIENTRAS_TANTO=61
+    MIENTRAS=62
+    FIN_DEL_BUCLE=63
+    PARA_CADA_PAPU=64
+    POR_CADA_UNO=65
+    PARA=66
+    DESDE=67
+    HASTA=68
+    MOMO_FUNCION=69
+    FUNCION_PAPU=70
+    RUTINA_MOMO=71
+    FUNCION=72
+    FIN_DE_LA_FUNCION=73
+    SUELTA_EL_MOMO=74
+    RETORNA_EL_PACK=75
+    REGRESAR=76
+    RETORNAR=77
+    FIN_DEL_MOMO=78
+    Y_ADEMAS=79
+    O_BIEN=80
+    NO_ES_CIERTO=81
+    AND_OP=82
+    OR_OP=83
+    NOT_OP=84
+    SEPARADOR=85
+    EN=86
+    TITULO=87
+    EJE_X=88
+    EJE_Y=89
+    GUARDAR=90
+    COMA=91
+    DOS_PUNTOS=92
+    PAREN_IZQ=93
+    PAREN_DER=94
+    CORCH_IZQ=95
+    CORCH_DER=96
+    MAS=97
+    MENOS=98
+    MULT=99
+    DIV=100
+    MOD=101
+    POT=102
+    MAYOR_IGUAL=103
+    MENOR_IGUAL=104
+    IGUAL_IGUAL=105
+    DIFERENTE=106
+    MAYOR=107
+    MENOR=108
+    ID=109
+    NUMERO=110
+    CADENA=111
+    COMENTARIO=112
+    WS=113
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -337,17 +458,17 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 65
+            self.state = 87
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 2306968908046795536) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & 7) != 0):
-                self.state = 62
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 8088464926462444304) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & 246291141508583) != 0):
+                self.state = 84
                 self.sentencia()
-                self.state = 67
+                self.state = 89
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 68
+            self.state = 90
             self.match(LenguajeMomoXDParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -388,6 +509,26 @@ class LenguajeMomoXDParser ( Parser ):
             return self.getTypedRuleContext(LenguajeMomoXDParser.InstruccionSiContext,0)
 
 
+        def instruccionMientras(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.InstruccionMientrasContext,0)
+
+
+        def instruccionPara(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.InstruccionParaContext,0)
+
+
+        def definicionFuncion(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.DefinicionFuncionContext,0)
+
+
+        def instruccionRetorno(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.InstruccionRetornoContext,0)
+
+
+        def llamadaFuncion(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.LlamadaFuncionContext,0)
+
+
         def expresionAritmetica(self):
             return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionAritmeticaContext,0)
 
@@ -417,54 +558,94 @@ class LenguajeMomoXDParser ( Parser ):
         localctx = LenguajeMomoXDParser.SentenciaContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_sentencia)
         try:
-            self.state = 88
+            self.state = 125
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,1,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 70
+                self.state = 92
                 self.asignacion()
-                self.state = 71
+                self.state = 93
                 self.match(LenguajeMomoXDParser.XD)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 73
+                self.state = 95
                 self.instruccionImprimir()
-                self.state = 74
+                self.state = 96
                 self.match(LenguajeMomoXDParser.XD)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 76
+                self.state = 98
                 self.instruccionGuardado()
-                self.state = 77
+                self.state = 99
                 self.match(LenguajeMomoXDParser.XD)
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 79
+                self.state = 101
                 self.instruccionVisualizacion()
-                self.state = 80
+                self.state = 102
                 self.match(LenguajeMomoXDParser.XD)
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 82
+                self.state = 104
                 self.instruccionSi()
-                self.state = 83
+                self.state = 105
                 self.match(LenguajeMomoXDParser.XD)
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 85
+                self.state = 107
+                self.instruccionMientras()
+                self.state = 108
+                self.match(LenguajeMomoXDParser.XD)
+                pass
+
+            elif la_ == 7:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 110
+                self.instruccionPara()
+                self.state = 111
+                self.match(LenguajeMomoXDParser.XD)
+                pass
+
+            elif la_ == 8:
+                self.enterOuterAlt(localctx, 8)
+                self.state = 113
+                self.definicionFuncion()
+                self.state = 114
+                self.match(LenguajeMomoXDParser.XD)
+                pass
+
+            elif la_ == 9:
+                self.enterOuterAlt(localctx, 9)
+                self.state = 116
+                self.instruccionRetorno()
+                self.state = 117
+                self.match(LenguajeMomoXDParser.XD)
+                pass
+
+            elif la_ == 10:
+                self.enterOuterAlt(localctx, 10)
+                self.state = 119
+                self.llamadaFuncion()
+                self.state = 120
+                self.match(LenguajeMomoXDParser.XD)
+                pass
+
+            elif la_ == 11:
+                self.enterOuterAlt(localctx, 11)
+                self.state = 122
                 self.expresionAritmetica()
-                self.state = 86
+                self.state = 123
                 self.match(LenguajeMomoXDParser.XD)
                 pass
 
@@ -518,11 +699,11 @@ class LenguajeMomoXDParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_asignacion)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 90
+            self.state = 127
             self.match(LenguajeMomoXDParser.ID)
-            self.state = 91
+            self.state = 128
             self.match(LenguajeMomoXDParser.T__0)
-            self.state = 92
+            self.state = 129
             self.expresionPipeline()
         except RecognitionException as re:
             localctx.exception = re
@@ -584,17 +765,17 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 94
+            self.state = 131
             self.expresionBase()
-            self.state = 99
+            self.state = 136
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while _la==3:
-                self.state = 95
+                self.state = 132
                 self.match(LenguajeMomoXDParser.PIPE)
-                self.state = 96
+                self.state = 133
                 self.operacionPipeline()
-                self.state = 101
+                self.state = 138
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -647,17 +828,17 @@ class LenguajeMomoXDParser ( Parser ):
         localctx = LenguajeMomoXDParser.ExpresionBaseContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_expresionBase)
         try:
-            self.state = 104
+            self.state = 141
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [5, 6, 7]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 102
+                self.state = 139
                 self.instruccionCarga()
                 pass
-            elif token in [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 61, 77, 78, 79]:
+            elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 93, 109, 110, 111]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 103
+                self.state = 140
                 self.expresionAritmetica()
                 pass
             else:
@@ -724,22 +905,22 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 106
+            self.state = 143
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 224) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 107
+            self.state = 144
             self.match(LenguajeMomoXDParser.CADENA)
-            self.state = 110
+            self.state = 147
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==53:
-                self.state = 108
+            if _la==85:
+                self.state = 145
                 self.match(LenguajeMomoXDParser.SEPARADOR)
-                self.state = 109
+                self.state = 146
                 self.match(LenguajeMomoXDParser.CADENA)
 
 
@@ -798,23 +979,23 @@ class LenguajeMomoXDParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_instruccionImprimir)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 112
+            self.state = 149
             self.match(LenguajeMomoXDParser.WHEN_HACES)
-            self.state = 116
+            self.state = 153
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
             if la_ == 1:
-                self.state = 113
+                self.state = 150
                 self.expresionAritmetica()
                 pass
 
             elif la_ == 2:
-                self.state = 114
+                self.state = 151
                 self.match(LenguajeMomoXDParser.CADENA)
                 pass
 
             elif la_ == 3:
-                self.state = 115
+                self.state = 152
                 self.match(LenguajeMomoXDParser.ID)
                 pass
 
@@ -877,18 +1058,18 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 118
+            self.state = 155
             _la = self._input.LA(1)
             if not(_la==8 or _la==9):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 119
+            self.state = 156
             self.match(LenguajeMomoXDParser.ID)
-            self.state = 120
+            self.state = 157
             self.match(LenguajeMomoXDParser.EN)
-            self.state = 121
+            self.state = 158
             self.match(LenguajeMomoXDParser.CADENA)
         except RecognitionException as re:
             localctx.exception = re
@@ -955,37 +1136,37 @@ class LenguajeMomoXDParser ( Parser ):
         localctx = LenguajeMomoXDParser.OperacionPipelineContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_operacionPipeline)
         try:
-            self.state = 129
+            self.state = 166
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [10, 11, 12]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 123
+                self.state = 160
                 self.operacionSeleccionar()
                 pass
             elif token in [13, 14, 15, 16]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 124
+                self.state = 161
                 self.operacionFiltrar()
                 pass
             elif token in [17, 18]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 125
+                self.state = 162
                 self.operacionOrdenar()
                 pass
             elif token in [23, 24, 25]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 126
+                self.state = 163
                 self.operacionCrearColumna()
                 pass
             elif token in [26, 27]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 127
+                self.state = 164
                 self.operacionAgrupar()
                 pass
-            elif token in [28, 29]:
+            elif token in [28, 29, 30]:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 128
+                self.state = 165
                 self.operacionResumir()
                 pass
             else:
@@ -1047,14 +1228,14 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 131
+            self.state = 168
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 7168) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 132
+            self.state = 169
             self.listaIDs()
         except RecognitionException as re:
             localctx.exception = re
@@ -1115,14 +1296,14 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 134
+            self.state = 171
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 122880) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 135
+            self.state = 172
             self.expresionBooleana()
         except RecognitionException as re:
             localctx.exception = re
@@ -1188,20 +1369,20 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 137
+            self.state = 174
             _la = self._input.LA(1)
             if not(_la==17 or _la==18):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 138
+            self.state = 175
             self.match(LenguajeMomoXDParser.ID)
-            self.state = 140
+            self.state = 177
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & 7864320) != 0):
-                self.state = 139
+                self.state = 176
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 7864320) != 0)):
                     self._errHandler.recoverInline(self)
@@ -1269,18 +1450,18 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 142
+            self.state = 179
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 58720256) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 143
+            self.state = 180
             self.match(LenguajeMomoXDParser.ID)
-            self.state = 144
+            self.state = 181
             self.match(LenguajeMomoXDParser.T__0)
-            self.state = 145
+            self.state = 182
             self.expresionAritmetica()
         except RecognitionException as re:
             localctx.exception = re
@@ -1307,6 +1488,22 @@ class LenguajeMomoXDParser ( Parser ):
 
         def AGRUPAR_A_LOS_PAPUS_POR(self):
             return self.getToken(LenguajeMomoXDParser.AGRUPAR_A_LOS_PAPUS_POR, 0)
+
+        def listaAgregaciones(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ListaAgregacionesContext,0)
+
+
+        def CALCULAR(self):
+            return self.getToken(LenguajeMomoXDParser.CALCULAR, 0)
+
+        def SACAR_CUENTAS(self):
+            return self.getToken(LenguajeMomoXDParser.SACAR_CUENTAS, 0)
+
+        def CORCH_IZQ(self):
+            return self.getToken(LenguajeMomoXDParser.CORCH_IZQ, 0)
+
+        def CORCH_DER(self):
+            return self.getToken(LenguajeMomoXDParser.CORCH_DER, 0)
 
         def getRuleIndex(self):
             return LenguajeMomoXDParser.RULE_operacionAgrupar
@@ -1335,15 +1532,46 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 147
+            self.state = 184
             _la = self._input.LA(1)
             if not(_la==26 or _la==27):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 148
+            self.state = 185
             self.listaIDs()
+            self.state = 194
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==28 or _la==30:
+                self.state = 186
+                _la = self._input.LA(1)
+                if not(_la==28 or _la==30):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+                self.state = 188
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if _la==95:
+                    self.state = 187
+                    self.match(LenguajeMomoXDParser.CORCH_IZQ)
+
+
+                self.state = 190
+                self.listaAgregaciones()
+                self.state = 192
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if _la==96:
+                    self.state = 191
+                    self.match(LenguajeMomoXDParser.CORCH_DER)
+
+
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1369,6 +1597,15 @@ class LenguajeMomoXDParser ( Parser ):
 
         def RESUMIR_MOMOS(self):
             return self.getToken(LenguajeMomoXDParser.RESUMIR_MOMOS, 0)
+
+        def CALCULAR(self):
+            return self.getToken(LenguajeMomoXDParser.CALCULAR, 0)
+
+        def CORCH_IZQ(self):
+            return self.getToken(LenguajeMomoXDParser.CORCH_IZQ, 0)
+
+        def CORCH_DER(self):
+            return self.getToken(LenguajeMomoXDParser.CORCH_DER, 0)
 
         def getRuleIndex(self):
             return LenguajeMomoXDParser.RULE_operacionResumir
@@ -1397,15 +1634,31 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 150
+            self.state = 196
             _la = self._input.LA(1)
-            if not(_la==28 or _la==29):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 1879048192) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 151
+            self.state = 198
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==95:
+                self.state = 197
+                self.match(LenguajeMomoXDParser.CORCH_IZQ)
+
+
+            self.state = 200
             self.listaAgregaciones()
+            self.state = 202
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==96:
+                self.state = 201
+                self.match(LenguajeMomoXDParser.CORCH_DER)
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1462,17 +1715,17 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 153
+            self.state = 204
             self.agregacion()
-            self.state = 158
+            self.state = 209
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==59:
-                self.state = 154
+            while _la==91:
+                self.state = 205
                 self.match(LenguajeMomoXDParser.COMA)
-                self.state = 155
+                self.state = 206
                 self.agregacion()
-                self.state = 160
+                self.state = 211
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -1498,8 +1751,11 @@ class LenguajeMomoXDParser ( Parser ):
             else:
                 return self.getToken(LenguajeMomoXDParser.ID, i)
 
-        def funcionAgg(self):
-            return self.getTypedRuleContext(LenguajeMomoXDParser.FuncionAggContext,0)
+        def funcionAgg(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.FuncionAggContext)
+            else:
+                return self.getTypedRuleContext(LenguajeMomoXDParser.FuncionAggContext,i)
 
 
         def PAREN_IZQ(self):
@@ -1507,6 +1763,9 @@ class LenguajeMomoXDParser ( Parser ):
 
         def PAREN_DER(self):
             return self.getToken(LenguajeMomoXDParser.PAREN_DER, 0)
+
+        def COMO(self):
+            return self.getToken(LenguajeMomoXDParser.COMO, 0)
 
         def getRuleIndex(self):
             return LenguajeMomoXDParser.RULE_agregacion
@@ -1534,25 +1793,74 @@ class LenguajeMomoXDParser ( Parser ):
         self.enterRule(localctx, 32, self.RULE_agregacion)
         self._la = 0 # Token type
         try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 161
-            self.match(LenguajeMomoXDParser.ID)
-            self.state = 162
-            self.match(LenguajeMomoXDParser.T__0)
-            self.state = 163
-            self.funcionAgg()
-            self.state = 164
-            self.match(LenguajeMomoXDParser.PAREN_IZQ)
-            self.state = 166
+            self.state = 233
             self._errHandler.sync(self)
-            _la = self._input.LA(1)
-            if _la==77:
-                self.state = 165
+            token = self._input.LA(1)
+            if token in [109]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 212
                 self.match(LenguajeMomoXDParser.ID)
+                self.state = 213
+                self.match(LenguajeMomoXDParser.T__0)
+                self.state = 214
+                self.funcionAgg()
+                self.state = 215
+                self.match(LenguajeMomoXDParser.PAREN_IZQ)
+                self.state = 218
+                self._errHandler.sync(self)
+                token = self._input.LA(1)
+                if token in [109]:
+                    self.state = 216
+                    self.match(LenguajeMomoXDParser.ID)
+                    pass
+                elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]:
+                    self.state = 217
+                    self.funcionAgg()
+                    pass
+                elif token in [94]:
+                    pass
+                else:
+                    pass
+                self.state = 220
+                self.match(LenguajeMomoXDParser.PAREN_DER)
+                pass
+            elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 222
+                self.funcionAgg()
+                self.state = 223
+                self.match(LenguajeMomoXDParser.PAREN_IZQ)
+                self.state = 226
+                self._errHandler.sync(self)
+                token = self._input.LA(1)
+                if token in [109]:
+                    self.state = 224
+                    self.match(LenguajeMomoXDParser.ID)
+                    pass
+                elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]:
+                    self.state = 225
+                    self.funcionAgg()
+                    pass
+                elif token in [94]:
+                    pass
+                else:
+                    pass
+                self.state = 228
+                self.match(LenguajeMomoXDParser.PAREN_DER)
+                self.state = 231
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if _la==31:
+                    self.state = 229
+                    self.match(LenguajeMomoXDParser.COMO)
+                    self.state = 230
+                    self.match(LenguajeMomoXDParser.ID)
 
 
-            self.state = 168
-            self.match(LenguajeMomoXDParser.PAREN_DER)
+                pass
+            else:
+                raise NoViableAltException(self)
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1638,9 +1946,9 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 170
+            self.state = 235
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 17591112302592) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 70364449210368) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1713,47 +2021,47 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 172
+            self.state = 237
             self.tipoGrafico()
-            self.state = 173
+            self.state = 238
             self.match(LenguajeMomoXDParser.ID)
-            self.state = 176
+            self.state = 241
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==55:
-                self.state = 174
+            if _la==87:
+                self.state = 239
                 self.match(LenguajeMomoXDParser.TITULO)
-                self.state = 175
+                self.state = 240
                 self.match(LenguajeMomoXDParser.CADENA)
 
 
-            self.state = 180
+            self.state = 245
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==56:
-                self.state = 178
+            if _la==88:
+                self.state = 243
                 self.match(LenguajeMomoXDParser.EJE_X)
-                self.state = 179
+                self.state = 244
                 self.match(LenguajeMomoXDParser.CADENA)
 
 
-            self.state = 184
+            self.state = 249
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==57:
-                self.state = 182
+            if _la==89:
+                self.state = 247
                 self.match(LenguajeMomoXDParser.EJE_Y)
-                self.state = 183
+                self.state = 248
                 self.match(LenguajeMomoXDParser.CADENA)
 
 
-            self.state = 188
+            self.state = 253
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==58:
-                self.state = 186
+            if _la==90:
+                self.state = 251
                 self.match(LenguajeMomoXDParser.GUARDAR)
-                self.state = 187
+                self.state = 252
                 self.match(LenguajeMomoXDParser.CADENA)
 
 
@@ -1815,9 +2123,9 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 190
+            self.state = 255
             _la = self._input.LA(1)
-            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 545357767376896) != 0)):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 2181431069507584) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -1838,15 +2146,9 @@ class LenguajeMomoXDParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def SI_EL_PAPU(self):
-            return self.getToken(LenguajeMomoXDParser.SI_EL_PAPU, 0)
-
         def expresionBooleana(self):
             return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionBooleanaContext,0)
 
-
-        def ENTONCES(self):
-            return self.getToken(LenguajeMomoXDParser.ENTONCES, 0)
 
         def bloque(self, i:int=None):
             if i is None:
@@ -1855,11 +2157,35 @@ class LenguajeMomoXDParser ( Parser ):
                 return self.getTypedRuleContext(LenguajeMomoXDParser.BloqueContext,i)
 
 
+        def SI_EL_PAPU(self):
+            return self.getToken(LenguajeMomoXDParser.SI_EL_PAPU, 0)
+
+        def SI_PASA_ESTO(self):
+            return self.getToken(LenguajeMomoXDParser.SI_PASA_ESTO, 0)
+
+        def SI(self):
+            return self.getToken(LenguajeMomoXDParser.SI, 0)
+
         def FIN_DEL_MOMO(self):
             return self.getToken(LenguajeMomoXDParser.FIN_DEL_MOMO, 0)
 
+        def FIN_DEL_SI(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DEL_SI, 0)
+
+        def ENTONCES(self):
+            return self.getToken(LenguajeMomoXDParser.ENTONCES, 0)
+
+        def HAZ_ESTO(self):
+            return self.getToken(LenguajeMomoXDParser.HAZ_ESTO, 0)
+
         def SINO_CALLESE_SENORA(self):
             return self.getToken(LenguajeMomoXDParser.SINO_CALLESE_SENORA, 0)
+
+        def PERO_SI_NO(self):
+            return self.getToken(LenguajeMomoXDParser.PERO_SI_NO, 0)
+
+        def SINO(self):
+            return self.getToken(LenguajeMomoXDParser.SINO, 0)
 
         def getRuleIndex(self):
             return LenguajeMomoXDParser.RULE_instruccionSi
@@ -1888,26 +2214,594 @@ class LenguajeMomoXDParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 192
-            self.match(LenguajeMomoXDParser.SI_EL_PAPU)
-            self.state = 193
+            self.state = 257
+            _la = self._input.LA(1)
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 15762598695796736) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+            self.state = 258
             self.expresionBooleana()
-            self.state = 194
-            self.match(LenguajeMomoXDParser.ENTONCES)
-            self.state = 195
-            self.bloque()
-            self.state = 198
+            self.state = 260
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if _la==51:
-                self.state = 196
-                self.match(LenguajeMomoXDParser.SINO_CALLESE_SENORA)
-                self.state = 197
+            if _la==54 or _la==55:
+                self.state = 259
+                _la = self._input.LA(1)
+                if not(_la==54 or _la==55):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+
+
+            self.state = 262
+            self.bloque()
+            self.state = 265
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 504403158265495552) != 0):
+                self.state = 263
+                _la = self._input.LA(1)
+                if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 504403158265495552) != 0)):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+                self.state = 264
                 self.bloque()
 
 
-            self.state = 200
-            self.match(LenguajeMomoXDParser.FIN_DEL_MOMO)
+            self.state = 267
+            _la = self._input.LA(1)
+            if not(_la==59 or _la==78):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class InstruccionMientrasContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def expresionBooleana(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionBooleanaContext,0)
+
+
+        def bloque(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.BloqueContext,0)
+
+
+        def MIENTRAS_EL_PAPU(self):
+            return self.getToken(LenguajeMomoXDParser.MIENTRAS_EL_PAPU, 0)
+
+        def MIENTRAS_TANTO(self):
+            return self.getToken(LenguajeMomoXDParser.MIENTRAS_TANTO, 0)
+
+        def MIENTRAS(self):
+            return self.getToken(LenguajeMomoXDParser.MIENTRAS, 0)
+
+        def FIN_DEL_BUCLE(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DEL_BUCLE, 0)
+
+        def FIN_DEL_MOMO(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DEL_MOMO, 0)
+
+        def HAZ_ESTO(self):
+            return self.getToken(LenguajeMomoXDParser.HAZ_ESTO, 0)
+
+        def ENTONCES(self):
+            return self.getToken(LenguajeMomoXDParser.ENTONCES, 0)
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_instruccionMientras
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterInstruccionMientras" ):
+                listener.enterInstruccionMientras(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitInstruccionMientras" ):
+                listener.exitInstruccionMientras(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstruccionMientras" ):
+                return visitor.visitInstruccionMientras(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def instruccionMientras(self):
+
+        localctx = LenguajeMomoXDParser.InstruccionMientrasContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 42, self.RULE_instruccionMientras)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 269
+            _la = self._input.LA(1)
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 8070450532247928832) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+            self.state = 270
+            self.expresionBooleana()
+            self.state = 272
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==54 or _la==55:
+                self.state = 271
+                _la = self._input.LA(1)
+                if not(_la==54 or _la==55):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+
+
+            self.state = 274
+            self.bloque()
+            self.state = 275
+            _la = self._input.LA(1)
+            if not(_la==63 or _la==78):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class InstruccionParaContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(LenguajeMomoXDParser.ID, 0)
+
+        def DESDE(self):
+            return self.getToken(LenguajeMomoXDParser.DESDE, 0)
+
+        def expresionAritmetica(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.ExpresionAritmeticaContext)
+            else:
+                return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionAritmeticaContext,i)
+
+
+        def HASTA(self):
+            return self.getToken(LenguajeMomoXDParser.HASTA, 0)
+
+        def bloque(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.BloqueContext,0)
+
+
+        def PARA_CADA_PAPU(self):
+            return self.getToken(LenguajeMomoXDParser.PARA_CADA_PAPU, 0)
+
+        def POR_CADA_UNO(self):
+            return self.getToken(LenguajeMomoXDParser.POR_CADA_UNO, 0)
+
+        def PARA(self):
+            return self.getToken(LenguajeMomoXDParser.PARA, 0)
+
+        def FIN_DEL_BUCLE(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DEL_BUCLE, 0)
+
+        def FIN_DEL_MOMO(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DEL_MOMO, 0)
+
+        def HAZ_ESTO(self):
+            return self.getToken(LenguajeMomoXDParser.HAZ_ESTO, 0)
+
+        def ENTONCES(self):
+            return self.getToken(LenguajeMomoXDParser.ENTONCES, 0)
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_instruccionPara
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterInstruccionPara" ):
+                listener.enterInstruccionPara(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitInstruccionPara" ):
+                listener.exitInstruccionPara(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstruccionPara" ):
+                return visitor.visitInstruccionPara(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def instruccionPara(self):
+
+        localctx = LenguajeMomoXDParser.InstruccionParaContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 44, self.RULE_instruccionPara)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 277
+            _la = self._input.LA(1)
+            if not(((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & 7) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+            self.state = 278
+            self.match(LenguajeMomoXDParser.ID)
+            self.state = 279
+            self.match(LenguajeMomoXDParser.DESDE)
+            self.state = 280
+            self.expresionAritmetica()
+            self.state = 281
+            self.match(LenguajeMomoXDParser.HASTA)
+            self.state = 282
+            self.expresionAritmetica()
+            self.state = 284
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==54 or _la==55:
+                self.state = 283
+                _la = self._input.LA(1)
+                if not(_la==54 or _la==55):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+
+
+            self.state = 286
+            self.bloque()
+            self.state = 287
+            _la = self._input.LA(1)
+            if not(_la==63 or _la==78):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class DefinicionFuncionContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(LenguajeMomoXDParser.ID, 0)
+
+        def PAREN_IZQ(self):
+            return self.getToken(LenguajeMomoXDParser.PAREN_IZQ, 0)
+
+        def PAREN_DER(self):
+            return self.getToken(LenguajeMomoXDParser.PAREN_DER, 0)
+
+        def bloque(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.BloqueContext,0)
+
+
+        def MOMO_FUNCION(self):
+            return self.getToken(LenguajeMomoXDParser.MOMO_FUNCION, 0)
+
+        def FUNCION_PAPU(self):
+            return self.getToken(LenguajeMomoXDParser.FUNCION_PAPU, 0)
+
+        def RUTINA_MOMO(self):
+            return self.getToken(LenguajeMomoXDParser.RUTINA_MOMO, 0)
+
+        def FUNCION(self):
+            return self.getToken(LenguajeMomoXDParser.FUNCION, 0)
+
+        def FIN_DE_LA_FUNCION(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DE_LA_FUNCION, 0)
+
+        def FIN_DEL_MOMO(self):
+            return self.getToken(LenguajeMomoXDParser.FIN_DEL_MOMO, 0)
+
+        def listaParametros(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ListaParametrosContext,0)
+
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_definicionFuncion
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDefinicionFuncion" ):
+                listener.enterDefinicionFuncion(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDefinicionFuncion" ):
+                listener.exitDefinicionFuncion(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitDefinicionFuncion" ):
+                return visitor.visitDefinicionFuncion(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def definicionFuncion(self):
+
+        localctx = LenguajeMomoXDParser.DefinicionFuncionContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 46, self.RULE_definicionFuncion)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 289
+            _la = self._input.LA(1)
+            if not(((((_la - 69)) & ~0x3f) == 0 and ((1 << (_la - 69)) & 15) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+            self.state = 290
+            self.match(LenguajeMomoXDParser.ID)
+            self.state = 291
+            self.match(LenguajeMomoXDParser.PAREN_IZQ)
+            self.state = 293
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 70364449210368) != 0) or _la==109:
+                self.state = 292
+                self.listaParametros()
+
+
+            self.state = 295
+            self.match(LenguajeMomoXDParser.PAREN_DER)
+            self.state = 296
+            self.bloque()
+            self.state = 297
+            _la = self._input.LA(1)
+            if not(_la==73 or _la==78):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ListaParametrosContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def parametro(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.ParametroContext)
+            else:
+                return self.getTypedRuleContext(LenguajeMomoXDParser.ParametroContext,i)
+
+
+        def COMA(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeMomoXDParser.COMA)
+            else:
+                return self.getToken(LenguajeMomoXDParser.COMA, i)
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_listaParametros
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterListaParametros" ):
+                listener.enterListaParametros(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitListaParametros" ):
+                listener.exitListaParametros(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitListaParametros" ):
+                return visitor.visitListaParametros(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def listaParametros(self):
+
+        localctx = LenguajeMomoXDParser.ListaParametrosContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 48, self.RULE_listaParametros)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 299
+            self.parametro()
+            self.state = 304
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==91:
+                self.state = 300
+                self.match(LenguajeMomoXDParser.COMA)
+                self.state = 301
+                self.parametro()
+                self.state = 306
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ParametroContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(LenguajeMomoXDParser.ID, 0)
+
+        def funcionAgg(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.FuncionAggContext,0)
+
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_parametro
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterParametro" ):
+                listener.enterParametro(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitParametro" ):
+                listener.exitParametro(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParametro" ):
+                return visitor.visitParametro(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def parametro(self):
+
+        localctx = LenguajeMomoXDParser.ParametroContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 50, self.RULE_parametro)
+        try:
+            self.state = 309
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [109]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 307
+                self.match(LenguajeMomoXDParser.ID)
+                pass
+            elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 308
+                self.funcionAgg()
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class InstruccionRetornoContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def SUELTA_EL_MOMO(self):
+            return self.getToken(LenguajeMomoXDParser.SUELTA_EL_MOMO, 0)
+
+        def RETORNA_EL_PACK(self):
+            return self.getToken(LenguajeMomoXDParser.RETORNA_EL_PACK, 0)
+
+        def REGRESAR(self):
+            return self.getToken(LenguajeMomoXDParser.REGRESAR, 0)
+
+        def RETORNAR(self):
+            return self.getToken(LenguajeMomoXDParser.RETORNAR, 0)
+
+        def expresionAritmetica(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionAritmeticaContext,0)
+
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_instruccionRetorno
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterInstruccionRetorno" ):
+                listener.enterInstruccionRetorno(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitInstruccionRetorno" ):
+                listener.exitInstruccionRetorno(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstruccionRetorno" ):
+                return visitor.visitInstruccionRetorno(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def instruccionRetorno(self):
+
+        localctx = LenguajeMomoXDParser.InstruccionRetornoContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 52, self.RULE_instruccionRetorno)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 311
+            _la = self._input.LA(1)
+            if not(((((_la - 74)) & ~0x3f) == 0 and ((1 << (_la - 74)) & 15) != 0)):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+            self.state = 313
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 70364449210368) != 0) or ((((_la - 93)) & ~0x3f) == 0 and ((1 << (_la - 93)) & 458753) != 0):
+                self.state = 312
+                self.expresionAritmetica()
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1954,20 +2848,20 @@ class LenguajeMomoXDParser ( Parser ):
     def bloque(self):
 
         localctx = LenguajeMomoXDParser.BloqueContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_bloque)
+        self.enterRule(localctx, 54, self.RULE_bloque)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 203 
+            self.state = 316 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 202
+                self.state = 315
                 self.sentencia()
-                self.state = 205 
+                self.state = 318 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 2306968908046795536) != 0) or ((((_la - 77)) & ~0x3f) == 0 and ((1 << (_la - 77)) & 7) != 0)):
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 8088464926462444304) != 0) or ((((_la - 64)) & ~0x3f) == 0 and ((1 << (_la - 64)) & 246291141508583) != 0)):
                     break
 
         except RecognitionException as re:
@@ -1986,15 +2880,8 @@ class LenguajeMomoXDParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def expresionAritmetica(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(LenguajeMomoXDParser.ExpresionAritmeticaContext)
-            else:
-                return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionAritmeticaContext,i)
-
-
-        def opRelacional(self):
-            return self.getTypedRuleContext(LenguajeMomoXDParser.OpRelacionalContext,0)
+        def expresionLogicaOr(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionLogicaOrContext,0)
 
 
         def getRuleIndex(self):
@@ -2020,15 +2907,333 @@ class LenguajeMomoXDParser ( Parser ):
     def expresionBooleana(self):
 
         localctx = LenguajeMomoXDParser.ExpresionBooleanaContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 44, self.RULE_expresionBooleana)
+        self.enterRule(localctx, 56, self.RULE_expresionBooleana)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 207
-            self.expresionAritmetica()
-            self.state = 208
-            self.opRelacional()
-            self.state = 209
-            self.expresionAritmetica()
+            self.state = 320
+            self.expresionLogicaOr()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ExpresionLogicaOrContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def expresionLogicaAnd(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.ExpresionLogicaAndContext)
+            else:
+                return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionLogicaAndContext,i)
+
+
+        def O_BIEN(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeMomoXDParser.O_BIEN)
+            else:
+                return self.getToken(LenguajeMomoXDParser.O_BIEN, i)
+
+        def OR_OP(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeMomoXDParser.OR_OP)
+            else:
+                return self.getToken(LenguajeMomoXDParser.OR_OP, i)
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_expresionLogicaOr
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpresionLogicaOr" ):
+                listener.enterExpresionLogicaOr(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpresionLogicaOr" ):
+                listener.exitExpresionLogicaOr(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpresionLogicaOr" ):
+                return visitor.visitExpresionLogicaOr(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def expresionLogicaOr(self):
+
+        localctx = LenguajeMomoXDParser.ExpresionLogicaOrContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 58, self.RULE_expresionLogicaOr)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 322
+            self.expresionLogicaAnd()
+            self.state = 327
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==80 or _la==83:
+                self.state = 323
+                _la = self._input.LA(1)
+                if not(_la==80 or _la==83):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+                self.state = 324
+                self.expresionLogicaAnd()
+                self.state = 329
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ExpresionLogicaAndContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def expresionLogicaNot(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.ExpresionLogicaNotContext)
+            else:
+                return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionLogicaNotContext,i)
+
+
+        def Y_ADEMAS(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeMomoXDParser.Y_ADEMAS)
+            else:
+                return self.getToken(LenguajeMomoXDParser.Y_ADEMAS, i)
+
+        def AND_OP(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeMomoXDParser.AND_OP)
+            else:
+                return self.getToken(LenguajeMomoXDParser.AND_OP, i)
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_expresionLogicaAnd
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpresionLogicaAnd" ):
+                listener.enterExpresionLogicaAnd(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpresionLogicaAnd" ):
+                listener.exitExpresionLogicaAnd(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpresionLogicaAnd" ):
+                return visitor.visitExpresionLogicaAnd(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def expresionLogicaAnd(self):
+
+        localctx = LenguajeMomoXDParser.ExpresionLogicaAndContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 60, self.RULE_expresionLogicaAnd)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 330
+            self.expresionLogicaNot()
+            self.state = 335
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==79 or _la==82:
+                self.state = 331
+                _la = self._input.LA(1)
+                if not(_la==79 or _la==82):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+                self.state = 332
+                self.expresionLogicaNot()
+                self.state = 337
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ExpresionLogicaNotContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def expresionRelacional(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionRelacionalContext,0)
+
+
+        def NO_ES_CIERTO(self):
+            return self.getToken(LenguajeMomoXDParser.NO_ES_CIERTO, 0)
+
+        def NOT_OP(self):
+            return self.getToken(LenguajeMomoXDParser.NOT_OP, 0)
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_expresionLogicaNot
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpresionLogicaNot" ):
+                listener.enterExpresionLogicaNot(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpresionLogicaNot" ):
+                listener.exitExpresionLogicaNot(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpresionLogicaNot" ):
+                return visitor.visitExpresionLogicaNot(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def expresionLogicaNot(self):
+
+        localctx = LenguajeMomoXDParser.ExpresionLogicaNotContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 62, self.RULE_expresionLogicaNot)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 339
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==81 or _la==84:
+                self.state = 338
+                _la = self._input.LA(1)
+                if not(_la==81 or _la==84):
+                    self._errHandler.recoverInline(self)
+                else:
+                    self._errHandler.reportMatch(self)
+                    self.consume()
+
+
+            self.state = 341
+            self.expresionRelacional()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class ExpresionRelacionalContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def PAREN_IZQ(self):
+            return self.getToken(LenguajeMomoXDParser.PAREN_IZQ, 0)
+
+        def expresionBooleana(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionBooleanaContext,0)
+
+
+        def PAREN_DER(self):
+            return self.getToken(LenguajeMomoXDParser.PAREN_DER, 0)
+
+        def expresionAritmetica(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.ExpresionAritmeticaContext)
+            else:
+                return self.getTypedRuleContext(LenguajeMomoXDParser.ExpresionAritmeticaContext,i)
+
+
+        def opRelacional(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.OpRelacionalContext,0)
+
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_expresionRelacional
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterExpresionRelacional" ):
+                listener.enterExpresionRelacional(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitExpresionRelacional" ):
+                listener.exitExpresionRelacional(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpresionRelacional" ):
+                return visitor.visitExpresionRelacional(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def expresionRelacional(self):
+
+        localctx = LenguajeMomoXDParser.ExpresionRelacionalContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 64, self.RULE_expresionRelacional)
+        try:
+            self.state = 352
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,34,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 343
+                self.match(LenguajeMomoXDParser.PAREN_IZQ)
+                self.state = 344
+                self.expresionBooleana()
+                self.state = 345
+                self.match(LenguajeMomoXDParser.PAREN_DER)
+                pass
+
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 347
+                self.expresionAritmetica()
+                self.state = 348
+                self.opRelacional()
+                self.state = 349
+                self.expresionAritmetica()
+                pass
+
+            elif la_ == 3:
+                self.enterOuterAlt(localctx, 3)
+                self.state = 351
+                self.expresionAritmetica()
+                pass
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2086,13 +3291,13 @@ class LenguajeMomoXDParser ( Parser ):
     def opRelacional(self):
 
         localctx = LenguajeMomoXDParser.OpRelacionalContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 46, self.RULE_opRelacional)
+        self.enterRule(localctx, 66, self.RULE_opRelacional)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 211
+            self.state = 354
             _la = self._input.LA(1)
-            if not(((((_la - 71)) & ~0x3f) == 0 and ((1 << (_la - 71)) & 63) != 0)):
+            if not(((((_la - 103)) & ~0x3f) == 0 and ((1 << (_la - 103)) & 63) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -2155,26 +3360,26 @@ class LenguajeMomoXDParser ( Parser ):
     def expresionAritmetica(self):
 
         localctx = LenguajeMomoXDParser.ExpresionAritmeticaContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 48, self.RULE_expresionAritmetica)
+        self.enterRule(localctx, 68, self.RULE_expresionAritmetica)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 213
+            self.state = 356
             self.termino()
-            self.state = 218
+            self.state = 361
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==65 or _la==66:
-                self.state = 214
+            while _la==97 or _la==98:
+                self.state = 357
                 _la = self._input.LA(1)
-                if not(_la==65 or _la==66):
+                if not(_la==97 or _la==98):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 215
+                self.state = 358
                 self.termino()
-                self.state = 220
+                self.state = 363
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2248,26 +3453,26 @@ class LenguajeMomoXDParser ( Parser ):
     def termino(self):
 
         localctx = LenguajeMomoXDParser.TerminoContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 50, self.RULE_termino)
+        self.enterRule(localctx, 70, self.RULE_termino)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 221
+            self.state = 364
             self.factor()
-            self.state = 226
+            self.state = 369
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while ((((_la - 67)) & ~0x3f) == 0 and ((1 << (_la - 67)) & 15) != 0):
-                self.state = 222
+            while ((((_la - 99)) & ~0x3f) == 0 and ((1 << (_la - 99)) & 15) != 0):
+                self.state = 365
                 _la = self._input.LA(1)
-                if not(((((_la - 67)) & ~0x3f) == 0 and ((1 << (_la - 67)) & 15) != 0)):
+                if not(((((_la - 99)) & ~0x3f) == 0 and ((1 << (_la - 99)) & 15) != 0)):
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
-                self.state = 223
+                self.state = 366
                 self.factor()
-                self.state = 228
+                self.state = 371
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2304,6 +3509,10 @@ class LenguajeMomoXDParser ( Parser ):
         def ID(self):
             return self.getToken(LenguajeMomoXDParser.ID, 0)
 
+        def funcionAgg(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.FuncionAggContext,0)
+
+
         def NUMERO(self):
             return self.getToken(LenguajeMomoXDParser.NUMERO, 0)
 
@@ -2333,42 +3542,48 @@ class LenguajeMomoXDParser ( Parser ):
     def factor(self):
 
         localctx = LenguajeMomoXDParser.FactorContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 52, self.RULE_factor)
+        self.enterRule(localctx, 72, self.RULE_factor)
         try:
-            self.state = 237
+            self.state = 381
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,18,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,37,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 229
+                self.state = 372
                 self.match(LenguajeMomoXDParser.PAREN_IZQ)
-                self.state = 230
+                self.state = 373
                 self.expresionAritmetica()
-                self.state = 231
+                self.state = 374
                 self.match(LenguajeMomoXDParser.PAREN_DER)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 233
+                self.state = 376
                 self.llamadaFuncion()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 234
+                self.state = 377
                 self.match(LenguajeMomoXDParser.ID)
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 235
-                self.match(LenguajeMomoXDParser.NUMERO)
+                self.state = 378
+                self.funcionAgg()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 236
+                self.state = 379
+                self.match(LenguajeMomoXDParser.NUMERO)
+                pass
+
+            elif la_ == 6:
+                self.enterOuterAlt(localctx, 6)
+                self.state = 380
                 self.match(LenguajeMomoXDParser.CADENA)
                 pass
 
@@ -2426,23 +3641,23 @@ class LenguajeMomoXDParser ( Parser ):
     def llamadaFuncion(self):
 
         localctx = LenguajeMomoXDParser.LlamadaFuncionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 54, self.RULE_llamadaFuncion)
+        self.enterRule(localctx, 74, self.RULE_llamadaFuncion)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 239
+            self.state = 383
             self.funcionNombre()
-            self.state = 240
+            self.state = 384
             self.match(LenguajeMomoXDParser.PAREN_IZQ)
-            self.state = 242
+            self.state = 386
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if ((((_la - 30)) & ~0x3f) == 0 and ((1 << (_la - 30)) & 985164565987327) != 0):
-                self.state = 241
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 70364449210368) != 0) or ((((_la - 93)) & ~0x3f) == 0 and ((1 << (_la - 93)) & 458753) != 0):
+                self.state = 385
                 self.listaArgumentos()
 
 
-            self.state = 244
+            self.state = 388
             self.match(LenguajeMomoXDParser.PAREN_DER)
         except RecognitionException as re:
             localctx.exception = re
@@ -2490,19 +3705,19 @@ class LenguajeMomoXDParser ( Parser ):
     def funcionNombre(self):
 
         localctx = LenguajeMomoXDParser.FuncionNombreContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 56, self.RULE_funcionNombre)
+        self.enterRule(localctx, 76, self.RULE_funcionNombre)
         try:
-            self.state = 248
+            self.state = 392
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [77]:
+            if token in [109]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 246
+                self.state = 390
                 self.match(LenguajeMomoXDParser.ID)
                 pass
-            elif token in [30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]:
+            elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 247
+                self.state = 391
                 self.funcionAgg()
                 pass
             else:
@@ -2560,21 +3775,21 @@ class LenguajeMomoXDParser ( Parser ):
     def listaArgumentos(self):
 
         localctx = LenguajeMomoXDParser.ListaArgumentosContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 58, self.RULE_listaArgumentos)
+        self.enterRule(localctx, 78, self.RULE_listaArgumentos)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 250
+            self.state = 394
             self.expresionAritmetica()
-            self.state = 255
+            self.state = 399
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==59:
-                self.state = 251
+            while _la==91:
+                self.state = 395
                 self.match(LenguajeMomoXDParser.COMA)
-                self.state = 252
+                self.state = 396
                 self.expresionAritmetica()
-                self.state = 257
+                self.state = 401
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2597,11 +3812,12 @@ class LenguajeMomoXDParser ( Parser ):
         def CORCH_IZQ(self):
             return self.getToken(LenguajeMomoXDParser.CORCH_IZQ, 0)
 
-        def ID(self, i:int=None):
+        def idOAgg(self, i:int=None):
             if i is None:
-                return self.getTokens(LenguajeMomoXDParser.ID)
+                return self.getTypedRuleContexts(LenguajeMomoXDParser.IdOAggContext)
             else:
-                return self.getToken(LenguajeMomoXDParser.ID, i)
+                return self.getTypedRuleContext(LenguajeMomoXDParser.IdOAggContext,i)
+
 
         def CORCH_DER(self):
             return self.getToken(LenguajeMomoXDParser.CORCH_DER, 0)
@@ -2635,37 +3851,101 @@ class LenguajeMomoXDParser ( Parser ):
     def listaIDs(self):
 
         localctx = LenguajeMomoXDParser.ListaIDsContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 60, self.RULE_listaIDs)
+        self.enterRule(localctx, 80, self.RULE_listaIDs)
         self._la = 0 # Token type
         try:
-            self.state = 269
+            self.state = 414
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [63]:
+            if token in [95]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 258
+                self.state = 402
                 self.match(LenguajeMomoXDParser.CORCH_IZQ)
-                self.state = 259
-                self.match(LenguajeMomoXDParser.ID)
-                self.state = 264
+                self.state = 403
+                self.idOAgg()
+                self.state = 408
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==59:
-                    self.state = 260
+                while _la==91:
+                    self.state = 404
                     self.match(LenguajeMomoXDParser.COMA)
-                    self.state = 261
-                    self.match(LenguajeMomoXDParser.ID)
-                    self.state = 266
+                    self.state = 405
+                    self.idOAgg()
+                    self.state = 410
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 267
+                self.state = 411
                 self.match(LenguajeMomoXDParser.CORCH_DER)
                 pass
-            elif token in [77]:
+            elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 109]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 268
+                self.state = 413
+                self.idOAgg()
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class IdOAggContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def ID(self):
+            return self.getToken(LenguajeMomoXDParser.ID, 0)
+
+        def funcionAgg(self):
+            return self.getTypedRuleContext(LenguajeMomoXDParser.FuncionAggContext,0)
+
+
+        def getRuleIndex(self):
+            return LenguajeMomoXDParser.RULE_idOAgg
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterIdOAgg" ):
+                listener.enterIdOAgg(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitIdOAgg" ):
+                listener.exitIdOAgg(self)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIdOAgg" ):
+                return visitor.visitIdOAgg(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def idOAgg(self):
+
+        localctx = LenguajeMomoXDParser.IdOAggContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 82, self.RULE_idOAgg)
+        try:
+            self.state = 418
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [109]:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 416
                 self.match(LenguajeMomoXDParser.ID)
+                pass
+            elif token in [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 417
+                self.funcionAgg()
                 pass
             else:
                 raise NoViableAltException(self)

@@ -12,7 +12,7 @@ GRAMMAR_DIR = grammar
 PARSER_DIR = src/parser
 EJEMPLOS_DIR = ejemplos
 
-.PHONY: help build antlr run run-tree run-incorrect run-ventas run-empleados run-estudiantes run-error-semantico clean
+.PHONY: help build antlr run run-tree run-incorrect run-ventas run-empleados run-estudiantes run-control run-completo run-error-semantico clean
 
 help:
 	@echo "========================================================================="
@@ -20,6 +20,8 @@ help:
 	@echo "========================================================================="
 	@echo "  make build               - Compila la gramatica ANTLR4 a Python"
 	@echo "  make run                 - Ejecuta programa_correcto1.xd"
+	@echo "  make run-control         - Demuestra asignacion, condicionales, ciclos y funciones"
+	@echo "  make run-completo        - Ejecuta pipeline completo con funciones y datos CSV"
 	@echo "  make run-ventas          - Ejecuta el analisis de ventas (Fase 2)"
 	@echo "  make run-empleados       - Ejecuta el analisis de nomina (Fase 2)"
 	@echo "  make run-estudiantes     - Ejecuta el analisis de notas academicas (Fase 2)"
@@ -40,6 +42,14 @@ antlr:
 run:
 	@echo ">> Ejecutando programa_correcto1.xd ..."
 	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_correcto1.xd
+
+run-control:
+	@echo ">> Ejecutando control de flujo y funciones ..."
+	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_control_funciones.xd
+
+run-completo:
+	@echo ">> Ejecutando analisis completo con funciones y datos ..."
+	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_analisis_completo.xd
 
 run-ventas:
 	@echo ">> Ejecutando analisis de ventas (Fase 2) ..."
