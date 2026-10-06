@@ -91,7 +91,7 @@ El repositorio está organizado de forma modular y desacoplada:
 LenguajePropio-xd/
 ├── grammar/              # Reglas oficiales del lenguaje (Gramática ANTLR4).
 ├── docs/                 # Documentación técnica y académica.
-│   ├── manual_usuario.md # Manual en lenguaje natural para el usuario.
+│   ├── manual_usuario.md # Manual de usuario y catálogo de instrucciones.
 │   └── reglas_semanticas.md # Especificación formal de tipos y símbolos.
 ├── src/                  # Motores de análisis y ejecución.
 │   ├── core/             # Librerías PROPIAS en Python Puro (cero Pandas/NumPy).

@@ -1,177 +1,167 @@
-# Manual de Usuario: MomoLang XD (.xd) :v
-### Guía Completa de Uso y Funcionamiento del Lenguaje de la Grasa
-
-¡Bienvenido al manual oficial de **MomoLang XD**! Este documento está escrito en lenguaje natural, claro y directo para que entiendas sin rodeos cómo funciona el lenguaje, qué hace cada instrucción, cómo procesa los datos y cómo puedes crear tus propios programas con asignaciones, condicionales, ciclos, funciones y análisis de datos sin depender de librerías externas.
+# Manual de Usuario: MomoLang XD (`.xd`)
 
 ---
 
-## 1. ¿Qué es MomoLang XD?
+## 1. Reglas Fundamentales del Lenguaje
 
-**MomoLang XD** es un Lenguaje de Programación y DSL creado tanto para programación general (control de flujo, funciones, variables) como para ciencia de datos (carga de CSV, transformaciones, filtros, agrupaciones y estadísticas).
-
-En lugar de usar la sintaxis fría y compleja de librerías tradicionales como Pandas o SQL, MomoLang utiliza la jerga y cultura de la grasa / momos de internet. Todo el motor de cálculo y procesamiento está construido en **Python Puro desde cero**, sin ninguna dependencia externa (cero Pandas, cero NumPy).
-
-### La Regla de Oro del Lenguaje
-> **Toda sentencia en MomoLang XD debe terminar OBLIGATORIAMENTE con `xd` (o en mayúsculas `XD` / `xD`).**  
-> Si se te olvida poner `xd` al final de una línea, el analizador sintáctico te marcará error de inmediato.
-
----
-
-## 2. Variables y Asignación
-
-En MomoLang puedes crear variables y asignarles cualquier valor (números enteros, decimales, texto, booleanos, resultados de operaciones, funciones o tablas completas):
-
-```momo
-# Variables numéricas y de texto
-precio = 50000 xd
-descuento_porcentaje = 10 xd
-nombre_cliente = "Dylan" xd
-
-# Asignación de expresiones aritméticas
-descuento = precio * descuento_porcentaje / 100 xd
-precio_final = precio - descuento xd
-
-# Asignación de tablas de datos
-ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
-```
+1. **Terminador Obligatorio:** Toda sentencia debe finalizar obligatoriamente con `xd` (o `XD` / `xD`).
+2. **Sensibilidad a Mayúsculas:** Las palabras reservadas y nombres de funciones están normalizados en minúsculas.
+3. **Flujo de Tubería:** Las transformaciones de datos se encadenan de izquierda a derecha usando el operador `|:v>` (o `|>`).
+4. **Comentarios:** Inician con `#` o `//` y se extienden hasta el final de la línea.
+5. **Tipos de Datos Soportados:**
+   - **Numérico:** Enteros (`10`) y flotantes (`3.14`).
+   - **Cadena:** Texto delimitado por comillas dobles (`"texto"`) o simples (`'texto'`).
+   - **Booleano:** Valores de verdad (`True` / `False`) y máscaras relacionales.
+   - **Tabla:** Estructuras tabulares bidimensionales cargadas desde CSV o producidas por transformaciones.
+   - **Vector:** Series de datos numéricos unidimensionales sobre las que se realizan operaciones aritméticas.
+   - **Función:** Subrutinas creadas por el usuario con parámetros y retorno.
 
 ---
 
-## 3. Manejo de Condicionales (`si_el_papu` / `si_pasa_esto`)
+## 2. Catálogo Completo de Instrucciones y Nombres Disponibles
 
-Permite ejecutar bloques de código de forma condicional evaluando comparaciones lógicas:
+### 2.1 Entrada, Salida y Almacenamiento
 
+| Instrucción / Nombres Disponibles | Parámetros / Sintaxis | Descripción | Ejemplo |
+| :--- | :--- | :--- | :--- |
+| `when haces`, `when_haces` | `expresion` | Imprime en pantalla una cadena, variable o expresión. | `when haces "Hola mundo" xd` |
+| `pasa_el_pack`, `pasa_el_zelda`, `robar_momo` | `"ruta"` (`separador "sep"`)? | Carga un archivo CSV en memoria como una tabla. | `datos = pasa_el_pack "datos.csv" xd` |
+| `subir_al_grupo`, `guardar_momo` | `tabla en "ruta"` | Exporta una tabla de datos a formato CSV. | `subir_al_grupo datos en "salida.csv" xd` |
+
+---
+
+### 2.2 Variables y Asignación
+
+| Sintaxis | Descripción | Ejemplo |
+| :--- | :--- | :--- |
+| `id = expresion` | Asigna un valor numérico, texto, booleano, tabla o resultado a un identificador. | `precio = 50000 xd`<br>`total = precio * 1.19 xd` |
+
+---
+
+### 2.3 Operaciones en Tubería de Datos (`|:v>`)
+
+| Operación / Nombres Disponibles | Sintaxis | Descripción | Ejemplo |
+| :--- | :--- | :--- | :--- |
+| `escojo_a`, `escojo_a_los_papus`, `seleccionar_momos` | `[col1, col2, ...]` | Selecciona un subconjunto de columnas de la tabla. | `\|:v> escojo_a [ciudad, total]` |
+| `but_te_enteras_que`, `but_ella_no_te_ama`, `no_lo_se_rick`, `filtrar_grasosos` | `condicion` | Filtra las filas que cumplan la condición booleana. | `\|:v> but_te_enteras_que unidades > 10` |
+| `el_futuro_es_hoy_oiste_viejo`, `metanle_sabor_a`, `crear_momo` | `col_nueva = expr` | Crea o modifica una columna aplicando una fórmula aritmética vectorial. | `\|:v> el_futuro_es_hoy_oiste_viejo total = cant * precio` |
+| `ordenar_a_los_papus`, `ordenar_momos` | `columna sentido?` | Ordena los registros por una columna específica. | `\|:v> ordenar_a_los_papus total de_arriba_a_abajo` |
+| Sentidos de ordenamiento: | `de_arriba_a_abajo`, `descendente`<br>`de_abajo_a_arriba`, `ascendente` | Define orden descendente (mayor a menor) o ascendente (menor a mayor). | `\|:v> ordenar_momos precio ascendente` |
+| `juntar_a_la_grasa_por`, `agrupar_a_los_papus_por` | `[cols] (calcular [...])?` | Agrupa los datos por una o más columnas. Permite calcular métricas de forma directa o encadenada. | `\|:v> juntar_a_la_grasa_por [ciudad]` |
+| `sacar_cuentas`, `resumir_momos`, `calcular` | `[metrica1, metrica2]` | Calcula métricas estadísticas sobre una tabla agrupada. | `\|:v> sacar_cuentas total = suma(venta)` |
+| `como` | `funcion(col) como alias` | Define el nombre resultante de una columna calculada en el resumen. | `calcular [ suma(subtotal) como total ]` |
+
+---
+
+### 2.4 Funciones Estadísticas y Matemáticas
+
+| Función / Nombres Disponibles | Argumentos | Descripción |
+| :--- | :--- | :--- |
+| `suma`, `sumar`, `sumar_papus`, `sumar_momos` | `(columna)` o `(a, b)` | Calcula la suma total de una columna o de dos valores. |
+| `promedio`, `media` | `(columna)` | Calcula la media aritmética de los valores de la columna. |
+| `mediana` | `(columna)` | Obtiene el valor central ordenado de una columna. |
+| `el_mas_pro`, `maximo` | `(columna)` | Obtiene el valor máximo de la columna. |
+| `el_mas_manco`, `minimo` | `(columna)` | Obtiene el valor mínimo de la columna. |
+| `desviacion_pro`, `desviacion` | `(columna)` | Calcula la desviación estándar de la columna. |
+| `contar_papus`, `conteo`, `contar` | `()` o `(columna)` | Cuenta la cantidad total de registros o filas. |
+| `multiplicacion`, `multiplicar`, `multiplicar_papus`, `multiplicar_momos` | `(a, b)` | Multiplica dos escalares o columnas vectoriales. |
+| `resta`, `restar`, `restar_papus`, `restar_momos` | `(a, b)` | Resta dos escalares o columnas vectoriales. |
+| `division`, `dividir`, `dividir_papus`, `dividir_momos` | `(a, b)` | Divide dos escalares o columnas vectoriales. |
+
+---
+
+### 2.5 Control de Flujo: Condicionales
+
+| Estructura / Nombres Disponibles | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| **Inicio:** `si_el_papu`, `si_pasa_esto`, `si` | `si_el_papu condicion entonces` | Evalúa una condición booleana para ejecutar un bloque. |
+| **Entonces:** `entonces`, `haz_esto` |  | Delimita el inicio del bloque afirmativo. |
+| **Sino:** `sino_callese_senora`, `pero_si_no`, `sino` |  | Delimita el bloque alternativo opcional. |
+| **Fin:** `fin_del_momo`, `fin_del_si`, `fin_si` | `fin_del_momo xd` | Cierra la estructura condicional. |
+
+**Ejemplo:**
 ```momo
 si_el_papu saldo > 200000 entonces
-    when haces "El papu tiene saldo suficiente :v" xd
+    when haces "Saldo disponible" xd
 sino_callese_senora
-    when haces "Fondos insuficientes xd" xd
+    when haces "Saldo insuficiente" xd
 fin_del_momo xd
 ```
 
-* **Palabras reservadas aceptadas:**
-  * Para iniciar: `si_el_papu`, `si_pasa_esto`, `si`
-  * Para la rama afirmativa: `entonces`, `haz_esto`
-  * Para la rama alternativa: `sino_callese_senora`, `pero_si_no`, `sino`
-  * Para cerrar el bloque: `fin_del_momo`, `fin_del_si`
-
-### Operadores de Comparación y Lógicos:
-* Comparaciones: `==`, `!=`, `>`, `<`, `>=`, `<=`
-* Operadores lógicos: `y_ademas` (`&&`), `o_bien` (`||`), `no_es_cierto` (`!`)
-
 ---
 
-## 4. Ciclos y Bucles
+### 2.6 Control de Flujo: Ciclos
 
-### 4.1 Bucle Mientras (`mientras_el_papu` / `mientras_tanto` / `mientras`)
-Repite un bloque de código mientras una condición lógica sea verdadera (ideal para contadores y algoritmos iterativos):
+#### Bucle Mientras (`while`)
+| Instrucción / Nombres Disponibles | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| **Inicio:** `mientras_el_papu`, `mientras_tanto`, `mientras` | `mientras_el_papu condicion haz_esto` | Ejecuta un bloque de sentencias mientras la condición sea verdadera. |
+| **Cuerpo:** `haz_esto`, `entonces` |  | Delimita el inicio del cuerpo del ciclo. |
+| **Fin:** `fin_del_bucle`, `fin_bucle`, `fin_del_momo` | `fin_del_bucle xd` | Cierra la estructura del bucle mientras. |
 
+**Ejemplo:**
 ```momo
 contador = 1 xd
-mientras_el_papu contador <= 5 haz_esto
-    when haces "Iteracion #" + contador xd
+mientras_el_papu contador <= 3 haz_esto
+    when haces contador xd
     contador = contador + 1 xd
 fin_del_bucle xd
 ```
 
-### 4.2 Bucle Para (`para_cada_papu` / `por_cada_uno` / `para`)
-Itera automáticamente una variable sobre un rango numérico `desde ... hasta ...` de forma inclusiva:
+#### Bucle Para (`for` sobre rango)
+| Instrucción / Nombres Disponibles | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| **Inicio:** `para_cada_papu`, `por_cada_uno`, `para` | `para_cada_papu id desde ini hasta fin haz_esto` | Itera la variable sobre el rango numérico inclusivo. |
+| **Límites:** `desde`, `hasta` |  | Establece el valor inicial y final de la variable de control. |
+| **Fin:** `fin_del_bucle`, `fin_bucle`, `fin_del_momo` | `fin_del_bucle xd` | Cierra la estructura del bucle para. |
 
+**Ejemplo:**
 ```momo
-para_cada_papu i desde 1 hasta 4 haz_esto
-    cuadrado = i * i xd
-    when haces "El cuadrado de " + i + " es: " + cuadrado xd
+para_cada_papu i desde 1 hasta 5 haz_esto
+    when haces i * 2 xd
 fin_del_bucle xd
 ```
 
 ---
 
-## 5. Funciones Definidas por el Usuario (`momo_funcion`)
+### 2.7 Funciones de Usuario
 
-Puedes crear tus propias subrutinas reutilizables con parámetros y devolver resultados usando sentencias de retorno:
+| Instrucción / Nombres Disponibles | Sintaxis | Descripción |
+| :--- | :--- | :--- |
+| **Declaración:** `momo_funcion`, `funcion_papu`, `rutina_momo`, `funcion` | `momo_funcion nombre(p1, p2, ...)` | Declara una función con parámetros en un ámbito local aislado. |
+| **Retorno:** `suelta_el_momo`, `retorna_el_pack`, `regresar`, `retornar` | `suelta_el_momo valor xd` | Retorna un valor desde la función y finaliza su ejecución. |
+| **Fin:** `fin_de_la_funcion`, `fin_funcion`, `fin_del_momo` | `fin_de_la_funcion xd` | Cierra la declaración de la función. |
 
+**Ejemplo:**
 ```momo
-# Definición de la función
-momo_funcion calcular_precio_final(precio_base, impuesto, descuento)
-    monto_impuesto = precio_base * impuesto / 100 xd
-    monto_descuento = precio_base * descuento / 100 xd
-    total = precio_base + monto_impuesto - monto_descuento xd
-    suelta_el_momo total xd
+momo_funcion calcular_iva(base, tasa)
+    impuesto = base * tasa / 100 xd
+    suelta_el_momo base + impuesto xd
 fin_de_la_funcion xd
 
-# Invocación de la función
-total_compra = calcular_precio_final(100000, 19, 10) xd
-when haces "Total a pagar: " + total_compra xd
+total = calcular_iva(100000, 19) xd
+when haces total xd
 ```
-
-* **Palabras para declarar funciones:** `momo_funcion`, `funcion_papu`, `rutina_momo`, `funcion`.
-* **Palabras de retorno:** `suelta_el_momo`, `retorna_el_pack`, `regresar`, `retornar`.
-* **Cierre de función:** `fin_de_la_funcion`, `fin_del_momo`.
-* Cada llamada a una función genera un **ámbito léxico local (scope)** independiente en la Tabla de Símbolos, protegiendo las variables locales de colisiones con el entorno global.
 
 ---
 
-## 6. Procesamiento de Datos y Tuberías (`|:v>`)
+### 2.8 Operadores Relacionales, Lógicos y Aritméticos
 
-Para el análisis de datos masivos, MomoLang utiliza el modelo de tubería con el operador `|:v>` (o `|>`).
-
-```momo
-# 1. Cargar datos
-ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
-
-# 2. Filtrar filas y calcular columna con álgebra vectorial
-ventas_procesadas = ventas 
-    |:v> but_te_enteras_que unidades > 2
-    |:v> el_futuro_es_hoy_oiste_viejo subtotal = unidades * precio xd
-
-# 3. Agrupamiento por ciudad con métricas estadísticas
-resumen = ventas_procesadas 
-    |:v> juntar_a_la_grasa_por [ciudad] calcular [
-        suma(subtotal) como total_ciudad,
-        promedio(subtotal) como promedio_ciudad,
-        el_mas_pro(subtotal) como max_venta,
-        contar_papus(unidades) como cant_transacciones
-    ]
-    |:v> ordenar_a_los_papus total_ciudad de_arriba_a_abajo xd
-
-# 4. Exportar a CSV
-subir_al_grupo resumen en "salidas/reporte_ventas.csv" xd
-```
-
-### Funciones Estadísticas Disponibles:
-| Función en MomoLang | ¿Qué calcula? |
-| :--- | :--- |
-| `suma(columna)` | Suma de valores del grupo. |
-| `promedio(columna)` / `media(columna)` | Promedio aritmético. |
-| `mediana(columna)` | Valor central ordenado. |
-| `el_mas_pro(columna)` / `maximo(columna)` | Valor máximo. |
-| `el_mas_manco(columna)` / `minimo(columna)` | Valor mínimo. |
-| `desviacion_pro(columna)` | Desviación estándar. |
-| `contar_papus(columna)` | Cantidad de registros en el grupo. |
+* **Relacionales:** `==` (igual), `!=` (diferente), `>` (mayor), `<` (menor), `>=` (mayor o igual), `<=` (menor o igual).
+* **Lógicos:**
+  * Conjunción: `y_ademas`, `&&`, `and`
+  * Disyunción: `o_bien`, `||`, `or`
+  * Negación: `no_es_cierto`, `!`, `not`
+* **Aritméticos:** `+` (suma/concatenación), `-` (resta), `*` (multiplicación), `/` (división), `%` (módulo), `^` (potencia).
 
 ---
 
-## 7. Ejecución de Programas
+### 2.9 Instrucciones de Visualización (Sintaxis Reconocida)
 
-A partir de la Fase 2, el comando ejecuta los programas **directamente** (sin carteles de validación sintáctica de la Fase 1):
-
-```bash
-python3 ejecutar_dsl.py ejemplos/programa_control_funciones.xd
-```
-
-O utilizando los atajos del `Makefile`:
-
-```bash
-make run-control         # Demuestra asignación, condicionales, ciclos y funciones
-make run-completo        # Pipeline completo combinando funciones y datos CSV
-make run-ventas          # Análisis de ventas comerciales
-make run-empleados       # Análisis de nómina por departamento
-make run-estudiantes     # Rendimiento académico y notas
-make run-error-semantico # Detección diagnóstica de errores semánticos
-```
-
-Si deseas inspeccionar el árbol sintáctico jerárquico o validar la sintaxis, puedes agregar la bandera `--arbol` o `--validar`:
-
-```bash
-python3 ejecutar_dsl.py ejemplos/programa_control_funciones.xd --arbol
-```
+| Instrucción | Parámetros Opcionales | Descripción |
+| :--- | :--- | :--- |
+| `graficar_momos_en_barras` | `titulo "t"`, `eje_x "x"`, `eje_y "y"`, `guardar "ruta"` | Gráfico de barras sobre una tabla. |
+| `graficar_momos_en_lineas` | `titulo "t"`, `eje_x "x"`, `eje_y "y"`, `guardar "ruta"` | Gráfico de líneas temporales. |
+| `graficar_momos_en_histograma` | `titulo "t"`, `eje_x "x"`, `eje_y "y"`, `guardar "ruta"` | Gráfico de distribución de frecuencias. |
+| `graficar_momos_en_dispersion` | `titulo "t"`, `eje_x "x"`, `eje_y "y"`, `guardar "ruta"` | Gráfico de dispersión bidimensional. |
+| `graficar_momos_en_cajas` | `titulo "t"`, `eje_x "x"`, `eje_y "y"`, `guardar "ruta"` | Diagrama de cajas y bigotes. |
