@@ -1,13 +1,11 @@
 
 ***
 
-# MomoLang XD (`.xd`) — Un Lenguaje para Ciencia de Datos
+# MomoLang XD (`.xd`) 
 
-**Universidad Sergio Arboleda**  
-**Escuela de Ciencias Exactas e Ingeniería**  
 **Programa de Ciencias de la Computación e Inteligencia Artificial**  
 **Asignatura:** Lenguajes de Programación y Transducción  
-**Docente:** Joaquín F. Sánchez | **Semestre:** 2026-2  
+**Docente:** Joaquín F. Sánchez 
 
 **Equipo de Desarrollo:**  
 * Dylan Torres  
