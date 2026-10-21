@@ -10,7 +10,7 @@ errores semánticos (variables no declaradas, columnas inexistentes, tipos).
 """
 
 from src.core.datos_propios import TablaMomo, SerieMomo, AgrupamientoMomo
-from src.core.matematica_propia import VectorMomo
+from src.core.matematica_momera import VectorMomo
 
 
 class ErrorSemantico(Exception):

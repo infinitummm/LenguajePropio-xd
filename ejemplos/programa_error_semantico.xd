@@ -1,6 +1,6 @@
 # =============================================================================
 # Demostración de Detección de Errores Semánticos
-# MomoLang XD (.xd) - Fase 2
+# MomoLang XD (.xd)
 # =============================================================================
 
 ventas = pasa_el_pack "datos/ventas_prueba.csv" xd

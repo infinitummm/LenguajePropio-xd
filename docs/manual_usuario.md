@@ -67,6 +67,7 @@
 | `multiplicacion`, `multiplicar`, `multiplicar_papus`, `multiplicar_momos` | `(a, b)` | Multiplica dos escalares o columnas vectoriales. |
 | `resta`, `restar`, `restar_papus`, `restar_momos` | `(a, b)` | Resta dos escalares o columnas vectoriales. |
 | `division`, `dividir`, `dividir_papus`, `dividir_momos` | `(a, b)` | Divide dos escalares o columnas vectoriales. |
+| `Momo_Ramdon` | `()` o `(n)` o `(min, max)` | Generador pseudoaleatorio. Sin argumentos: float en `[0.0, 1.0)`. Con 1 argumento `(n)`: entero o float entre `0` y `n`. Con 2 argumentos `(min, max)`: valor aleatorio entre `min` y `max`. |
 
 ---
 

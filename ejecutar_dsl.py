@@ -26,9 +26,9 @@ def principal():
         print("    python ejecutar_dsl.py <archivo.xd> [--validar] [--arbol]")
         print("\nEjemplos:")
         print("    python ejecutar_dsl.py ejemplos/programa_control_funciones.xd")
-        print("    python ejecutar_dsl.py ejemplos/programa_ventas_fase2.xd")
-        print("    python ejecutar_dsl.py ejemplos/programa_empleados_fase2.xd")
-        print("    python ejecutar_dsl.py ejemplos/programa_estudiantes_fase2.xd")
+        print("    python ejecutar_dsl.py ejemplos/programa_ventas.xd")
+        print("    python ejecutar_dsl.py ejemplos/programa_empleados.xd")
+        print("    python ejecutar_dsl.py ejemplos/programa_estudiantes.xd")
         print("    python ejecutar_dsl.py ejemplos/programa_correcto1.xd")
         sys.exit(1)
 
@@ -69,7 +69,7 @@ def principal():
         if solo_validar:
             sys.exit(0)
 
-    # 3. Ejecución Directa del Programa (Fase 2)
+    # 3. Ejecución Directa del Programa
     visitor = VisitorEjecutor()
 
     try:

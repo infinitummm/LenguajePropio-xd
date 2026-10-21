@@ -6,11 +6,11 @@ Universidad Sergio Arboleda
 
 Implementación 100% desde cero en Python puro (sin NumPy, SciPy ni Pandas).
 Proporciona estructuras vectoriales unidimensionales, operaciones aritméticas
-vectorizadas elemento a elemento, máscaras relacionales y cálculo de
-estadísticas descriptivas nativas.
+vectorizadas elemento a elemento, máscaras relacionales, generador pseudoaleatorio
+nativo y cálculo de estadísticas descriptivas.
 """
 
-import math
+import random
 
 
 class VectorMomo:
@@ -224,7 +224,8 @@ class VectorMomo:
             return 0.0
         prom = sum(validos) / n
         suma_cuadrados = sum((x - prom) ** 2 for x in validos)
-        return math.sqrt(suma_cuadrados / (n - 1))
+        varianza = suma_cuadrados / (n - 1)
+        return varianza ** 0.5
 
 
 def sumar_papus(a, b):
@@ -255,3 +256,37 @@ def division(a, b):
     if isinstance(a, VectorMomo):
         return a / b
     return a / b
+
+
+def momo_random(a=None, b=None):
+    """
+    Genera números pseudoaleatorios para MomoLang XD (Momo_Ramdon).
+
+    Comportamiento según la aridad:
+    - 0 argumentos: Retorna un número flotante en el rango [0.0, 1.0).
+    - 1 argumento (n):
+        - Si n es entero: Retorna un entero en [0, n] (o [n, 0] si n < 0).
+        - Si n es flotante: Retorna un float en [0.0, n] (o [n, 0.0] si n < 0).
+    - 2 argumentos (a, b):
+        - Si ambos son enteros: Retorna un entero en [min(a, b), max(a, b)].
+        - Si alguno es flotante: Retorna un float en [min(a, b), max(a, b)].
+    """
+    if a is None and b is None:
+        return random.random()
+    elif b is None:
+        if isinstance(a, int) and not isinstance(a, bool):
+            if a >= 0:
+                return random.randint(0, a)
+            else:
+                return random.randint(a, 0)
+        else:
+            val = float(a)
+            if val >= 0:
+                return random.uniform(0.0, val)
+            else:
+                return random.uniform(val, 0.0)
+    else:
+        if isinstance(a, int) and isinstance(b, int) and not isinstance(a, bool) and not isinstance(b, bool):
+            return random.randint(min(a, b), max(a, b))
+        else:
+            return random.uniform(min(float(a), float(b)), max(float(a), float(b)))

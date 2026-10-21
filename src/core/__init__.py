@@ -1,9 +1,10 @@
-from src.core.matematica_propia import (
+from src.core.matematica_momera import (
     VectorMomo,
     sumar_papus,
     multiplicacion,
     resta,
-    division
+    division,
+    momo_random
 )
 from src.core.datos_propios import (
     TablaMomo,
@@ -18,6 +19,7 @@ __all__ = [
     'multiplicacion',
     'resta',
     'division',
+    'momo_random',
     'TablaMomo',
     'SerieMomo',
     'AgrupamientoMomo',

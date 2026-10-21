@@ -33,7 +33,7 @@ resumen = ventas_procesadas
     |:v> ordenar_a_los_papus total_ciudad de_arriba_a_abajo xd
 
 # 5. Exportar el reporte a disco
-subir_al_grupo resumen en "salidas/reporte_completo_fase2.csv" xd
+subir_al_grupo resumen en "salidas/reporte_completo.csv" xd
 
 # 6. Uso de ciclo y condicional para validar el estado del reporte
 contador_lotes = 1 xd

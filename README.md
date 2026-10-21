@@ -96,13 +96,13 @@ LenguajePropio-xd/
 ├── src/                  # Motores de análisis y ejecución.
 │   ├── core/             # Librerías PROPIAS en Python Puro (cero Pandas/NumPy).
 │   │   ├── datos_propios.py      # TablaMomo, SerieMomo, Parser CSV propio.
-│   │   └── matematica_propia.py  # VectorMomo, estadística y álgebra propia.
+│   │   └── matematica_momera.py  # VectorMomo, estadística, números aleatorios y álgebra propia.
 │   ├── semantica/        # Analizador semántico y ejecutor.
 │   │   ├── tabla_simbolos.py     # Manejo de símbolos, ámbitos y tipos.
 │   │   └── visitor_ejecutor.py   # Visitor ANTLR4 que ejecuta el DSL.
 │   ├── parser/           # Archivos generados automáticamente por ANTLR4.
 │   └── validador/        # Diagnóstico sintáctico y listeners amigables.
-├── ejemplos/             # Programas .xd de prueba y demostración (Fase 1 y 2).
+├── ejemplos/             # Programas .xd de prueba y demostración (análisis y control de flujo).
 ├── datos/                # Datasets CSV de prueba (ventas, empleados, estudiantes).
 ├── salidas/              # Archivos CSV generados por los programas MomoLang XD.
 ├── ejecutar_dsl.py       # Validador y ejecutor semántico CLI principal.
@@ -143,7 +143,7 @@ Para cuando necesitas resumir la información.
 | `sacar_cuentas ...` | Calcula estadísticas sobre los grupos creados. | `\|:v> sacar_cuentas total = suma(ventas)` |
 | *Funciones:* | `suma()`, `promedio()`, `mediana()`, `el_mas_pro()` (máximo), `el_mas_manco()` (mínimo), `desviacion_pro()`, `contar_papus()` (contar filas). | `sacar_cuentas m = el_mas_pro(precio), n = contar_papus()` |
 
-### Control de Flujo y Funciones (Fase 2)
+### Control de Flujo y Funciones
 | Instrucción | ¿Qué hace? | Ejemplo |
 | :--- | :--- | :--- |
 | `var = expr xd` | Asigna cualquier valor numérico, texto, función o tabla a una variable. | `total = cant * precio xd` |
@@ -176,9 +176,9 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 | `make run` | Ejecuta el programa principal (`ejemplos/programa_correcto1.xd`). |
 | `make run-control` | Ejecuta el programa de control de flujo y funciones (`programa_control_funciones.xd`). |
 | `make run-completo` | Ejecuta el pipeline completo combinando funciones y datos CSV (`programa_analisis_completo.xd`). |
-| `make run-ventas` | Ejecuta el pipeline de ventas con agregaciones y filtros (`programa_ventas_fase2.xd`). |
-| `make run-empleados` | Ejecuta el análisis de nómina y departamentos (`programa_empleados_fase2.xd`). |
-| `make run-estudiantes` | Ejecuta el análisis de notas y rendimiento académico (`programa_estudiantes_fase2.xd`). |
+| `make run-ventas` | Ejecuta el pipeline de ventas con agregaciones y filtros (`programa_ventas.xd`). |
+| `make run-empleados` | Ejecuta el análisis de nómina y departamentos (`programa_empleados.xd`). |
+| `make run-estudiantes` | Ejecuta el análisis de notas y rendimiento académico (`programa_estudiantes.xd`). |
 | `make run-error-semantico` | Demuestra la detección y diagnóstico de errores semánticos en consola. |
 | `make run-incorrect` | Prueba el archivo con errores sintácticos para ver el diagnóstico de ANTLR4. |
 | `make run-tree` | Valida el ejemplo y te muestra el árbol sintáctico jerárquico. |

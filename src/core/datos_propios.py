@@ -10,7 +10,7 @@ creación de columnas, agrupamientos (GroupBy) y lectura/escritura de CSV.
 """
 
 import os
-from src.core.matematica_propia import VectorMomo
+from src.core.matematica_momera import VectorMomo
 
 
 def inferir_tipo_valor(texto):

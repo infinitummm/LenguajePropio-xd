@@ -144,6 +144,7 @@ listaParametros
 parametro
     : ID
     | funcionAgg
+    | MOMO_RANDOM
     ;
 
 instruccionRetorno
@@ -206,6 +207,7 @@ llamadaFuncion
 funcionNombre
     : ID
     | funcionAgg
+    | MOMO_RANDOM
     ;
 
 listaArgumentos
@@ -220,6 +222,7 @@ listaIDs
 idOAgg
     : ID
     | funcionAgg
+    | MOMO_RANDOM
     ;
 
 // ==========================================
@@ -277,6 +280,7 @@ MINIMO                     : 'minimo' ;
 CONTAR_PAPUS               : 'contar_papus' | 'contar' [ \t]+ 'papus' | 'contar' ;
 CONTEO                     : 'conteo' ;
 DESVIACION_PRO             : 'desviacion_pro' | 'desviacion' ;
+MOMO_RANDOM                : 'Momo_Ramdon' ;
 
 GRAFICAR_MOMOS_EN_BARRAS   : 'graficar_momos_en_barras' | 'graficar' [ \t]+ 'momos' [ \t]+ 'en' [ \t]+ 'barras' ;
 GRAFICAR_MOMOS_EN_LINEAS   : 'graficar_momos_en_lineas' | 'graficar' [ \t]+ 'momos' [ \t]+ 'en' [ \t]+ 'lineas' ;

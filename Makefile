@@ -22,9 +22,9 @@ help:
 	@echo "  make run                 - Ejecuta programa_correcto1.xd"
 	@echo "  make run-control         - Demuestra asignacion, condicionales, ciclos y funciones"
 	@echo "  make run-completo        - Ejecuta pipeline completo con funciones y datos CSV"
-	@echo "  make run-ventas          - Ejecuta el analisis de ventas (Fase 2)"
-	@echo "  make run-empleados       - Ejecuta el analisis de nomina (Fase 2)"
-	@echo "  make run-estudiantes     - Ejecuta el analisis de notas academicas (Fase 2)"
+	@echo "  make run-ventas          - Ejecuta el pipeline de ventas"
+	@echo "  make run-empleados       - Ejecuta el analisis de nomina"
+	@echo "  make run-estudiantes     - Ejecuta el analisis de notas academicas"
 	@echo "  make run-error-semantico - Prueba la deteccion de errores semanticos"
 	@echo "  make run-incorrect       - Prueba el diagnostico de errores sintacticos"
 	@echo "  make run-tree            - Muestra el arbol sintactico jerarquico (--arbol)"
@@ -52,16 +52,16 @@ run-completo:
 	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_analisis_completo.xd
 
 run-ventas:
-	@echo ">> Ejecutando analisis de ventas (Fase 2) ..."
-	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_ventas_fase2.xd
+	@echo ">> Ejecutando analisis de ventas ..."
+	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_ventas.xd
 
 run-empleados:
-	@echo ">> Ejecutando analisis de empleados (Fase 2) ..."
-	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_empleados_fase2.xd
+	@echo ">> Ejecutando analisis de empleados ..."
+	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_empleados.xd
 
 run-estudiantes:
-	@echo ">> Ejecutando analisis de estudiantes (Fase 2) ..."
-	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_estudiantes_fase2.xd
+	@echo ">> Ejecutando analisis de estudiantes ..."
+	$(PYTHON) ejecutar_dsl.py $(EJEMPLOS_DIR)/programa_estudiantes.xd
 
 run-error-semantico:
 	@echo ">> Probando deteccion de error semantico ..."

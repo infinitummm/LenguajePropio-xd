@@ -1,5 +1,5 @@
 # Especificación de Reglas Semánticas, Tabla de Símbolos y Control de Flujo
-## Fase 2: Semántica, Control de Flujo y Procesamiento de Datos
+## Semántica, Control de Flujo y Procesamiento de Datos
 ### Lenguaje: MomoLang XD (`.xd`)
 
 **Asignatura:** Lenguajes de Programación y Transducción  

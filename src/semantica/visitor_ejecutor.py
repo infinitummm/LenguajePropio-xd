@@ -14,12 +14,13 @@ import os
 from src.parser.LenguajeMomoXDVisitor import LenguajeMomoXDVisitor
 from src.parser.LenguajeMomoXDParser import LenguajeMomoXDParser
 from src.core.datos_propios import TablaMomo, SerieMomo, AgrupamientoMomo
-from src.core.matematica_propia import (
+from src.core.matematica_momera import (
     VectorMomo,
     sumar_papus,
     multiplicacion,
     resta,
-    division
+    division,
+    momo_random
 )
 from src.semantica.tabla_simbolos import TablaSimbolos, ErrorSemantico, SimboloFuncion
 
@@ -315,14 +316,14 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
             return (nombre_salida, func_nombre, col_origen)
 
     # -------------------------------------------------------------------------
-    # Visualizaciones (Fase 3 informativa)
+    # Visualizaciones
     # -------------------------------------------------------------------------
 
     def visitInstruccionVisualizacion(self, ctx: LenguajeMomoXDParser.InstruccionVisualizacionContext):
         nombre_tabla = ctx.ID().getText()
         tipo_graf = ctx.tipoGrafico().getText()
         self.ts.obtener(nombre_tabla, linea=ctx.start.line, columna=ctx.start.column)
-        print(f"[Visualización :v] Sintaxis reconocida para {tipo_graf} sobre '{nombre_tabla}' (Generación gráfica programada para Fase 3).")
+        print(f"[Visualización :v] Sintaxis reconocida para {tipo_graf} sobre '{nombre_tabla}'.")
         return None
 
     # -------------------------------------------------------------------------
@@ -631,6 +632,26 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
             elif len(argumentos) == 0:
                 return 0
             raise ErrorSemantico(f"'contar_papus' recibe 0 o 1 argumento.", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("momo_ramdon",):
+            for i, arg in enumerate(argumentos, 1):
+                if not isinstance(arg, (int, float)) or isinstance(arg, bool):
+                    raise ErrorSemantico(
+                        f"El argumento #{i} de 'Momo_Ramdon' debe ser numérico, no '{type(arg).__name__}'.",
+                        linea=ctx.start.line,
+                        columna=ctx.start.column
+                    )
+            if len(argumentos) == 0:
+                return momo_random()
+            elif len(argumentos) == 1:
+                return momo_random(argumentos[0])
+            elif len(argumentos) == 2:
+                return momo_random(argumentos[0], argumentos[1])
+            raise ErrorSemantico(
+                f"La función 'Momo_Ramdon' recibe entre 0 y 2 argumentos, no {len(argumentos)}.",
+                linea=ctx.start.line,
+                columna=ctx.start.column
+            )
 
         raise ErrorSemantico(f"Función desconocida o no definida: '{func_nombre}'", linea=ctx.start.line, columna=ctx.start.column)
 
