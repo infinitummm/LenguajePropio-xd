@@ -1,11 +1,10 @@
-# ==========================================================
-# Programa Incorrecto 1: Omisión del terminador obligatorio 'xd'
-# ==========================================================
+# Test de error sintactico 1: Omision del terminador obligatorio 'xd'
+# MomoLang XD (.xd)
 
-when haces "Iniciando sin poner xd..." xd
+when haces "Iniciando prueba sintactica sin cerrar con xd..." xd
 
-# Error sintáctico: Esta sentencia NO termina en xd
+# Sentencia invalida sin el 'xd'
 ventas = pasa_el_pack "datos/ventas_prueba.csv"
 
-# Error sintáctico: Falta 'xd'
+# Sentencia invalida sin el 'xd'
 subir_al_grupo ventas en "salidas/ventas.csv"

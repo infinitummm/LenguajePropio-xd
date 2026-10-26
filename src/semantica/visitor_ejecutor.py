@@ -13,7 +13,7 @@ vectoriales y tabulares propias (cero dependencias externas).
 import os
 from src.parser.LenguajeMomoXDVisitor import LenguajeMomoXDVisitor
 from src.parser.LenguajeMomoXDParser import LenguajeMomoXDParser
-from src.core.datos_propios import TablaMomo, SerieMomo, AgrupamientoMomo
+from src.core.datos_momeros import TablaMomo, SerieMomo, AgrupamientoMomo
 from src.core.matematica_momera import (
     VectorMomo,
     sumar_papus,
@@ -21,6 +21,14 @@ from src.core.matematica_momera import (
     resta,
     division,
     momo_random
+)
+from src.core.estructuras_momeras import PilaMomera, ColaMomera, ListaMomera, MapaMomero
+from src.core.graficas_momeras import (
+    graficar_barras,
+    graficar_lineas,
+    graficar_dispersion,
+    graficar_histograma,
+    graficar_cajas
 )
 from src.semantica.tabla_simbolos import TablaSimbolos, ErrorSemantico, SimboloFuncion
 
@@ -52,6 +60,8 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
     def visitSentencia(self, ctx: LenguajeMomoXDParser.SentenciaContext):
         if ctx.asignacion():
             return self.visit(ctx.asignacion())
+        elif ctx.asignacionIndexada():
+            return self.visit(ctx.asignacionIndexada())
         elif ctx.instruccionImprimir():
             return self.visit(ctx.instruccionImprimir())
         elif ctx.instruccionGuardado():
@@ -82,6 +92,23 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
         nombre_var = ctx.ID().getText()
         valor = self.visit(ctx.expresionPipeline())
         self.ts.asignar_existente_o_local(nombre_var, valor)
+        return valor
+
+    def visitAsignacionIndexada(self, ctx: LenguajeMomoXDParser.AsignacionIndexadaContext):
+        nombre_var = ctx.ID().getText()
+        coleccion = self.ts.obtener(nombre_var, linea=ctx.start.line, columna=ctx.start.column)
+        indice = self.visit(ctx.expresionAritmetica(0))
+        valor = self.visit(ctx.expresionAritmetica(1))
+
+        if isinstance(coleccion, (ListaMomera, list)):
+            try:
+                coleccion[int(indice)] = valor
+            except Exception as e:
+                raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+        elif isinstance(coleccion, (MapaMomero, dict)):
+            coleccion[indice] = valor
+        else:
+            raise ErrorSemantico(f"La variable '{nombre_var}' no admite asignación por índice.", linea=ctx.start.line, columna=ctx.start.column)
         return valor
 
     def visitExpresionPipeline(self, ctx: LenguajeMomoXDParser.ExpresionPipelineContext):
@@ -322,8 +349,112 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
     def visitInstruccionVisualizacion(self, ctx: LenguajeMomoXDParser.InstruccionVisualizacionContext):
         nombre_tabla = ctx.ID().getText()
         tipo_graf = ctx.tipoGrafico().getText()
-        self.ts.obtener(nombre_tabla, linea=ctx.start.line, columna=ctx.start.column)
-        print(f"[Visualización :v] Sintaxis reconocida para {tipo_graf} sobre '{nombre_tabla}'.")
+        tabla = self.ts.obtener(nombre_tabla, linea=ctx.start.line, columna=ctx.start.column)
+
+        if not isinstance(tabla, TablaMomo):
+            raise ErrorSemantico(
+                f"La visualización '{tipo_graf}' requiere una TablaMomo, pero '{nombre_tabla}' es {type(tabla).__name__}.",
+                linea=ctx.start.line,
+                columna=ctx.start.column
+            )
+
+        # Extraer parámetros opcionales
+        titulo = f"Grafico MomoLang XD - {nombre_tabla}"
+        eje_x = ""
+        eje_y = ""
+        guardar = None
+
+        for i in range(ctx.getChildCount()):
+            hijo = ctx.getChild(i)
+            t = hijo.getText().lower().strip()
+            if t == "titulo" and i + 1 < ctx.getChildCount():
+                titulo = ctx.getChild(i + 1).getText().strip('"\'')
+            elif t in ("eje_x", "ejex") and i + 1 < ctx.getChildCount():
+                eje_x = ctx.getChild(i + 1).getText().strip('"\'')
+            elif t in ("eje_y", "ejey") and i + 1 < ctx.getChildCount():
+                eje_y = ctx.getChild(i + 1).getText().strip('"\'')
+            elif t == "guardar" and i + 1 < ctx.getChildCount():
+                guardar = ctx.getChild(i + 1).getText().strip('"\'')
+
+        if not guardar:
+            tipo_limpio = tipo_graf.replace("graficar_momos_en_", "")
+            guardar = f"salidas/{nombre_tabla}_{tipo_limpio}.png"
+        elif guardar.endswith(".svg"):
+            guardar = guardar[:-4] + ".png"
+        elif not guardar.endswith(".png"):
+            guardar = guardar + ".png"
+
+        # Clasificar columnas en numéricas y categóricas/texto
+        columnas = tabla.columnas
+        columnas_numericas = []
+        columnas_texto = []
+        for c in columnas:
+            muestra = [v for v in (tabla[c].datos if hasattr(tabla[c], 'datos') else tabla[c]) if v is not None]
+            es_num = False
+            if muestra:
+                es_num = all(isinstance(v, (int, float)) and not isinstance(v, bool) for v in muestra[:10])
+            if es_num:
+                columnas_numericas.append(c)
+            else:
+                columnas_texto.append(c)
+
+        # Detectar columnas X e Y adecuadas
+        col_x = None
+        col_y = None
+
+        if eje_x:
+            for c in columnas:
+                if c.lower() == eje_x.lower():
+                    col_x = c
+                    break
+            if not col_x:
+                for c in columnas:
+                    if c.lower() in eje_x.lower():
+                        col_x = c
+                        break
+
+        if eje_y:
+            for c in columnas:
+                if c.lower() == eje_y.lower():
+                    col_y = c
+                    break
+            if not col_y:
+                for c in columnas:
+                    if c.lower() in eje_y.lower():
+                        col_y = c
+                        break
+
+        # Fallbacks de columnas según tipo de gráfico
+        if tipo_graf in ("graficar_momos_en_barras", "graficar_momos_en_lineas"):
+            if not col_x:
+                col_x = columnas_texto[0] if columnas_texto else columnas[0]
+            if not col_y:
+                col_y = columnas_numericas[0] if columnas_numericas else (columnas[1] if len(columnas) > 1 else columnas[0])
+            if tipo_graf == "graficar_momos_en_barras":
+                archivo = graficar_barras(tabla, col_x, col_y, titulo=titulo, eje_x=eje_x or col_x, eje_y=eje_y or col_y, ruta_salida=guardar)
+            else:
+                archivo = graficar_lineas(tabla, col_x, col_y, titulo=titulo, eje_x=eje_x or col_x, eje_y=eje_y or col_y, ruta_salida=guardar)
+
+        elif tipo_graf == "graficar_momos_en_dispersion":
+            if not col_x:
+                col_x = columnas_numericas[0] if columnas_numericas else columnas[0]
+            if not col_y:
+                col_y = columnas_numericas[1] if len(columnas_numericas) > 1 else (columnas_numericas[0] if columnas_numericas else columnas[-1])
+            archivo = graficar_dispersion(tabla, col_x, col_y, titulo=titulo, eje_x=eje_x or col_x, eje_y=eje_y or col_y, ruta_salida=guardar)
+
+        elif tipo_graf == "graficar_momos_en_histograma":
+            if not col_x:
+                col_x = col_y or (columnas_numericas[0] if columnas_numericas else columnas[-1])
+            archivo = graficar_histograma(tabla, col_x, bins=6, titulo=titulo, eje_x=eje_x or col_x, eje_y=eje_y or "Frecuencia", ruta_salida=guardar)
+
+        elif tipo_graf == "graficar_momos_en_cajas":
+            if not col_x:
+                col_x = col_y or (columnas_numericas[0] if columnas_numericas else columnas[-1])
+            archivo = graficar_cajas(tabla, col_x, None, titulo=titulo, eje_x=eje_x or col_x, eje_y=eje_y or "Valor", ruta_salida=guardar)
+        else:
+            raise ErrorSemantico(f"Tipo de visualización no soportado: '{tipo_graf}'", linea=ctx.start.line, columna=ctx.start.column)
+
+        print(f"[Visualización PNG :v] '{tipo_graf}' generado exitosamente en '{archivo}'.")
         return None
 
     # -------------------------------------------------------------------------
@@ -534,6 +665,12 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
             return self.visit(ctx.expresionAritmetica())
         elif ctx.llamadaFuncion():
             return self.visit(ctx.llamadaFuncion())
+        elif ctx.accesoIndexado():
+            return self.visit(ctx.accesoIndexado())
+        elif ctx.literalLista():
+            return self.visit(ctx.literalLista())
+        elif ctx.literalMapa():
+            return self.visit(ctx.literalMapa())
         elif ctx.NUMERO():
             texto = ctx.NUMERO().getText()
             return float(texto) if "." in texto else int(texto)
@@ -552,6 +689,51 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
                     return self.tabla_actual[nombre_id].vector
             return self.ts.obtener(nombre_id, linea=ctx.start.line, columna=ctx.start.column)
         return None
+
+    def visitAccesoIndexado(self, ctx: LenguajeMomoXDParser.AccesoIndexadoContext):
+        nombre_var = ctx.ID().getText()
+        coleccion = self.ts.obtener(nombre_var, linea=ctx.start.line, columna=ctx.start.column)
+        indice = self.visit(ctx.expresionAritmetica())
+
+        if isinstance(coleccion, (ListaMomera, list)):
+            try:
+                return coleccion[int(indice)]
+            except Exception as e:
+                raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+        elif isinstance(coleccion, (MapaMomero, dict)):
+            try:
+                return coleccion[indice]
+            except Exception as e:
+                raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+        elif isinstance(coleccion, TablaMomo):
+            if str(indice) in coleccion.columnas:
+                return coleccion[str(indice)]
+            raise ErrorSemantico(f"Columna '{indice}' no existe en la tabla.", linea=ctx.start.line, columna=ctx.start.column)
+        elif isinstance(coleccion, str):
+            try:
+                return coleccion[int(indice)]
+            except IndexError:
+                raise ErrorSemantico(f"Índice {indice} fuera de rango en la cadena.", linea=ctx.start.line, columna=ctx.start.column)
+        raise ErrorSemantico(f"El objeto '{nombre_var}' de tipo '{type(coleccion).__name__}' no es indexable.", linea=ctx.start.line, columna=ctx.start.column)
+
+    def visitLiteralLista(self, ctx: LenguajeMomoXDParser.LiteralListaContext):
+        elementos = [self.visit(exp) for exp in ctx.expresionAritmetica()]
+        return ListaMomera(elementos)
+
+    def visitLiteralMapa(self, ctx: LenguajeMomoXDParser.LiteralMapaContext):
+        mapa = MapaMomero()
+        for p in ctx.parClaveValor():
+            clave, val = self.visit(p)
+            mapa[clave] = val
+        return mapa
+
+    def visitParClaveValor(self, ctx: LenguajeMomoXDParser.ParClaveValorContext):
+        if ctx.CADENA():
+            clave = ctx.CADENA().getText().strip('"\'')
+        else:
+            clave = ctx.ID().getText()
+        valor = self.visit(ctx.expresionAritmetica())
+        return clave, valor
 
     def visitLlamadaFuncion(self, ctx: LenguajeMomoXDParser.LlamadaFuncionContext):
         func_nombre = ctx.funcionNombre().getText()
@@ -652,6 +834,104 @@ class VisitorEjecutor(LenguajeMomoXDVisitor):
                 linea=ctx.start.line,
                 columna=ctx.start.column
             )
+
+        # ---------------------------------------------------------------------
+        # Estructuras de datos momeras
+        # ---------------------------------------------------------------------
+        elif func_nombre_lower in ("crear_pila", "pila_nueva"):
+            return PilaMomera(argumentos[0] if argumentos else None)
+
+        elif func_nombre_lower in ("apilar_papu", "apilar"):
+            if len(argumentos) == 2 and isinstance(argumentos[0], PilaMomera):
+                return argumentos[0].apilar(argumentos[1])
+            raise ErrorSemantico("'apilar_papu' requiere 2 argumentos (PilaMomera, elemento).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("desapilar_papu", "desapilar"):
+            if len(argumentos) == 1 and isinstance(argumentos[0], PilaMomera):
+                try:
+                    return argumentos[0].desapilar()
+                except IndexError as e:
+                    raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+            raise ErrorSemantico("'desapilar_papu' requiere 1 argumento (PilaMomera).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("tope_papu", "tope"):
+            if len(argumentos) == 1 and isinstance(argumentos[0], PilaMomera):
+                try:
+                    return argumentos[0].tope()
+                except IndexError as e:
+                    raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+            raise ErrorSemantico("'tope_papu' requiere 1 argumento (PilaMomera).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("pila_vacia",):
+            if len(argumentos) == 1 and isinstance(argumentos[0], PilaMomera):
+                return argumentos[0].esta_vacia()
+            raise ErrorSemantico("'pila_vacia' requiere 1 argumento (PilaMomera).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("crear_cola", "cola_nueva"):
+            return ColaMomera(argumentos[0] if argumentos else None)
+
+        elif func_nombre_lower in ("encolar_papu", "encolar"):
+            if len(argumentos) == 2 and isinstance(argumentos[0], ColaMomera):
+                return argumentos[0].encolar(argumentos[1])
+            raise ErrorSemantico("'encolar_papu' requiere 2 argumentos (ColaMomera, elemento).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("desencolar_papu", "desencolar"):
+            if len(argumentos) == 1 and isinstance(argumentos[0], ColaMomera):
+                try:
+                    return argumentos[0].desencolar()
+                except IndexError as e:
+                    raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+            raise ErrorSemantico("'desencolar_papu' requiere 1 argumento (ColaMomera).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("frente_papu", "frente"):
+            if len(argumentos) == 1 and isinstance(argumentos[0], ColaMomera):
+                try:
+                    return argumentos[0].frente()
+                except IndexError as e:
+                    raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+            raise ErrorSemantico("'frente_papu' requiere 1 argumento (ColaMomera).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("cola_vacia",):
+            if len(argumentos) == 1 and isinstance(argumentos[0], ColaMomera):
+                return argumentos[0].esta_vacia()
+            raise ErrorSemantico("'cola_vacia' requiere 1 argumento (ColaMomera).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("crear_lista", "lista_nueva"):
+            return ListaMomera(argumentos[0] if argumentos else None)
+
+        elif func_nombre_lower in ("agregar_papu", "agregar"):
+            if len(argumentos) == 2 and isinstance(argumentos[0], (ListaMomera, list)):
+                return argumentos[0].agregar(argumentos[1]) if isinstance(argumentos[0], ListaMomera) else argumentos[0].append(argumentos[1])
+            raise ErrorSemantico("'agregar_papu' requiere 2 argumentos (ListaMomera, elemento).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("obtener_papu",):
+            if len(argumentos) == 2 and isinstance(argumentos[0], (ListaMomera, list)):
+                try:
+                    return argumentos[0][int(argumentos[1])]
+                except IndexError as e:
+                    raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+            raise ErrorSemantico("'obtener_papu' requiere 2 argumentos (ListaMomera, indice).", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("longitud_papu", "tamano_papu", "longitud", "tamano"):
+            if len(argumentos) == 1:
+                obj = argumentos[0]
+                if hasattr(obj, '__len__'):
+                    return len(obj)
+                elif hasattr(obj, 'tamano'):
+                    return obj.tamano()
+            raise ErrorSemantico("'longitud_papu' requiere 1 colección.", linea=ctx.start.line, columna=ctx.start.column)
+
+        elif func_nombre_lower in ("crear_mapa", "mapa_nuevo"):
+            return MapaMomero()
+
+        elif func_nombre_lower in ("obtener_clave",):
+            if len(argumentos) >= 2 and isinstance(argumentos[0], (MapaMomero, dict)):
+                defecto = argumentos[2] if len(argumentos) > 2 else None
+                try:
+                    return argumentos[0].obtener(argumentos[1], defecto) if isinstance(argumentos[0], MapaMomero) else argumentos[0].get(argumentos[1], defecto)
+                except KeyError as e:
+                    raise ErrorSemantico(str(e), linea=ctx.start.line, columna=ctx.start.column)
+            raise ErrorSemantico("'obtener_clave' requiere (MapaMomero, clave).", linea=ctx.start.line, columna=ctx.start.column)
 
         raise ErrorSemantico(f"Función desconocida o no definida: '{func_nombre}'", linea=ctx.start.line, columna=ctx.start.column)
 

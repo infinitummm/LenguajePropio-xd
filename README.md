@@ -92,9 +92,11 @@ LenguajePropio-xd/
 │   ├── manual_usuario.md # Manual de usuario y catálogo de instrucciones.
 │   └── reglas_semanticas.md # Especificación formal de tipos y símbolos.
 ├── src/                  # Motores de análisis y ejecución.
-│   ├── core/             # Librerías PROPIAS en Python Puro (cero Pandas/NumPy).
-│   │   ├── datos_propios.py      # TablaMomo, SerieMomo, Parser CSV propio.
-│   │   └── matematica_momera.py  # VectorMomo, estadística, números aleatorios y álgebra propia.
+│   ├── core/             # Librerías PROPIAS en Python Puro (cero Pandas/NumPy/Matplotlib).
+│   │   ├── datos_momeros.py       # TablaMomo, SerieMomo, Parser CSV propio.
+│   │   ├── matematica_momera.py   # VectorMomo, estadística, números aleatorios y álgebra propia.
+│   │   ├── estructuras_momeras.py # PilaMomera, ColaMomera, ListaMomera, MapaMomero.
+│   │   └── graficas_momeras.py    # Motor de renderizado PNG propio en Python puro.
 │   ├── semantica/        # Analizador semántico y ejecutor.
 │   │   ├── tabla_simbolos.py     # Manejo de símbolos, ámbitos y tipos.
 │   │   └── visitor_ejecutor.py   # Visitor ANTLR4 que ejecuta el DSL.
@@ -151,15 +153,34 @@ Para cuando necesitas resumir la información.
 | `momo_funcion ... fin_de_la_funcion xd` | Define una función reutilizable con parámetros. | `momo_funcion calc(a, b) ... fin_de_la_funcion xd` |
 | `suelta_el_momo expr xd` | Retorna un valor desde una función al llamador. | `suelta_el_momo a + b xd` |
 
+### Estructuras de Datos y Colecciones
+MomoLang XD incluye soporte nativo para colecciones literales y estructuras clásicas:
+
+| Instrucción | ¿Qué hace? | Ejemplo |
+| :--- | :--- | :--- |
+| `[elem1, elem2, ...]` | Literal de lista dinámica. | `nums = [10, 20, 30] xd` |
+| `{clave: valor, ...}` | Literal de mapa / diccionario asociativo. | `config = {"iva": 19} xd` |
+| `id[indice]` | Acceso e indexación sobre listas, mapas y tablas. | `valor = nums[0] xd` |
+| `id[indice] = expr xd` | Asignación y mutación por índice. | `nums[1] = 99 xd` |
+| `crear_pila() xd` | Inicializa una Pila Momera (LIFO). | `pila = crear_pila() xd` |
+| `apilar_papu(p, x) xd` | Inserta un elemento en el tope de la pila. | `apilar_papu(pila, "momo") xd` |
+| `desapilar_papu(p) xd` | Extrae y retorna el elemento en el tope. | `elem = desapilar_papu(pila) xd` |
+| `tope_papu(p) xd` | Consulta el elemento del tope sin extraerlo. | `t = tope_papu(pila) xd` |
+| `crear_cola() xd` | Inicializa una Cola Momera (FIFO). | `cola = crear_cola() xd` |
+| `encolar_papu(c, x) xd` | Inserta un elemento al final de la cola. | `encolar_papu(cola, "ticket") xd` |
+| `desencolar_papu(c) xd` | Extrae y retorna el primer elemento al frente. | `t = desencolar_papu(cola) xd` |
+| `frente_papu(c) xd` | Consulta el primer elemento sin extraerlo. | `f = frente_papu(cola) xd` |
+| `longitud_papu(c) xd` | Retorna el tamaño de cualquier colección. | `tam = longitud_papu(cola) xd` |
+
 ### Gráficos
-Puedes generar 5 tipos de gráficos de forma sencilla:
+MomoLang XD cuenta con un motor propio de renderizado rasterizado en Python estándar (`graficas_momeras.py`), generando imágenes **PNG** reales sin utilizar matplotlib, Pillow ni SVG:
 * `graficar_momos_en_barras`
 * `graficar_momos_en_lineas`
 * `graficar_momos_en_histograma`
 * `graficar_momos_en_dispersion`
 * `graficar_momos_en_cajas`
 
-*(Todos aceptan parámetros opcionales como `titulo`, `eje_x`, `eje_y` y `guardar` para exportar la imagen).*
+*(Todos aceptan parámetros opcionales como `titulo`, `eje_x`, `eje_y` y `guardar "ruta.png"` para exportar la imagen).*
 
 ---
 
@@ -172,6 +193,7 @@ Para no tener que escribir comandos largos, el proyecto incluye un `Makefile`. S
 | `make help` | Muestra la lista de todos los comandos disponibles. |
 | `make build` | Compila la gramática ANTLR4 y genera el lexer/parser en Python. |
 | `make run` | Ejecuta el programa principal (`ejemplos/programa_correcto1.xd`). |
+| `make run-caso-estudio` | Ejecuta el caso de estudio integral final con estructuras de datos y generación de 4 gráficas PNG. |
 | `make run-control` | Ejecuta el programa de control de flujo y funciones (`programa_control_funciones.xd`). |
 | `make run-completo` | Ejecuta el pipeline completo combinando funciones y datos CSV (`programa_analisis_completo.xd`). |
 | `make run-ventas` | Ejecuta el pipeline de ventas con agregaciones y filtros (`programa_ventas.xd`). |

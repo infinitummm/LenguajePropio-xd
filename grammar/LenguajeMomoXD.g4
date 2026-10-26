@@ -10,6 +10,7 @@ programa
 
 sentencia
     : asignacion XD
+    | asignacionIndexada XD
     | instruccionImprimir XD
     | instruccionGuardado XD
     | instruccionVisualizacion XD
@@ -20,6 +21,10 @@ sentencia
     | instruccionRetorno XD
     | llamadaFuncion XD
     | expresionAritmetica XD
+    ;
+
+asignacionIndexada
+    : ID CORCH_IZQ expresionAritmetica CORCH_DER '=' expresionAritmetica
     ;
 
 asignacion
@@ -194,10 +199,29 @@ termino
 factor
     : PAREN_IZQ expresionAritmetica PAREN_DER
     | llamadaFuncion
+    | accesoIndexado
+    | literalLista
+    | literalMapa
     | ID
     | funcionAgg
     | NUMERO
     | CADENA
+    ;
+
+accesoIndexado
+    : ID CORCH_IZQ expresionAritmetica CORCH_DER
+    ;
+
+literalLista
+    : CORCH_IZQ (expresionAritmetica (COMA expresionAritmetica)*)? CORCH_DER
+    ;
+
+literalMapa
+    : LLAVE_IZQ (parClaveValor (COMA parClaveValor)*)? LLAVE_DER
+    ;
+
+parClaveValor
+    : (CADENA | ID) DOS_PUNTOS expresionAritmetica
     ;
 
 llamadaFuncion
@@ -346,6 +370,8 @@ PAREN_IZQ                  : '(' ;
 PAREN_DER                  : ')' ;
 CORCH_IZQ                  : '[' ;
 CORCH_DER                  : ']' ;
+LLAVE_IZQ                  : '{' ;
+LLAVE_DER                  : '}' ;
 
 MAS                        : '+' ;
 MENOS                      : '-' ;

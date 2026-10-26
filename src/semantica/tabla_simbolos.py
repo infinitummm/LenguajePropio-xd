@@ -9,7 +9,7 @@ funciones de usuario, sus tipos de datos y la detección preventiva de
 errores semánticos (variables no declaradas, columnas inexistentes, tipos).
 """
 
-from src.core.datos_propios import TablaMomo, SerieMomo, AgrupamientoMomo
+from src.core.datos_momeros import TablaMomo, SerieMomo, AgrupamientoMomo
 from src.core.matematica_momera import VectorMomo
 
 

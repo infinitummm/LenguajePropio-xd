@@ -1,29 +1,27 @@
-# ==========================================================
-# Programa Completo: Datos + Funciones + Control de Flujo :v
+# Pipeline integral: Funciones de usuario + Transformacion de datos + Ciclos
 # MomoLang XD (.xd)
-# ==========================================================
 
-when haces "=== PROCESAMIENTO AVANZADO: CIENCIA DE DATOS Y LOGICA DE PROGRAMA ===" xd
+when haces "=== MODULO INTEGRAL: PIPELINE DE DATOS Y LOGICA DE CONTROL ===" xd
 
-# 1. Definir función para calcular categoría de ventas
-momo_funcion clasificar_ticket(promedio)
-    si_el_papu promedio >= 100000 entonces
-        suelta_el_momo "Venta Alta :v" xd
+# Funcion de calificacion segun volumen de transacciones
+momo_funcion calificar_demanda(unidades_totales)
+    si_el_papu unidades_totales >= 50 entonces
+        suelta_el_momo "Demanda Masiva :v" xd
     sino_callese_senora
-        suelta_el_momo "Venta Estandar xd" xd
+        suelta_el_momo "Demanda Regular xd" xd
     fin_del_momo xd
 fin_de_la_funcion xd
 
-# 2. Cargar datos tabulares con librerías propias en Python puro
+# Carga de la base de datos
 ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
 
-# 3. Pipeline de transformación
-ventas_procesadas = ventas 
-    |:v> but_te_enteras_que unidades > 2
+# Pipeline de transformacion y monto por orden
+pedidos_activos = ventas
+    |:v> but_te_enteras_que unidades > 10
     |:v> el_futuro_es_hoy_oiste_viejo subtotal = unidades * precio xd
 
-# 4. Agrupamiento y resumen estadístico
-resumen = ventas_procesadas 
+# Consolidado multivariado por ciudad
+resumen = pedidos_activos
     |:v> juntar_a_la_grasa_por [ciudad] calcular [
         suma(subtotal) como total_ciudad,
         promedio(subtotal) como promedio_ciudad,
@@ -32,17 +30,17 @@ resumen = ventas_procesadas
     ]
     |:v> ordenar_a_los_papus total_ciudad de_arriba_a_abajo xd
 
-# 5. Exportar el reporte a disco
+# Exportar reporte consolidado
 subir_al_grupo resumen en "salidas/reporte_completo.csv" xd
 
-# 6. Uso de ciclo y condicional para validar el estado del reporte
+# Validacion de lotes procesados
 contador_lotes = 1 xd
 mientras_el_papu contador_lotes <= 2 haz_esto
     when haces "Verificando lote de ejecucion #" + contador_lotes xd
     contador_lotes = contador_lotes + 1 xd
 fin_del_bucle xd
 
-categoria_resultado = clasificar_ticket(125000) xd
+categoria_resultado = calificar_demanda(125000) xd
 when haces "Clasificacion del ticket principal: " + categoria_resultado xd
 
 when haces "=== PIPELINE Y CONTROL EJECUTADOS CON EXITO PAPU :v ===" xd

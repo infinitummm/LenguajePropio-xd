@@ -26,6 +26,15 @@ class LenguajeMomoXDListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeMomoXDParser#asignacionIndexada.
+    def enterAsignacionIndexada(self, ctx:LenguajeMomoXDParser.AsignacionIndexadaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#asignacionIndexada.
+    def exitAsignacionIndexada(self, ctx:LenguajeMomoXDParser.AsignacionIndexadaContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeMomoXDParser#asignacion.
     def enterAsignacion(self, ctx:LenguajeMomoXDParser.AsignacionContext):
         pass
@@ -338,6 +347,42 @@ class LenguajeMomoXDListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeMomoXDParser#factor.
     def exitFactor(self, ctx:LenguajeMomoXDParser.FactorContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#accesoIndexado.
+    def enterAccesoIndexado(self, ctx:LenguajeMomoXDParser.AccesoIndexadoContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#accesoIndexado.
+    def exitAccesoIndexado(self, ctx:LenguajeMomoXDParser.AccesoIndexadoContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#literalLista.
+    def enterLiteralLista(self, ctx:LenguajeMomoXDParser.LiteralListaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#literalLista.
+    def exitLiteralLista(self, ctx:LenguajeMomoXDParser.LiteralListaContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#literalMapa.
+    def enterLiteralMapa(self, ctx:LenguajeMomoXDParser.LiteralMapaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#literalMapa.
+    def exitLiteralMapa(self, ctx:LenguajeMomoXDParser.LiteralMapaContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeMomoXDParser#parClaveValor.
+    def enterParClaveValor(self, ctx:LenguajeMomoXDParser.ParClaveValorContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeMomoXDParser#parClaveValor.
+    def exitParClaveValor(self, ctx:LenguajeMomoXDParser.ParClaveValorContext):
         pass
 
 

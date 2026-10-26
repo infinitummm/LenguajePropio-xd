@@ -1,9 +1,7 @@
-# =============================================================================
-# Demostración de Detección de Errores Semánticos
+# Demostracion de error semantico controlado
 # MomoLang XD (.xd)
-# =============================================================================
 
 ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
 
-# ERROR 1: Acceder a una columna que no existe en la tabla ('comision_inventada')
-datos_error = ventas |:v> escojo_a [fecha, comision_inventada] xd
+# Error semantico intencional: se pide la columna 'margen_fantasma' inexistente
+datos_error = ventas |:v> escojo_a [fecha, margen_fantasma] xd

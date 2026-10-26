@@ -1,13 +1,12 @@
-# ==========================================================
-# Programa Incorrecto 2: Pipeline y Expresión Relacional Mal Formada
-# ==========================================================
+# Test de error sintactico 2: Pipeline mal formado y operador binario huerfano
+# MomoLang XD (.xd)
 
-when haces "Probando sintaxis corrupta..." xd
+when haces "Probando pipeline corrupto..." xd
 
 ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
 
-# Error sintáctico 1: Falta la lista de columnas entre corchetes
+# Error: Falta la lista de columnas entre corchetes
 ventas_rotas = ventas |:v> escojo_a xd
 
-# Error sintáctico 2: Filtro incompleto (operador '+' sin segundo operando ni operador relacional)
-ventas_filtradas = ventas |:v> but_te_enteras_que precio + xd
+# Error: Expresion relacional incompleta
+ventas_incompletas = ventas |:v> but_te_enteras_que precio + xd

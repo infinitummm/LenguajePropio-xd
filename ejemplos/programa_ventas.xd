@@ -1,14 +1,11 @@
-# =============================================================================
-# Caso de Estudio 1: Análisis Financiero y Resumen de Ventas
+# Caso de Estudio: Balance Financiero y Estadistica Descriptiva de Ventas
 # Lenguaje: MomoLang XD (.xd)
-# =============================================================================
 
 when haces "Iniciando analisis de ventas comerciales..." xd
 
-# Carga de datos
 ventas = pasa_el_pack "datos/ventas_prueba.csv" xd
 
-# Limpieza, selección y cálculo de métricas
+# Limpieza, seleccion, margen operativo y orden descendente
 ventas_procesadas = ventas
     |:v> escojo_a [fecha, ciudad, categoria, unidades, precio]
     |:v> but_te_enteras_que unidades >= 10
@@ -16,7 +13,7 @@ ventas_procesadas = ventas
     |:v> metanle_sabor_a total_neto = subtotal * 1.10
     |:v> ordenar_a_los_papus total_neto de_arriba_a_abajo xd
 
-# Agrupamiento por ciudad con estadísticas descriptivas
+# Agrupamiento por plaza con resumen estadistico
 resumen_ventas = ventas_procesadas
     |:v> juntar_a_la_grasa_por [ciudad]
     |:v> sacar_cuentas 
@@ -28,10 +25,8 @@ resumen_ventas = ventas_procesadas
             dispersion_precios = desviacion_pro(precio),
             total_pedidos = contar_papus() xd
 
-# Exportación de resultados
 subir_al_grupo resumen_ventas en "salidas/reporte_ventas_ciudades.csv" xd
 
-# Visualización informativa
 graficar_momos_en_barras resumen_ventas titulo "Recaudacion por Ciudad" eje_x "Ciudad" eje_y "Total ($)" guardar "salidas/grafico_ventas.png" xd
 
 when haces "Reporte de ventas generado exitosamente en salidas/reporte_ventas_ciudades.csv papu xd" xd

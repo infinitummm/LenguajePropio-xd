@@ -19,6 +19,11 @@ class LenguajeMomoXDVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeMomoXDParser#asignacionIndexada.
+    def visitAsignacionIndexada(self, ctx:LenguajeMomoXDParser.AsignacionIndexadaContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeMomoXDParser#asignacion.
     def visitAsignacion(self, ctx:LenguajeMomoXDParser.AsignacionContext):
         return self.visitChildren(ctx)
@@ -191,6 +196,26 @@ class LenguajeMomoXDVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeMomoXDParser#factor.
     def visitFactor(self, ctx:LenguajeMomoXDParser.FactorContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#accesoIndexado.
+    def visitAccesoIndexado(self, ctx:LenguajeMomoXDParser.AccesoIndexadoContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#literalLista.
+    def visitLiteralLista(self, ctx:LenguajeMomoXDParser.LiteralListaContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#literalMapa.
+    def visitLiteralMapa(self, ctx:LenguajeMomoXDParser.LiteralMapaContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeMomoXDParser#parClaveValor.
+    def visitParClaveValor(self, ctx:LenguajeMomoXDParser.ParClaveValorContext):
         return self.visitChildren(ctx)
 
 

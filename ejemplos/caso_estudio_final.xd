@@ -1,0 +1,107 @@
+# =============================================================================
+# CASO DE ESTUDIO FINAL - CIENCIA DE DATOS Y VISUALIZACION EN MOMOLANG XD
+# =============================================================================
+# Asignatura: Lenguajes de Programacion y Transduccion (2026-2)
+# Universidad Sergio Arboleda
+# 
+# Puntos de la rubrica oficial:
+# 1. Descripcion del dataset: Transacciones comerciales de tecnologia y hardware.
+# 2. Preguntas de analisis:
+#    - ¿Cual es el volumen total y promedio de ventas recaudadas por ciudad?
+#    - ¿Cual es la dispersion y variabilidad de precios en el inventario?
+#    - ¿Como se distribuyen las frecuencias de precios de los pedidos?
+#    - ¿Como gestionar la cola de atencion y la pila de auditoria de ordenes?
+# 3. Limpieza y transformacion de datos con pipelines funcionales.
+# 4. Calculo de metricas descriptivas (suma, media, mediana, max, min, desviacion).
+# 5. Generacion de 4 visualizaciones reales en PNG (Barras, Lineas, Dispersion, Histograma).
+# 6. Uso de estructuras de datos nativas (Pilas, Colas, Listas y Mapas).
+# =============================================================================
+
+when haces "=== ARRANCANDO CASO DE ESTUDIO FINAL: MOMOLANG XD ===" xd
+
+# -----------------------------------------------------------------------------
+# ETAPA A: Estructuras de Datos y Parametrizacion del Sistema
+# -----------------------------------------------------------------------------
+when haces ">> Configurando parametros del sistema con estructuras nativas..." xd
+
+# Lista nativa de plazas comerciales autorizadas
+plazas_activas = ["Bucaramanga", "Pereira", "Cartagena", "Manizales"] xd
+when haces "Plaza principal de control: " + plazas_activas[0] xd
+
+# Diccionario asociativo de margenes y tarifas operativas
+ajustes_fiscales = {"iva": 19, "margen_distribucion": 10, "comision": 5} xd
+when haces "Tasa IVA configurada: " + ajustes_fiscales["iva"] + "%" xd
+
+# Cola Momera (FIFO) para despachos secuenciales
+cola_despachos = crear_cola() xd
+encolar_papu(cola_despachos, "ORD-BGA-101") xd
+encolar_papu(cola_despachos, "ORD-PER-204") xd
+encolar_papu(cola_despachos, "ORD-CTG-308") xd
+when haces "Siguiente despacho en turno FIFO: " + desencolar_papu(cola_despachos) xd
+when haces "Despachos pendientes en cola: " + longitud_papu(cola_despachos) xd
+
+# Pila Momera (LIFO) para bitacora y rollback de auditoria
+pila_auditoria = crear_pila() xd
+apilar_papu(pila_auditoria, "CHECKPOINT_INICIAL") xd
+apilar_papu(pila_auditoria, "CHECKPOINT_CARGA_DATOS") xd
+when haces "Ultimo estado registrado en pila: " + tope_papu(pila_auditoria) xd
+
+# -----------------------------------------------------------------------------
+# ETAPA B: Carga, Limpieza y Transformacion de Datos (Pipeline)
+# -----------------------------------------------------------------------------
+when haces ">> Cargando lote transaccional desde disco..." xd
+datos_crudos = pasa_el_pack "datos/ventas_prueba.csv" xd
+
+# Pipeline de transformacion: seleccion, filtrado de volumen y calculo de totales
+ventas_limpias = datos_crudos
+    |:v> escojo_a [fecha, ciudad, categoria, unidades, precio]
+    |:v> but_te_enteras_que unidades >= 10
+    |:v> el_futuro_es_hoy_oiste_viejo subtotal = unidades * precio
+    |:v> metanle_sabor_a total_facturado = subtotal * 1.10
+    |:v> ordenar_a_los_papus total_facturado de_arriba_a_abajo xd
+
+apilar_papu(pila_auditoria, "CHECKPOINT_TRANSFORMACION_LISTA") xd
+
+# -----------------------------------------------------------------------------
+# ETAPA C: Agrupamiento Multivariado y Metricas Descriptivas
+# -----------------------------------------------------------------------------
+when haces ">> Calculando agregaciones estadisticas por plaza comercial..." xd
+
+balance_ciudades = ventas_limpias
+    |:v> juntar_a_la_grasa_por [ciudad]
+    |:v> sacar_cuentas
+            recaudacion_total = suma(total_facturado),
+            precio_promedio = promedio(precio),
+            precio_mediano = mediana(precio),
+            venta_pico = el_mas_pro(total_facturado),
+            venta_base = el_mas_manco(total_facturado),
+            dispersion_precios = desviacion_pro(precio),
+            pedidos_atendidos = contar_papus() xd
+
+subir_al_grupo balance_ciudades en "salidas/balance_ciudades_final.csv" xd
+when haces "[OK] Resumen consolidado exportado a salidas/balance_ciudades_final.csv" xd
+
+# -----------------------------------------------------------------------------
+# ETAPA D: Generacion de las 4 Visualizaciones Oficiales en PNG
+# -----------------------------------------------------------------------------
+when haces ">> Renderizando 4 graficas PNG con el motor nativo graficas_momeras..." xd
+
+# 1. Grafico de Barras: Recaudacion total por plaza comercial
+graficar_momos_en_barras balance_ciudades titulo "Recaudacion por Ciudad" eje_x "Ciudad" eje_y "Total ($)" guardar "salidas/caso_estudio_barras.png" xd
+
+# 2. Grafico de Lineas: Tendencia del precio promedio
+graficar_momos_en_lineas balance_ciudades titulo "Precio Promedio por Plaza" eje_x "Ciudad" eje_y "Precio Promedio ($)" guardar "salidas/caso_estudio_lineas.png" xd
+
+# 3. Grafico de Dispersion: Relacion Unidades solicitadas vs Precio unitario
+graficar_momos_en_dispersion ventas_limpias titulo "Dispersion Unidades vs Precio" eje_x "Unidades" eje_y "Precio ($)" guardar "salidas/caso_estudio_dispersion.png" xd
+
+# 4. Histograma de Frecuencias: Distribucion de los precios facturados
+graficar_momos_en_histograma ventas_limpias titulo "Distribucion de Precios Facturados" eje_x "Rango de Precios ($)" eje_y "Frecuencia" guardar "salidas/caso_estudio_histograma.png" xd
+
+# -----------------------------------------------------------------------------
+# ETAPA E: Cierre y Validacion de Estados
+# -----------------------------------------------------------------------------
+apilar_papu(pila_auditoria, "CHECKPOINT_VISUALIZACIONES_GENERADAS") xd
+when haces "Auditoria final: " + desapilar_papu(pila_auditoria) xd
+
+when haces "=== CASO DE ESTUDIO FINAL COMPLETADO CON EXITO PAPU :v ===" xd

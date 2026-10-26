@@ -1,71 +1,58 @@
-# ==========================================================
-# Programa de Demostración: Control de Flujo y Funciones :v
-# Asignación, Condicionales, Ciclos (While/For) y Funciones
+# Demostracion de rutinas personalizadas, toma de decisiones y ciclos
 # MomoLang XD (.xd)
-# ==========================================================
 
-when haces "=== DEMOSTRACION DE ASIGNACION, CONDICIONALES, CICLOS Y FUNCIONES ===" xd
+when haces "=== EJECUCION DE RUTINAS, CONDICIONALES Y BUCLES ===" xd
 
-# ----------------------------------------------------------
-# 1. Definición de Funciones de Usuario
-# ----------------------------------------------------------
-momo_funcion calcular_precio_final(precio_base, impuesto, descuento)
-    monto_impuesto = precio_base * impuesto / 100 xd
-    monto_descuento = precio_base * descuento / 100 xd
-    total = precio_base + monto_impuesto - monto_descuento xd
-    suelta_el_momo total xd
+# Rutina para cotizar servicio con recargo por urgencia y bono de fidelidad
+momo_funcion liquidar_tarifa(monto_servicio, recargo_urgencia, bono_fidelidad)
+    costo_recargo = monto_servicio * recargo_urgencia / 100 xd
+    tarifa_neta = monto_servicio + costo_recargo - bono_fidelidad xd
+    suelta_el_momo tarifa_neta xd
 fin_de_la_funcion xd
 
-momo_funcion evaluar_meta(ventas_totales, meta)
-    si_el_papu ventas_totales >= meta entonces
-        suelta_el_momo "Meta alcanzada con exito papu :v" xd
+# Clasificacion del nivel de prioridad segun el valor
+momo_funcion calificar_prioridad(valor_total, umbral_alto)
+    si_el_papu valor_total >= umbral_alto entonces
+        suelta_el_momo "Prioridad Alta :v" xd
     sino_callese_senora
-        suelta_el_momo "No se llego a la meta xd" xd
+        suelta_el_momo "Prioridad Estandar xd" xd
     fin_del_momo xd
 fin_de_la_funcion xd
 
-# ----------------------------------------------------------
-# 2. Asignaciones y Llamadas a Funciones
-# ----------------------------------------------------------
-precio = 100000 xd
-iva = 19 xd
-rebaja = 10 xd
+# Evaluacion de funciones
+servicio_base = 180000 xd
+porcentaje_urgencia = 15 xd
+descuento_cliente = 12000 xd
 
-precio_final = calcular_precio_final(precio, iva, rebaja) xd
-when haces "Precio final con funcion: " + precio_final xd
+tarifa_final = liquidar_tarifa(servicio_base, porcentaje_urgencia, descuento_cliente) xd
+when haces "Tarifa liquidada con exito: " + tarifa_final xd
 
-mensaje_meta = evaluar_meta(precio_final, 80000) xd
-when haces "Evaluacion de meta: " + mensaje_meta xd
+estado_servicio = calificar_prioridad(tarifa_final, 150000) xd
+when haces "Nivel de atencion asignado: " + estado_servicio xd
 
-# ----------------------------------------------------------
-# 3. Manejo de Condicionales (si_el_papu / sino_callese_senora)
-# ----------------------------------------------------------
-saldo = 250000 xd
-when haces "Probando condicional con saldo de: " + saldo xd
+# Evaluacion con condicional alternativo
+cupo_credito = 420000 xd
+when haces "Verificando estado del cupo operativo: " + cupo_credito xd
 
-si_el_papu saldo > 200000 entonces
-    when haces "El papu es millonario :v" xd
+si_el_papu cupo_credito > 300000 entonces
+    when haces "El papu tiene liquidez absoluta :v" xd
 sino_callese_senora
-    when haces "Toca chambear mas duro xd" xd
+    when haces "Fondos reducidos, toca moderar gastos xd" xd
 fin_del_momo xd
 
-# ----------------------------------------------------------
-# 4. Ciclo Mientras (While Loop: mientras_el_papu)
-# ----------------------------------------------------------
+# Iteracion con ciclo mientras
 when haces "Iniciando ciclo mientras_el_papu:" xd
-contador = 1 xd
-mientras_el_papu contador <= 3 haz_esto
-    when haces "Iteracion mientras #" + contador xd
-    contador = contador + 1 xd
+etapa = 1 xd
+mientras_el_papu etapa <= 3 haz_esto
+    when haces "Procesando lote de sincronizacion #" + etapa xd
+    etapa = etapa + 1 xd
 fin_del_bucle xd
 
-# ----------------------------------------------------------
-# 5. Ciclo Para (For Loop: para_cada_papu desde .. hasta)
-# ----------------------------------------------------------
+# Iteracion con ciclo para
 when haces "Iniciando ciclo para_cada_papu:" xd
-para_cada_papu i desde 1 hasta 4 haz_esto
-    cuadrado = i * i xd
-    when haces "El cuadrado de " + i + " es: " + cuadrado xd
+para_cada_papu nivel desde 1 hasta 4 haz_esto
+    experiencia = nivel * 150 xd
+    when haces "Nivel " + nivel + " acumula EXP: " + experiencia xd
 fin_del_bucle xd
 
 when haces "=== FIN DE LA DEMOSTRACION :v ===" xd
